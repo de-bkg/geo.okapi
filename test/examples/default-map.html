@@ -1,0 +1,341 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../node_modules/openlayers/dist/ol.css">
+    <link rel="stylesheet" href="../../build/libs/geo.okapi.css">
+    <style>
+        #map {
+            width: 100%;
+            height: 100%;
+
+        }
+    </style>
+    <script src="../../build/libs/geo.okapi.min.js"></script>
+</head>
+<body>
+<div id="map" class="map"></div>
+<script>
+    new BKGWebMap.MapBuilder()
+        .setLayers({
+            overlays: [
+                {
+                    type: 'BKG',
+                    name: 'WebAtlasDE',
+                    ref: 'webatlasde_light',
+                    visibility: true,
+                    minResolution: 0.0001,
+                    maxResolution: 156545
+                },
+                {
+                    type: 'WMS',
+                    name: 'wms_vz250_0101',
+                    url: 'http://sg.geodatenzentrum.de/wms_vz250_0101',
+                    visibility: true,
+                    layers: [
+                        {
+                            name: 'VZ - 250',
+                            layer: 'vz250',
+                            visibility: true
+                        }
+                    ],
+                    tiles: true,
+                    srsName: 'EPSG:25832',
+                    version: '1.1.0',
+                    minResolution: 0.0001,
+                    maxResolution: 156545
+                },
+                {
+                    type: 'GROUP',
+                    name: 'GROUP Layer',
+                    visibility: true,
+                    layers: [
+                        {
+                            type: 'WFS',
+                            name: 'WFS Layer',
+                            visibility: true,
+                            url: 'https://web-mapping.com/geoserver/ows',
+                            typename: 'kurs:berliner_bezirke',
+                            srsName: 'EPSG:3857',
+                            format: 'GML3',
+                            version: '1.1.0',
+                            minResolution: 0.0001,
+                            maxResolution: 156545,
+                            opacity: 0.3,
+                            edit: false,
+                            tiles: false
+                        },
+                        {
+                            type: 'GPS',
+                            name: 'GPS Layer',
+                            url: 'data/Frankfurt.gpx',
+                            visibility: true,
+                            minResolution: 0.0001,
+                            maxResolution: 156545,
+                            edit: true,
+                            opacity: 0.8,
+                        }
+                    ]
+                },
+                {
+                    type: 'CSV',
+                    name: 'CSV test',
+                    url: 'data/points.csv',
+                    visibility: true,
+                    srsName: 'EPSG:4326',
+                    csvOptions: {
+                        header: true,
+                        columnsToParse: ['name', 'place', 'infos'],
+                        LatColumn: 'lat',
+                        LonColumn: 'lon',
+                        delimiter: ';',
+                        encoding: 'UTF-8'
+                    },
+                    minResolution: 0.0001,
+                    maxResolution: 156545,
+                    edit: false
+                }
+            ],
+            baseLayers: []
+        })
+        .setView({
+            projection: 'EPSG:25832',
+            zoom: 10,
+            center: {
+                lon: 540904.4,
+                lat: 5655478.25
+            }
+        })
+        .setControls({
+            panelPosition: 'left',
+            tools: {
+                layerSwitcher: {
+                    active: true,
+                    style: 'customLayerSwitcher',
+                    editStyle: true,
+                    changeVisibility: true,
+                    showWMSLayers: true,
+                    changeOrder: true,
+                    openLevel: 1
+                },
+                showAttributes: {
+                    active: true
+                },
+                legend: {
+                    active: true,
+                    style: 'customLegend'
+                },
+                zoom: {
+                    active: true,
+                    showZoomLevel: true,
+                    zoomToFullExtent: true,
+                    history: true,
+                    position: 'top-left',
+                    div: null,
+                    style: '',
+                    onlyFullScreen: true
+                },
+                fullScreen: {
+                    active: true,
+                    style: ''
+                },
+                scalebar: {
+                    active: true,
+                    position: 'bottom-right',
+                    div: null,
+                    style: 'customScalebar'
+                },
+                measure: {
+                    active: true,
+                    style: 'customMeasure'
+                },
+                edit: {
+                    active: true,
+                    style: 'customEditStyle',
+                    export: {
+                        active: true,
+                        formats: ['sadasd']
+                    }
+                },
+                showCoordinates: {
+                    active: true,
+                    position: 'bottom-right',
+                    style: 'customShowCoordinates',
+                    coordinateSystems: [
+                        {
+                            epsg: 'EPSG:4326',
+                            name: 'WGS84'
+                        },
+                        {
+                            epsg: 'EPSG:25832',
+                            name: 'CS_map'
+                        },
+                        {
+                            epsg: 'EPSG:3857',
+                            name: 'WGS 84 / Pseudo-Mercator'
+                        }
+                    ]
+                },
+                staticLinks:
+                    [
+                        {
+                            active: true,
+                            position: 'bottom-left',
+                            div: '',
+                            style: '',
+                            url: 'http://geosys24.com',
+                            title: 'a',
+                            content: 'geosys-link'
+                        },
+                        {
+                            active: true,
+                            position: 'top-left',
+                            div: '',
+                            style: '',
+                            url: 'http://geosys24.com',
+                            title: 'b',
+                            content: 'geosys-link'
+                        },
+                        {
+                            active: true,
+                            position: 'bottom-left',
+                            div: '',
+                            style: '',
+                            url: 'http://geosys24.com',
+                            title: '',
+                            content: '<b>geosys</b>-link'
+                        }
+                    ],
+                staticWindows:
+                    [
+                        {
+                            active: true,
+                            position: 'left:400px;top:20px;',
+                            style: '',
+                            size: [200, 200],
+                            title: 'Test window',
+                            content: '<p>Hello World</p><p>Hello World</p><p>Hello World</p><p>Hello World</p><p>Hello World</p><p>Hello World</p><p>Hello World</p><p>Hello World</p><p>Hello World</p><p>Hello World</p><p>Hello World</p><p>Hello World</p>'
+                        }
+                    ],
+                copyright: {
+                    active: true,
+                    position: 'bottom-left',
+                    style: ''
+                },
+                geoSearch: {
+                    active: true,
+                    style: 'customgeosearch',
+                    protocol: {
+                        name: 'gdz_ortssuche',
+                        url: 'http://sg.geodatenzentrum.de/gdz_ortssuche__c9ebe5b6-9dd6-3a43-5310-76aa2cfa13d6'
+                    },
+                    reverseGeocoding: {
+                        active: true,
+                        minResolution: 1000
+                    }
+                },
+                searchCoordinates: {
+                    active: true,
+                    style: 'customgsearchcoordinates',
+                    coordinateSystems: [
+                        {
+                            epsg: 'EPSG:4326',
+                            name: 'WGS84'
+                        },
+                        {
+                            epsg: 'EPSG:25832',
+                            name: 'CS_map'
+                        },
+                        {
+                            epsg: 'EPSG:3857',
+                            name: 'WGS 84 / Pseudo-Mercator'
+                        }
+                    ]
+                },
+                cookieCheck: {
+                    active: true,
+                    url: 'http://sg.geodatenzentrum.de/web_bkg_webmap/cookietest/setcookie.php'
+                },
+                infoPanel: {
+                    active: true
+                },
+                copyCoordinates: {
+                    active: true,
+                    style: 'customgcopycoordinates',
+                    coordinateSystems: [
+                        {
+                            epsg: 'EPSG:4326',
+                            name: 'WGS84'
+                        },
+                        {
+                            epsg: 'EPSG:25832',
+                            name: 'CS_map'
+                        },
+                        {
+                            epsg: 'EPSG:3857',
+                            name: 'WGS 84 / Pseudo-Mercator'
+                        }
+                    ]
+                },
+                share: {
+                    active: true,
+                    div: null,
+                    style: 'customShare',
+                    print: {
+                        active: true,
+                        stylesheet: ''
+                    },
+                    permaLink: {
+                        active: true
+                    },
+                    jsonExport: {
+                        active: true,
+                        appName: 'BKG WebMap Beispielanwendung'
+                    }
+                },
+                customLayers: {
+                    active: true,
+                    edit: true,
+                    changeVisibility: true,
+                    defaultStyle: 'blueSymbols'
+                }
+            }
+        })
+        .defineStyles([
+            {
+                name: 'blueSymbols',
+                type: 'symbol',
+                fillColor: '#033D90',
+                strokeColor: '#ECE333',
+                symbol: 'marker'
+            },
+            {
+                name: 'pinkCustom',
+                type: 'custom',
+                fill: {
+                    color: '#FF69B4'
+                },
+                stroke: {
+                    color: '#817B06',
+                    width: 1
+                },
+                image: {
+                    circle: {
+                        fill: {
+                            color: '#FF69B4'
+                        },
+                        stroke: {
+                            color: '#3D71F2'
+                        },
+                        radius: 7
+                    }
+                }
+            }
+        ])
+        .create();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+{
+  "name": "Geo.OKAPI",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "karma start test/conf/karma.conf.js",
+    "eslint": "eslint src/js/** --fix",
+    "create-jsdoc": "del-cli build/docs/jsdoc* && jsdoc src/js -r -t config/jsdoc/template -d build/docs/jsdoc config/jsdoc/README.md",
+    "compile-ol": "node node_modules/openlayers/tasks/build.js config/ol/ol-custom.json build/libs/ol-custom.js",
+    "copy-libs": "cp node_modules/openlayers/dist/ol.css build/libs/ol-custom.css && cp node_modules/xlsx/dist/xlsx.full.min.js build/libs/xlsx.full.min.js && cp node_modules/file-saver/FileSaver.js build/libs/FileSaver.js && cp node_modules/proj4/dist/proj4.js build/libs/proj4.js",
+    "build": "npm run copy-libs && npm run eslint && node build.js && npm run create-jsdoc"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "buildify": "^0.4.0",
+    "del-cli": "^1.1.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "jasmine-core": "^2.99.1",
+    "jsdoc": "^3.5.5",
+    "karma": "^1.7.1",
+    "karma-htmlfile-reporter": "^0.3.6",
+    "karma-jasmine": "^1.1.2",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-verbose-reporter": "0.0.6",
+    "karma-junit-reporter": "1.2.0",
+    "mochawesome-report-generator": "^2.3.2",
+    "uglify-js": "^3.4.9",
+    "uglifycss": "0.0.27"
+  },
+  "dependencies": {
+    "file-saver": "^1.3.8",
+    "openlayers": "^4.6.5",
+    "proj4": "^2.5.0",
+    "xlsx": "^0.12.13"
+  },
+  "description": ""
+}

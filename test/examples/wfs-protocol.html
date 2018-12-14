@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../build/libs/geo.okapi.min.css">
+    <style>
+        #map {
+            width: 100%;
+            height: 100%;
+
+        }
+    </style>
+ <script src="../../build/libs/geo.okapi.js"></script>
+</head>
+<body>
+<div id="map" class="map"></div>
+<script>
+    new BKGWebMap.MapBuilder()
+        .setLayers({
+            overlays: [],
+            baseLayers: [
+                {
+                    type: 'BKG',
+                    name: 'WebAtlasDE',
+                    ref: 'webatlasde_light',
+                    visibility: true,
+                    minResolution: 0.0001,
+                    maxResolution: 156545
+                }
+            ]
+        })
+        .setControls({
+            panelPosition: 'left',
+            tools: {
+                geoSearch: {
+                    active: true,
+                    suggestCount: 10,
+                    resultsCount: 5,
+                    protocol: {
+                        type: 'wfs',
+                        url: 'http://sg.geodatenzentrum.de/wfs_vg250',
+                        featurePrefix: 'vg250',
+                        featureType: 'vg250_gem',
+                        searchAttribute: 'GEN',
+                        showAttributes: ['GEN'],
+                        format: 'GML2'
+                    },
+                }
+            }
+        })
+        .create();
+</script>
+
+</body>
+</html>

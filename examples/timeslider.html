@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BKG WebMap - Scalebar</title>
+    <link rel="stylesheet" href="../build/libs/geo.okapi.min.css">
+    <style>
+        #map {
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script src="../build/libs/geo.okapi.min.js"></script>
+<script>
+    new okapi.MapBuilder()
+        .setLayers({
+            baseLayers: [
+                {
+                    type: 'BKG',
+                    name: 'WebAtlasDE',
+                    ref: 'webatlasde_light',
+                    visibility: true,
+                    minResolution: 0.0001,
+                    maxResolution: 156545
+                }
+            ],
+            overlays: [
+                {
+                    type: 'WMS',
+                    name: 'Time Layer',
+                    tiles: false,
+                    url: 'https://web-mapping.com/geoserver/bkg/wms',
+                    visibility: true,
+                    layers: [{
+                        name: 'time_points',
+                        layer: 'time_points'
+                    }],
+                    time: {
+                        active: true,
+                        // values: '2016-03-10T23:00:00.000Z/2016-03-15T23:00:00.000Z/P1D'
+                    }
+                }
+            ]
+        })
+        .setControls({
+            panelPosition: 'left',
+            tools: {
+                zoom: {
+                    active: true,
+                    showZoomLevel: false,
+                    zoomToFullExtent: false,
+                    history: false,
+                    position: 'top-left'
+                },
+                timeSlider: {
+                    active: true,
+                    position: 'bottom-right'
+                }
+            }
+        })
+        .setView({
+            center: {
+                lon: 734944.554646,
+                lat: 5693522.166083
+            },
+            zoom: 7
+        })
+        .create();
+</script>
+
+</body>
+</html>

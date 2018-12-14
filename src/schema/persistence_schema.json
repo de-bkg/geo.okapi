@@ -1,0 +1,1475 @@
+{
+  "definitions": {
+  },
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "BKG_WebMap_Komplexe_Persistierung_Schema",
+  "title": "BKG WebMap - Komplexe Persistierung: Schema - Version 0.7.4",
+  "type": "object",
+  "properties": {
+    "description": {
+      "id": "/description",
+      "type": "string",
+      "title": "The Description Schema.",
+      "description": "Description of current JSON.",
+      "default": "BKG WebMap: Kartenkonfiguration"
+    },
+    "version": {
+      "id": "/version",
+      "type": "string",
+      "title": "The Version Schema.",
+      "description": "Version of current configuration."
+    },
+    "generatedAt": {
+      "id": "/generatedAt",
+      "type": "string",
+      "title": "The Generatedat Schema.",
+      "description": "Date and time this JSON was generated."
+    },
+    "appName": {
+      "id": "/appName",
+      "type": "string",
+      "title": "The Appname Schema.",
+      "description": "Name of BKG Webmap implementation."
+    },
+    "map": {
+      "id": "/map",
+      "description": "Map configuration",
+      "type": "object",
+      "properties": {
+        "projection": {
+          "id": "/map/projection",
+          "type": "string",
+          "description": "Map projection",
+          "default": "EPSG:25832"
+        },
+        "center": {
+          "id": "/map/center",
+          "description": "Map center",
+          "type": "object",
+          "properties": {
+            "lat": {
+              "id": "/map/center/lat",
+              "type": "number",
+              "title": "The Lat Schema.",
+              "description": "Map center latitude."
+            },
+            "lon": {
+              "id": "/map/center/lon",
+              "type": "number",
+              "title": "The Lon Schema.",
+              "description": "Map center longitude."
+            }
+          }
+        },
+        "zoom": {
+          "id": "/map/zoom",
+          "type": "integer",
+          "title": "The Zoom Schema.",
+          "description": "Map zoom level."
+        }
+      }
+    },
+    "layers": {
+      "id": "/layers",
+      "description": "All layers that will be loaded on map",
+      "type": "object",
+      "properties": {
+        "baseLayers": {
+          "id": "/layers/baseLayers",
+          "description": "Base layers. The order of layers will be used in menu.",
+          "type": "array",
+          "items": {
+            "id": "/layers/baseLayers/items",
+            "description": "Groups of layers or single layers.",
+            "type": "object",
+            "anyOf": [
+              {
+                "$ref": "WMS"
+              },
+              {
+                "$ref": "WMTS"
+              },
+              {
+                "$ref": "WFS"
+              },
+              {
+                "$ref": "MARKER"
+              },
+              {
+                "$ref": "CSV"
+              },
+              {
+                "$ref": "XLS"
+              },
+              {
+                "$ref": "GPS"
+              },
+              {
+                "$ref": "BKG"
+              },
+              {
+                "$ref": "NONE"
+              }
+            ]
+          }
+        },
+        "overlays": {
+          "id": "/layers/overlays",
+          "description": "Layers and group of layers that will be loaded as overlays. The order of layers will be used in menu.",
+          "type": "array",
+          "items": {
+            "id": "/layers/overlays/items",
+            "description": "Groups of layers or single layers.",
+            "type": "object",
+            "anyOf": [
+              {
+                "$ref": "WMS"
+              },
+              {
+                "$ref": "WMTS"
+              },
+              {
+                "$ref": "WFS"
+              },
+              {
+                "$ref": "MARKER"
+              },
+              {
+                "$ref": "CSV"
+              },
+              {
+                "$ref": "XLS"
+              },
+              {
+                "$ref": "GPS"
+              },
+              {
+                "$ref": "BKG"
+              },
+              {
+                "$ref": "GROUP"
+              },
+              {
+                "$ref": "VECTOR"
+              }
+            ]
+          }
+        }
+      },
+      "WMS": {
+        "id": "/layers/WMS",
+        "description": "WMS layer",
+        "title": "WMS",
+        "type": "object",
+        "properties": {
+          "type": {
+            "id": "/layers/WMS/type",
+            "type": "string",
+            "description": "Type of layer: WMS",
+            "enum": [
+              "WMS"
+            ]
+          },
+          "id": {
+            "id": "/layers/WMS/id",
+            "type": "string",
+            "description": "Unique ID. It will be used in permaLink and persistence JSON. If not available, it will be added by Framework."
+          },
+          "name": {
+            "id": "/layers/WMS/name",
+            "type": "string",
+            "description": "Name of layer shown in Menu."
+          },
+          "url": {
+            "id": "/layers/WMS/url",
+            "type": "string",
+            "description": "Service-URL"
+          },
+          "layers": {
+            "id": "/layers/WMS/layers",
+            "description": "Layers of specific service that should be loaded. If empty, then all available layers will be loaded.",
+            "type": "array",
+            "items": {
+              "id": "/layers/WMS/layers/items",
+              "type": "object",
+              "description": "Single layer of service.",
+              "properties": {
+                "id": {
+                  "id": "/layers/WMS/layers/items/id",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "Unique ID."
+                },
+                "name": {
+                  "id": "/layers/WMS/layers/items/name",
+                  "type": "string",
+                  "description": "Name of layer shown in Menu."
+                },
+                "layer": {
+                  "id": "/layers/WMS/layers/items/layer",
+                  "type": "string",
+                  "description": "Name of layer to load."
+                },
+                "visibility": {
+                  "id": "/layers/WMS/layers/items/visibility",
+                  "type": "boolean",
+                  "description": "Initial visibility of layer.",
+                  "default": true
+                },
+                "style": {
+                  "id": "/layers/WMS/layers/items/style",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "Style of layer."
+                },
+                "selectStyle": {
+                  "id": "/layers/WMS/layers/items/selectStyle",
+                  "type": "boolean",
+                  "description": "The user is able to select a style for this layer.",
+                  "default": true
+                },
+                "legendUrl": {
+                  "id": "/layers/WMS/layers/items/legendUrl",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "URL for legend. If empty or null, legend will be loaded using GetLegendGraphic."
+                },
+                "minResolution": {
+                  "id": "/layers/WMS/layers/items/minResolution",
+                  "type": "number",
+                  "description": "Minimum resolution.",
+                  "default": 0.0001
+                },
+                "maxResolution": {
+                  "id": "/layers/WMS/layers/items/maxResolution",
+                  "type": "number",
+                  "description": "Maximum resolution.",
+                  "default": 156545.0
+                }
+              }
+            }
+          },
+          "tiles": {
+            "id": "/layers/WMS/tiles",
+            "type": "boolean",
+            "description": "Load tiles or single image.",
+            "default": true
+          },
+          "version": {
+            "id": "/layers/WMS/version",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "WMS version. If null, 1.3.0 will be used.",
+            "default": null,
+            "enum": [
+              "null",
+              "1.1.0",
+              "1.1.1",
+              "1.3.0"
+            ]
+          },
+          "srsName": {
+            "id": "/layers/WMS/srsName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Projection of layer. If null, then EPSG 25832 will be used.",
+            "default": "EPSG:25832"
+          },
+          "minResolution": {
+            "id": "/layers/WMS/minResolution",
+            "type": "number",
+            "description": "Minimum resolution.",
+            "default": 0.0001
+          },
+          "maxResolution": {
+            "id": "/layers/WMS/maxResolution",
+            "type": "number",
+            "description": "Maximum resolution.",
+            "default": 156545.0
+          },
+          "opacity": {
+            "id": "/layers/WMS/opacity",
+            "type": "number",
+            "description": "Default Opacity.",
+            "enum": [
+              0,
+              0.1,
+              0.2,
+              0.3,
+              0.4,
+              0.5,
+              0.6,
+              0.7,
+              0.8,
+              0.9,
+              1
+            ],
+            "default": 1
+          },
+          "copyright": {
+            "id": "/layers/WMS/copyright",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Copyright. If null or empty it will be parsed from GetCapabilities"
+          },
+          "time": {
+            "id": "/layers/WMS/time",
+            "description": "Time options for WMS-T",
+            "title": "time",
+            "type": "object",
+            "properties": {
+              "active": {
+                "id": "/options/tools/geoSearch/active",
+                "type": "boolean",
+                "description": "Activate tool.",
+                "default": false
+              },
+              "values": {
+                "id": "/layers/WMS/time/values",
+                "type": "string",
+                "description": "Specify time range and interval in ISO 8601 format. Example: '2016-03-10T23:00:00.000Z/2016-03-15T23:00:00.000Z/P1D'. Infos: https://en.wikipedia.org/wiki/ISO_8601"
+              }
+            }
+          }
+        }
+      },
+      "WMTS": {
+        "id": "/layers/WMTS",
+        "description": "WMTS layer",
+        "title": "WMTS",
+        "type": "object",
+        "properties": {
+          "type": {
+            "id": "/layers/WMTS/type",
+            "type": "string",
+            "description": "Type of layer: WMTS",
+            "enum": [
+              "WMTS"
+            ]
+          },
+          "id": {
+            "id": "/layers/WMTS/id",
+            "type": "string",
+            "description": "Unique ID. It will be used in permaLink and persistence JSON. If not available, it will be added by Framework."
+          },
+          "name": {
+            "id": "/layers/WMTS/name",
+            "type": "string",
+            "description": "Name of layer shown in Menu."
+          },
+          "url": {
+            "id": "/layers/WMTS/url",
+            "type": "string",
+            "description": "Service-URL. If the URL ends with .xml, then make a getCapabilites request and use the response to load the layer."
+          },
+          "layer": {
+            "id": "/layers/WMTS/layer",
+            "type": "string",
+            "description": "Name of layer to load"
+          },
+          "visibility": {
+            "id": "/layers/WMTS/visibility",
+            "type": "boolean",
+            "description": "Initial visibility of layer.",
+            "default": true
+          },
+          "tileGrid": {
+            "id": "/layers/WMTS/tileGrid",
+            "description": "Tile grid options",
+            "title": "tileGrid",
+            "type": "object",
+            "properties": {
+              "origin": {
+                "id": "/layers/WMTS/origin",
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "description": "Tile grid origin. Array with numbers [lon, lat] or null.",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "resolutions": {
+                "id": "/layers/WMTS/resolutions",
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "description": "Array with numbers.",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "matrixIds": {
+                "id": "/layers/WMTS/matrixIds",
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "description": "Array with strings. The length of this array needs to match the length of the resolutions array.",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "srsName": {
+            "id": "/layers/WMTS/srsName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Projection of layer. If null, then EPSG 25832 will be used.",
+            "default": "EPSG:25832"
+          },
+          "version": {
+            "id": "/layers/WMTS/version",
+            "type": "string",
+            "description": "WMTS version. Always 1.0.0.",
+            "enum": [
+              "1.0.0"
+            ]
+          },
+          "minResolution": {
+            "id": "/layers/WMTS/minResolution",
+            "type": "number",
+            "description": "Minimum resolution.",
+            "default": 0.0001
+          },
+          "maxResolution": {
+            "id": "/layers/WMTS/maxResolution",
+            "type": "number",
+            "description": "Maximum resolution.",
+            "default": 156545.0
+          },
+          "style": {
+            "id": "/layers/WMTS/style",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Style of WMTS. If null, default will be loaded."
+          },
+          "matrixSet": {
+            "id": "/layers/WMTS/matrixSet",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Matrix set."
+          },
+          "opacity": {
+            "id": "/layers/WMTS/opacity",
+            "type": "number",
+            "description": "Default Opacity.",
+            "enum": [
+              0,
+              0.1,
+              0.2,
+              0.3,
+              0.4,
+              0.5,
+              0.6,
+              0.7,
+              0.8,
+              0.9,
+              1
+            ],
+            "default": 1
+          },
+          "copyright": {
+            "id": "/layers/WMTS/copyright",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Copyright. If null or empty it will be parsed from GetCapabilities"
+          },
+          "legendUrl": {
+            "id": "/layers/WMTS/legendUrl",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "URL for legend."
+          }
+        }
+      },
+      "WFS": {
+        "id": "/layers/WFS",
+        "description": "WFS layer",
+        "title": "WFS",
+        "type": "object",
+        "properties": {
+          "type": {
+            "id": "/layers/WFS/type",
+            "type": "string",
+            "description": "Type of layer: WFS",
+            "enum": [
+              "WFS"
+            ]
+          },
+          "id": {
+            "id": "/layers/WFS/id",
+            "type": "string",
+            "description": "Unique ID. It will be used in permaLink and persistence JSON. If not available, it will be added by Framework."
+          },
+          "name": {
+            "id": "/layers/WFS/name",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Name of layer shown in menu."
+          },
+          "typename": {
+            "id": "/layers/WFS/typename",
+            "type": "string",
+            "description": "Typename of WFS (namespace:featuretype)"
+          },
+          "url": {
+            "id": "/layers/WFS/url",
+            "type": "string",
+            "description": "Service-URL"
+          },
+          "visibility": {
+            "id": "/layers/WFS/visibility",
+            "type": "boolean",
+            "description": "Initial visibility of layer.",
+            "default": true
+          },
+          "tiles": {
+            "id": "/layers/WFS/tiles",
+            "type": "boolean",
+            "description": "Load layer using tile strategy.",
+            "default": true
+          },
+          "srsName": {
+            "id": "/layers/WFS/srsName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Projection of layer. If null, then EPSG 25832 will be used.",
+            "default": "EPSG:25832"
+          },
+          "format": {
+            "id": "/layers/WFS/format",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Format for WFS layers. If null, then GML3 will be used",
+            "enum": [
+              "GEOJSON",
+              "GML2",
+              "GML3",
+              "null"
+            ],
+            "default": null
+          },
+          "version": {
+            "id": "/layers/WFS/version",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "WFS version. If null, 1.1.0 will be used.",
+            "default": null,
+            "enum": [
+              "null",
+              "1.0.0",
+              "1.1.0",
+              "2.0.0"
+            ]
+          },
+          "minResolution": {
+            "id": "/layers/WFS/minResolution",
+            "type": "number",
+            "description": "Minimum resolution.",
+            "default": 0.0001
+          },
+          "maxResolution": {
+            "id": "/layers/WFS/maxResolution",
+            "type": "number",
+            "description": "Maximum resolution.",
+            "default": 156545.0
+          },
+          "edit": {
+            "id": "/layers/WFS/edit",
+            "type": "boolean",
+            "description": "Enable edit layer. Always false.",
+            "enum": [
+              "false"
+            ]
+          },
+          "style": {
+            "id": "/layers/WFS/style",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Style of WFS. Use /styles/items/name."
+          },
+          "opacity": {
+            "id": "/layers/WFS/opacity",
+            "type": "number",
+            "description": "Default Opacity.",
+            "enum": [
+              0,
+              0.1,
+              0.2,
+              0.3,
+              0.4,
+              0.5,
+              0.6,
+              0.7,
+              0.8,
+              0.9,
+              1
+            ],
+            "default": 1
+          },
+          "copyright": {
+            "id": "/layers/WFS/copyright",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Copyright. If null or empty it will be parsed from GetCapabilities"
+          },
+          "legendUrl": {
+            "id": "/layers/WFS/legendUrl",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "URL for legend."
+          }
+        }
+      },
+      "MARKER": {
+        "id": "/layers/MARKER",
+        "description": "Marker",
+        "title": "MARKER",
+        "type": "object",
+        "properties": {
+          "type": {
+            "id": "/layers/MARKER/type",
+            "type": "string",
+            "description": "Type of layer: MARKER",
+            "enum": [
+              "MARKER"
+            ]
+          },
+          "id": {
+            "id": "/layers/MARKER/id",
+            "type": "string",
+            "description": "Unique ID. It will be used in permaLink and persistence JSON. If not available, it will be added by Framework."
+          },
+          "name": {
+            "id": "/layers/MARKER/name",
+            "type": "string",
+            "description": "Name of layer shown in menu.",
+            "default": "Marker"
+          },
+          "visibility": {
+            "id": "/layers/MARKER/visibility",
+            "type": "boolean",
+            "description": "Initial visibility of layer.",
+            "default": true
+          },
+          "srsName": {
+            "id": "/layers/MARKER/srsName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Coordinate system of markers. If null, then EPSG 4326 will be used.",
+            "default": "EPSG:4326"
+          },
+          "markers": {
+            "id": "/layers/MARKER/markers",
+            "description": "List of markers.",
+            "type": "array",
+            "items": {
+              "id": "/layers/MARKER/markers/items",
+              "description": "Single marker",
+              "type": "object",
+              "properties": {
+                "coordinates": {
+                  "id": "/layers/MARKER/markers/items/coordinates",
+                  "description": "Coordinates of marker. The coordinate system is defined through srsName",
+                  "type": "object",
+                  "properties": {
+                    "lat": {
+                      "id": "/layers/MARKER/markers/items/coordinates/lat",
+                      "type": "number",
+                      "description": "Marker latitude.",
+                      "default": 51.354673
+                    },
+                    "lon": {
+                      "id": "/layers/MARKER/markers/items/coordinates/lon",
+                      "type": "number",
+                      "description": "Marker longitude.",
+                      "default": 12.374085
+                    }
+                  }
+                },
+                "content": {
+                  "id": "/layers/MARKER/markers/items/content",
+                  "type": "string",
+                  "description": "Content for info area. Markup is allowed."
+                },
+                "popupSize": {
+                  "id": "/layers/MARKER/markers/items/popupSize",
+                  "description": "Popup size in pixel [width, height]",
+                  "type": "array",
+                  "items": {
+                    "id": "/layers/MARKER/markers/items/popupSize/items",
+                    "type": "integer",
+                    "description": "Pixel.",
+                    "default": 0
+                  }
+                }
+              }
+            }
+          },
+          "minResolution": {
+            "id": "/layers/MARKER/minResolution",
+            "type": "number",
+            "description": "Minimum resolution.",
+            "default": 0.0001
+          },
+          "maxResolution": {
+            "id": "/layers/MARKER/maxResolution",
+            "type": "number",
+            "description": "Maximum resolution.",
+            "default": 156545.0
+          },
+          "edit": {
+            "id": "/layers/MARKER/edit",
+            "type": "boolean",
+            "description": "Enable edit layer.",
+            "default": false
+          },
+          "style": {
+            "id": "/layers/MARKER/style",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Style of MARKERS. Use /styles/items/name."
+          },
+          "opacity": {
+            "id": "/layers/MARKER/opacity",
+            "type": "number",
+            "description": "Default Opacity.",
+            "enum": [
+              0,
+              0.1,
+              0.2,
+              0.3,
+              0.4,
+              0.5,
+              0.6,
+              0.7,
+              0.8,
+              0.9,
+              1
+            ],
+            "default": 1
+          },
+          "copyright": {
+            "id": "/layers/MARKER/copyright",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Copyright."
+          },
+          "legendUrl": {
+            "id": "/layers/MARKER/legendUrl",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "URL for legend."
+          }
+        }
+      },
+      "CSV": {
+        "id": "/layers/CSV",
+        "description": "CSV",
+        "title": "CSV",
+        "type": "object",
+        "properties": {
+          "type": {
+            "id": "/layers/CSV/type",
+            "type": "string",
+            "description": "Type of layer: CSV",
+            "enum": [
+              "CSV"
+            ]
+          },
+          "id": {
+            "id": "/layers/CSV/id",
+            "type": "string",
+            "description": "Unique ID. It will be used in permaLink and persistence JSON. If not available, it will be added by Framework."
+          },
+          "name": {
+            "id": "/layers/CSV/name",
+            "type": "string",
+            "description": "Name of layer shown in menu.",
+            "default": "CSV"
+          },
+          "url": {
+            "id": "/layers/CSV/url",
+            "type": "string",
+            "description": "URL of CSV file"
+          },
+          "visibility": {
+            "id": "/layers/CSV/visibility",
+            "type": "boolean",
+            "description": "Initial visibility of layer.",
+            "default": true
+          },
+          "srsName": {
+            "id": "/layers/CSV/srsName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Coordinate system of markers. If null, then EPSG 4326 will be used.",
+            "default": "EPSG:4326"
+          },
+          "csvOptions": {
+            "id": "/layers/CSV/csvOptions",
+            "description": "Options only for CSV layer",
+            "type": "object",
+            "properties": {
+              "header": {
+                "id": "/layers/CSV/csvOptions/header",
+                "type": "boolean",
+                "description": "Should the first row be used as header.",
+                "default": true
+              },
+              "delimiter": {
+                "id": "/layers/CSV/csvOptions/delimiter",
+                "type": "string",
+                "description": "Delimiter used in CSV file.",
+                "default": ";"
+              },
+              "columnsToParse": {
+                "id": "/layers/CSV/csvOptions/columnsToParse",
+                "description": "Names (strings) or positions (integer) of columns that should be used as attributes. 1 is the start position. If null, then all columns will be used.",
+                "type": "array",
+                "items": {
+                  "id": "/layers/CSV/csvOptions/columnsToParse/items",
+                  "type": "integer",
+                  "description": "Name or position of column."
+                }
+              },
+              "columnNames": {
+                "id": "/layers/CSV/csvOptions/columnNames",
+                "description": "Define custom column names. Used only if header is false. The length should be the same as in columnsToParse.",
+                "type": "array",
+                "items": {
+                  "id": "/layers/CSV/csvOptions/columnNames/items",
+                  "type": "string",
+                  "description": "Custom column name."
+                }
+              },
+              "LatColumn": {
+                "id": "/layers/CSV/csvOptions/LatColumn",
+                "type": [
+                  "string",
+                  "integer"
+                ],
+                "description": "Name (string) or position (integer) of column with coordinates (Lat). The coordinate system is defined through srsName."
+              },
+              "LonColumn": {
+                "id": "/layers/CSV/csvOptions/LonColumn",
+                "type": [
+                  "string",
+                  "integer"
+                ],
+                "description": "Name (string) or position (integer) of column with coordinates (Lon). The coordinate system is defined through srsName."
+              },
+              "encoding": {
+                "id": "/layers/CSV/csvOptions/encoding",
+                "type": "string",
+                "description": "The encoding to use when opening the file.",
+                "default": "UTF-8"
+              }
+            }
+          },
+          "minResolution": {
+            "id": "/layers/CSV/minResolution",
+            "type": "number",
+            "description": "Minimum resolution.",
+            "default": 0.0001
+          },
+          "maxResolution": {
+            "id": "/layers/CSV/maxResolution",
+            "type": "number",
+            "description": "Maximum resolution.",
+            "default": 156545.0
+          },
+          "edit": {
+            "id": "/layers/CSV/edit",
+            "type": "boolean",
+            "description": "Enable edit layer.",
+            "default": false
+          },
+          "style": {
+            "id": "/layers/CSV/style",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Style of CSV. Use /styles/items/name."
+          },
+          "opacity": {
+            "id": "/layers/CSV/opacity",
+            "type": "number",
+            "description": "Default Opacity.",
+            "enum": [
+              0,
+              0.1,
+              0.2,
+              0.3,
+              0.4,
+              0.5,
+              0.6,
+              0.7,
+              0.8,
+              0.9,
+              1
+            ],
+            "default": 1
+          },
+          "copyright": {
+            "id": "/layers/CSV/copyright",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Copyright."
+          },
+          "legendUrl": {
+            "id": "/layers/CSV/legendUrl",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "URL for legend."
+          }
+        }
+      },
+      "XLS": {
+        "id": "/layers/XLS",
+        "description": "EXCEL",
+        "title": "XLS",
+        "type": "object",
+        "properties": {
+          "type": {
+            "id": "/layers/XLS/type",
+            "type": "string",
+            "description": "Type of layer: XLS",
+            "enum": [
+              "XLS"
+            ]
+          },
+          "id": {
+            "id": "/layers/XLS/id",
+            "type": "string",
+            "description": "Unique ID. It will be used in permaLink and persistence JSON. If not available, it will be added by Framework."
+          },
+          "name": {
+            "id": "/layers/XLS/name",
+            "type": "string",
+            "description": "Name of layer shown in menu.",
+            "default": "Excel"
+          },
+          "url": {
+            "id": "/layers/XLS/url",
+            "type": "string",
+            "description": "URL of Excel file"
+          },
+          "visibility": {
+            "id": "/layers/XLS/visibility",
+            "type": "boolean",
+            "description": "Initial visibility of layer.",
+            "default": true
+          },
+          "srsName": {
+            "id": "/layers/XLS/srsName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Coordinate system of markers. If null, then EPSG 4326 will be used.",
+            "default": "EPSG:4326"
+          },
+          "excelOptions": {
+            "id": "/layers/XLS/excelOptions",
+            "description": "Options only for XLS layer",
+            "type": "object",
+            "properties": {
+              "header": {
+                "id": "/layers/XLS/excelOptions/header",
+                "type": "boolean",
+                "description": "Should the first row be used as header.",
+                "default": true
+              },
+              "columnsToParse": {
+                "id": "/layers/XLS/excelOptions/columnsToParse",
+                "description": "Names (strings) or positions (integer) of columns that should be used as attributes. 1 is the start position. If null, then all columns will be used.",
+                "type": "array",
+                "items": {
+                  "id": "/layers/XLS/excelOptions/columnsToParse/items",
+                  "type": "integer",
+                  "description": "Name or position of column."
+                }
+              },
+              "columnNames": {
+                "id": "/layers/XLS/excelOptions/columnNames",
+                "description": "Define custom column names. Used only if header is false. The length should be the same as in columnsToParse.",
+                "type": "array",
+                "items": {
+                  "id": "/layers/XLS/excelOptions/columnNames/items",
+                  "type": "string",
+                  "description": "Custom column name."
+                }
+              },
+              "LatColumn": {
+                "id": "/layers/XLS/excelOptions/LatColumn",
+                "type": [
+                  "string",
+                  "integer"
+                ],
+                "description": "Name (string) or position (integer) of column with coordinates (Lat). The coordinate system is defined through srsName."
+              },
+              "LonColumn": {
+                "id": "/layers/XLS/excelOptions/LonColumn",
+                "type": [
+                  "string",
+                  "integer"
+                ],
+                "description": "Name (string) or position (integer) of column with coordinates (Lon). The coordinate system is defined through srsName."
+              }
+            }
+          },
+          "minResolution": {
+            "id": "/layers/XLS/minResolution",
+            "type": "number",
+            "description": "Minimum resolution.",
+            "default": 0.0001
+          },
+          "maxResolution": {
+            "id": "/layers/XLS/maxResolution",
+            "type": "number",
+            "description": "Maximum resolution.",
+            "default": 156545.0
+          },
+          "edit": {
+            "id": "/layers/XLS/edit",
+            "type": "boolean",
+            "description": "Enable edit layer.",
+            "default": false
+          },
+          "style": {
+            "id": "/layers/XLS/style",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Style of XLS. Use /styles/items/name."
+          },
+          "opacity": {
+            "id": "/layers/XLS/opacity",
+            "type": "number",
+            "description": "Default Opacity.",
+            "enum": [
+              0,
+              0.1,
+              0.2,
+              0.3,
+              0.4,
+              0.5,
+              0.6,
+              0.7,
+              0.8,
+              0.9,
+              1
+            ],
+            "default": 1
+          },
+          "copyright": {
+            "id": "/layers/XLS/copyright",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Copyright."
+          },
+          "legendUrl": {
+            "id": "/layers/XLS/legendUrl",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "URL for legend."
+          }
+        }
+      },
+      "GPS": {
+        "id": "/layers/GPS",
+        "description": "GPS-Track",
+        "title": "GPS",
+        "type": "object",
+        "properties": {
+          "type": {
+            "id": "/layers/GPS/type",
+            "type": "string",
+            "description": "Type of layer: GPS",
+            "enum": [
+              "GPS"
+            ]
+          },
+          "id": {
+            "id": "/layers/GPS/id",
+            "type": "string",
+            "description": "Unique ID. It will be used in permaLink and persistence JSON. If not available, it will be added by Framework."
+          },
+          "name": {
+            "id": "/layers/GPS/name",
+            "type": "string",
+            "description": "Name of layer shown in menu.",
+            "default": "GPS"
+          },
+          "url": {
+            "id": "/layers/GPS/url",
+            "type": "string",
+            "description": "URL of GPX file"
+          },
+          "visibility": {
+            "id": "/layers/GPS/visibility",
+            "type": "boolean",
+            "description": "Initial visibility of layer.",
+            "default": true
+          },
+          "minResolution": {
+            "id": "/layers/GPS/minResolution",
+            "type": "number",
+            "description": "Minimum resolution.",
+            "default": 0.0001
+          },
+          "maxResolution": {
+            "id": "/layers/GPS/maxResolution",
+            "type": "number",
+            "description": "Maximum resolution.",
+            "default": 156545.0
+          },
+          "edit": {
+            "id": "/layers/GPS/edit",
+            "type": "boolean",
+            "description": "Enable edit layer.",
+            "default": false
+          },
+          "style": {
+            "id": "/layers/GPS/style",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Style of GPS. Use /styles/items/name."
+          },
+          "opacity": {
+            "id": "/layers/GPS/opacity",
+            "type": "number",
+            "description": "Default Opacity.",
+            "enum": [
+              0,
+              0.1,
+              0.2,
+              0.3,
+              0.4,
+              0.5,
+              0.6,
+              0.7,
+              0.8,
+              0.9,
+              1
+            ],
+            "default": 1
+          },
+          "copyright": {
+            "id": "/layers/GPS/copyright",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Copyright."
+          },
+          "legendUrl": {
+            "id": "/layers/GPS/legendUrl",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "URL for legend."
+          }
+        }
+      },
+      "BKG": {
+        "id": "/layers/BKG",
+        "description": "BKG Service",
+        "title": "BKG",
+        "type": "object",
+        "properties": {
+          "type": {
+            "id": "/layers/BKG/type",
+            "type": "string",
+            "description": "Type of layer: BKG",
+            "enum": [
+              "BKG"
+            ]
+          },
+          "id": {
+            "id": "/layers/BKG/id",
+            "type": "string",
+            "description": "Unique ID. It will be used in permaLink and persistence JSON. If not available, it will be added by Framework."
+          },
+          "name": {
+            "id": "/layers/BKG/name",
+            "type": "string",
+            "description": "Name of layer shown in menu."
+          },
+          "ref": {
+            "id": "/layers/BKG/ref",
+            "type": "string",
+            "description": "Reference of layer in BKG layer registry. This is the name of BKG layer to load."
+          },
+          "visibility": {
+            "id": "/layers/BKG/visibility",
+            "type": "boolean",
+            "description": "Initial visibility of layer.",
+            "default": true
+          },
+          "srsName": {
+            "id": "/layers/BKG/srsName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Projection of layer. If null, then map projection will be used."
+          },
+          "minResolution": {
+            "id": "/layers/BKG/minResolution",
+            "type": "number",
+            "description": "Minimum resolution.",
+            "default": 0.0001
+          },
+          "maxResolution": {
+            "id": "/layers/BKG/maxResolution",
+            "type": "number",
+            "description": "Maximum resolution.",
+            "default": 156545.0
+          },
+          "properties": {
+            "id": "/layers/BKG/updates",
+            "description": "Updates for the layer that will overwrite the preconfigured values. The complete set of available properties depends on the preconfigured layer class.",
+            "type": "object",
+            "properties": {
+            }
+          },
+          "opacity": {
+            "id": "/layers/BKG/opacity",
+            "type": "number",
+            "description": "Default Opacity.",
+            "enum": [
+              0,
+              0.1,
+              0.2,
+              0.3,
+              0.4,
+              0.5,
+              0.6,
+              0.7,
+              0.8,
+              0.9,
+              1
+            ],
+            "default": 1
+          },
+          "copyright": {
+            "id": "/layers/BKG/copyright",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Copyright. If null or empty it will be parsed from GetCapabilities"
+          },
+          "legendUrl": {
+            "id": "/layers/BKG/legendUrl",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "URL for legend."
+          }
+        }
+      },
+      "GROUP": {
+        "id": "/layers/GROUP",
+        "description": "Group of layers",
+        "title": "GROUP",
+        "type": "object",
+        "properties": {
+          "type": {
+            "id": "/layers/GROUP/type",
+            "type": "string",
+            "description": "Type of layer: GROUP",
+            "enum": [
+              "GROUP"
+            ]
+          },
+          "id": {
+            "id": "/layers/GROUP/id",
+            "type": "string",
+            "description": "Unique ID. It will be used in permaLink and persistence JSON. If not available, it will be added by Framework."
+          },
+          "name": {
+            "id": "/layers/GROUP/name",
+            "type": "string",
+            "description": "Name of group."
+          },
+          "layers": {
+            "id": "/layers/GROUP/layers",
+            "description": "List of layers in a group. The position in this list will determine the position on map.",
+            "type": "array",
+            "items": {
+              "id": "/layers/GROUP/layers/items",
+              "description": "Single layers in a group.",
+              "type": "object",
+              "anyOf": [
+                {
+                  "$ref": "WMS"
+                },
+                {
+                  "$ref": "WMTS"
+                },
+                {
+                  "$ref": "WFS"
+                },
+                {
+                  "$ref": "MARKER"
+                },
+                {
+                  "$ref": "CSV"
+                },
+                {
+                  "$ref": "XLS"
+                },
+                {
+                  "$ref": "GPS"
+                },
+                {
+                  "$ref": "BKG"
+                }
+              ]
+            }
+          },
+          "visibility": {
+            "id": "/layers/GROUP/visibility",
+            "type": "boolean",
+            "description": "Initial visibility of group.",
+            "default": true
+          }
+        }
+      },
+      "NONE": {
+        "id": "/layers/NONE",
+        "description": "Empty baselayer",
+        "title": "NONE",
+        "type": "object",
+        "properties": {
+          "type": {
+            "id": "/layers/NONE/type",
+            "type": "string",
+            "description": "Type of layer: NONE",
+            "enum": [
+              "NONE"
+            ]
+          },
+          "id": {
+            "id": "/layers/NONE/id",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Unique ID. It will be used in permaLink and persistence JSON. If not available, it will be added by Framework."
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "VECTOR": {
+        "id": "/layers/VECTOR",
+        "description": "CSV, XLS, GPS Layers imported by user.",
+        "title": "VECTOR",
+        "type": "object",
+        "properties": {
+          "type": {
+            "id": "/layers/VECTOR/type",
+            "type": "string",
+            "description": "Type of layer: VECTOR",
+            "enum": [
+              "VECTOR"
+            ]
+          },
+          "name": {
+            "id": "/layers/VECTOR/name",
+            "type": "string",
+            "description": "Name of layer shown in menu."
+          },
+          "visibility": {
+            "id": "/layers/VECTOR/visibility",
+            "type": "boolean",
+            "description": "Selected visibility of layer."
+          },
+          "style": {
+            "id": "/layers/VECTOR/style",
+            "type": "string",
+            "description": "Name of selected style for vector layers."
+          },
+          "features": {
+            "id": "/layers/VECTOR/features",
+            "type": [
+              "object",
+              "null"
+            ],
+            "description": "Geometry of custom vector layer as GeoJSON.",
+            "default": null
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+}
+
+#bkgwebmap-examples-header {
+    display: table;
+    padding-left: 15px;
+    background-color: #407E40;
+    box-sizing: border-box;
+    height: 50px;
+    width: 100%;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.25em;
+}
+#header-content {
+    display: table-cell;
+    vertical-align: middle;
+}
+#bkgwebmap-examples-header a {
+    text-decoration: none;
+    color: white;
+}
+#bkgwebmap-examples-header a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+#bkgwebmap-examples-main {
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+#bkgwebmap-examples-iframe {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid lightgray;
+}
+
+#bkgwebmap-examples-description {
+    margin: 15px 0;
+}
+
+#bkgwebmap-examples-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+#bkgwebmap-examples-list > a {
+    background-color: #eeeeee;
+    margin: 5px;
+    padding: 5px;
+    width: 300px;
+    min-height: 50px;
+    text-decoration: none;
+    color: black;
+}
+#bkgwebmap-examples-list > a:hover {
+    text-decoration: underline;
+    background-color: #407E40;
+    color: white;
+}
+
+/* fix alignment with line-numbers and coy-theme for IE */
+pre.line-numbers > code {
+    line-height: 1.5em;
+}
+.bkgwebmap-examples-title {
+	font-size: 16px;
+	font-weight: bold;
+}
+.bkgwebmap-examples-content {
+	font-size: smaller;
+}

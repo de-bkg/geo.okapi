@@ -1,0 +1,1077 @@
+<?xml version="1.0"?>
+<gpx
+ version="1.0"
+ creator="ExpertGPS 1.1 - http://www.topografix.com"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns="http://www.topografix.com/GPX/1/0"
+ xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd">
+<time>2002-02-27T17:18:33Z</time>
+<bounds minlat="50.101051" minlon="8.626602" maxlat="50.168655" maxlon="8.602973"/>
+<wpt lat="50.138878" lon="8.619277">
+ <ele>44.586548</ele>
+ <time>2001-11-28T21:05:28Z</time>
+ <name>5066</name>
+ <desc><![CDATA[5066]]></desc>
+ <sym>Crossing</sym>
+ <type><![CDATA[Crossing]]></type>
+</wpt>
+<wpt lat="50.139227" lon="8.619689">
+ <ele>57.607200</ele>
+ <time>2001-06-02T03:26:55Z</time>
+ <name>5067</name>
+ <desc><![CDATA[5067]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.138917" lon="8.616146">
+ <ele>44.826904</ele>
+ <time>2001-11-16T23:03:38Z</time>
+ <name>5096</name>
+ <desc><![CDATA[5096]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</wpt>
+<wpt lat="50.143904" lon="8.622044">
+ <ele>50.594727</ele>
+ <time>2001-11-28T21:05:28Z</time>
+ <name>5142</name>
+ <desc><![CDATA[5142]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</wpt>
+<wpt lat="50.147298" lon="8.621447">
+ <ele>127.711200</ele>
+ <time>2001-06-02T03:26:58Z</time>
+ <name>5156</name>
+ <desc><![CDATA[5156]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.154873" lon="8.625094">
+ <ele>96.926400</ele>
+ <time>2001-06-02T03:26:59Z</time>
+ <name>5224</name>
+ <desc><![CDATA[5224]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.159079" lon="8.624988">
+ <ele>82.600800</ele>
+ <time>2001-06-02T03:26:59Z</time>
+ <name>5229</name>
+ <desc><![CDATA[5229]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.156979" lon="8.624474">
+ <ele>82.905600</ele>
+ <time>2001-06-02T03:26:59Z</time>
+ <name>5237</name>
+ <desc><![CDATA[5237]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.154401" lon="8.620990">
+ <ele>66.696655</ele>
+ <time>2001-11-28T21:05:28Z</time>
+ <name>5254</name>
+ <desc><![CDATA[5254]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</wpt>
+<wpt lat="50.151442" lon="8.621746">
+ <ele>74.627442</ele>
+ <time>2001-11-07T23:53:41Z</time>
+ <name>5258</name>
+ <desc><![CDATA[5258]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</wpt>
+<wpt lat="50.154404" lon="8.620660">
+ <ele>65.254761</ele>
+ <time>2001-11-28T21:05:28Z</time>
+ <name>5264</name>
+ <desc><![CDATA[5264]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</wpt>
+<wpt lat="50.157761" lon="8.621045">
+ <ele>77.419200</ele>
+ <time>2001-06-02T03:27:00Z</time>
+ <name>526708</name>
+ <desc><![CDATA[526708]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.157089" lon="8.620313">
+ <ele>74.676000</ele>
+ <time>2001-06-02T03:27:00Z</time>
+ <name>526750</name>
+ <desc><![CDATA[526750]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.156592" lon="8.619676">
+ <ele>78.713135</ele>
+ <time>2001-11-07T23:53:41Z</time>
+ <name>527614</name>
+ <desc><![CDATA[527614]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</wpt>
+<wpt lat="50.156252" lon="8.619356">
+ <ele>78.713135</ele>
+ <time>2001-11-07T23:53:41Z</time>
+ <name>527631</name>
+ <desc><![CDATA[527631]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</wpt>
+<wpt lat="50.158148" lon="8.619135">
+ <ele>68.275200</ele>
+ <time>2001-06-02T03:27:00Z</time>
+ <name>5278</name>
+ <desc><![CDATA[5278]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.159377" lon="8.617693">
+ <ele>64.008000</ele>
+ <time>2001-06-02T03:27:01Z</time>
+ <name>5289</name>
+ <desc><![CDATA[5289]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.164183" lon="8.619828">
+ <ele>52.997925</ele>
+ <time>2001-11-28T21:05:28Z</time>
+ <name>5374FIRE</name>
+ <desc><![CDATA[5374FIRE]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</wpt>
+<wpt lat="50.165650" lon="8.619399">
+ <ele>56.388000</ele>
+ <time>2001-06-02T03:27:02Z</time>
+ <name>5376</name>
+ <desc><![CDATA[5376]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.139018" lon="8.614456">
+ <ele>56.388000</ele>
+ <time>2001-06-02T03:26:55Z</time>
+ <name>6006</name>
+ <desc><![CDATA[600698]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.138594" lon="8.614803">
+ <ele>46.028564</ele>
+ <time>2001-11-28T21:05:28Z</time>
+ <name>6006BLUE</name>
+ <desc><![CDATA[6006BLUE]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</wpt>
+<wpt lat="50.136757" lon="8.613223">
+ <ele>37.616943</ele>
+ <time>2001-11-28T21:05:28Z</time>
+ <name>6014MEADOW</name>
+ <desc><![CDATA[6014MEADOW]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</wpt>
+<wpt lat="50.141754" lon="8.613220">
+ <ele>56.388000</ele>
+ <time>2001-06-02T03:26:55Z</time>
+ <name>6029</name>
+ <desc><![CDATA[6029]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.136243" lon="8.609075">
+ <ele>50.292000</ele>
+ <time>2001-06-02T03:27:05Z</time>
+ <name>6053</name>
+ <desc><![CDATA[6053]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.139250" lon="8.607500">
+ <ele>25.603200</ele>
+ <time>2001-06-02T03:26:57Z</time>
+ <name>6066</name>
+ <desc><![CDATA[6066]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.139764" lon="8.607582">
+ <ele>34.442400</ele>
+ <time>2001-06-02T03:26:57Z</time>
+ <name>6067</name>
+ <desc><![CDATA[6067]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.134766" lon="8.605874">
+ <ele>30.480000</ele>
+ <time>2001-06-02T03:26:57Z</time>
+ <name>6071</name>
+ <desc><![CDATA[6071]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.133304" lon="8.606599">
+ <ele>15.240000</ele>
+ <time>2001-06-02T03:26:56Z</time>
+ <name>6073</name>
+ <desc><![CDATA[6073]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.137338" lon="8.604772">
+ <ele>37.795200</ele>
+ <time>2001-06-02T03:26:57Z</time>
+ <name>6084</name>
+ <desc><![CDATA[6084]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.142196" lon="8.610975">
+ <ele>64.008000</ele>
+ <time>2001-06-02T03:26:55Z</time>
+ <name>6130</name>
+ <desc><![CDATA[6130]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.142981" lon="8.611441">
+ <ele>64.008000</ele>
+ <time>2001-06-02T03:26:58Z</time>
+ <name>6131</name>
+ <desc><![CDATA[6131]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.144773" lon="8.608882">
+ <ele>62.788800</ele>
+ <time>2001-06-02T03:27:05Z</time>
+ <name>6153</name>
+ <desc><![CDATA[6153]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.143592" lon="8.606301">
+ <ele>55.473600</ele>
+ <time>2001-06-02T03:27:05Z</time>
+ <name>6171</name>
+ <desc><![CDATA[6171]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.147804" lon="8.606624">
+ <ele>62.484000</ele>
+ <time>2001-06-02T03:27:04Z</time>
+ <name>6176</name>
+ <desc><![CDATA[6176]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.148448" lon="8.606158">
+ <ele>62.179200</ele>
+ <time>2001-06-02T03:27:04Z</time>
+ <name>6177</name>
+ <desc><![CDATA[6177]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.153415" lon="8.606783">
+ <ele>69.799200</ele>
+ <time>2001-06-02T03:26:55Z</time>
+ <name>6272</name>
+ <desc><![CDATA[6272]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.153434" lon="8.607253">
+ <ele>73.152000</ele>
+ <time>2001-06-02T03:26:56Z</time>
+ <name>6272</name>
+ <desc><![CDATA[6272]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.158298" lon="8.606771">
+ <ele>70.104000</ele>
+ <time>2001-06-02T03:27:04Z</time>
+ <name>6278</name>
+ <desc><![CDATA[6278]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.151430" lon="8.605413">
+ <ele>57.564209</ele>
+ <time>2001-11-16T23:03:38Z</time>
+ <name>6280</name>
+ <desc><![CDATA[6280]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</wpt>
+<wpt lat="50.153845" lon="8.605206">
+ <ele>66.696655</ele>
+ <time>2001-11-16T23:03:38Z</time>
+ <name>6283</name>
+ <desc><![CDATA[6283]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</wpt>
+<wpt lat="50.159986" lon="8.606170">
+ <ele>72.945191</ele>
+ <time>2001-11-16T23:03:38Z</time>
+ <name>6289</name>
+ <desc><![CDATA[6289]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</wpt>
+<wpt lat="50.157616" lon="8.605116">
+ <ele>72.847200</ele>
+ <time>2001-06-02T03:27:04Z</time>
+ <name>6297</name>
+ <desc><![CDATA[6297]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.167110" lon="8.613574">
+ <ele>53.644800</ele>
+ <time>2001-06-02T03:27:02Z</time>
+ <name>6328</name>
+ <desc><![CDATA[6328]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.164202" lon="8.609863">
+ <ele>43.891200</ele>
+ <time>2001-06-02T03:27:03Z</time>
+ <name>6354</name>
+ <desc><![CDATA[6354]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.166459" lon="8.610067">
+ <ele>48.768000</ele>
+ <time>2001-06-02T03:27:02Z</time>
+ <name>635722</name>
+ <desc><![CDATA[635722]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.166557" lon="8.609410">
+ <ele>49.072800</ele>
+ <time>2001-06-02T03:27:02Z</time>
+ <name>635783</name>
+ <desc><![CDATA[635783]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.163495" lon="8.607117">
+ <ele>62.484000</ele>
+ <time>2001-06-02T03:27:03Z</time>
+ <name>6373</name>
+ <desc><![CDATA[6373]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.101051" lon="8.610241">
+ <ele>3.962400</ele>
+ <time>2001-06-02T03:26:56Z</time>
+ <name>6634</name>
+ <desc><![CDATA[6634]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.132621" lon="8.606532">
+ <ele>13.411200</ele>
+ <time>2001-06-02T03:26:56Z</time>
+ <name>6979</name>
+ <desc><![CDATA[6979]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.131033" lon="8.607883">
+ <ele>34.012085</ele>
+ <time>2001-11-16T23:03:38Z</time>
+ <name>6997</name>
+ <desc><![CDATA[6997]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</wpt>
+<wpt lat="50.165687" lon="8.607360">
+ <ele>87.782400</ele>
+ <time>2001-06-02T03:27:03Z</time>
+ <name>BEAR HILL</name>
+ <cmt>BEAR HILL TOWER</cmt>
+ <desc><![CDATA[Bear Hill Tower]]></desc>
+ <sym>Tall Tower</sym>
+ <type><![CDATA[Tower]]></type>
+</wpt>
+<wpt lat="50.130950" lon="8.607628">
+ <ele>23.469600</ele>
+ <time>2001-06-02T00:18:15Z</time>
+ <name>BELLEVUE</name>
+ <cmt>BELLEVUE</cmt>
+ <desc><![CDATA[Bellevue Parking Lot]]></desc>
+ <sym>Parking Area</sym>
+ <type><![CDATA[Parking]]></type>
+</wpt>
+<wpt lat="50.138666" lon="8.614079">
+ <ele>43.384766</ele>
+ <time>2001-11-28T21:05:28Z</time>
+ <name>6016</name>
+ <desc><![CDATA[Bike Loop Connector]]></desc>
+ <sym>Trailhead</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.156469" lon="8.624651">
+ <ele>89.916000</ele>
+ <time>2001-06-02T03:26:59Z</time>
+ <name>5236BRIDGE</name>
+ <desc><![CDATA[Bridge]]></desc>
+ <sym>Bridge</sym>
+ <type><![CDATA[Bridge]]></type>
+</wpt>
+<wpt lat="50.165759" lon="8.619815">
+ <ele>55.473600</ele>
+ <time>2001-06-02T03:27:01Z</time>
+ <name>5376BRIDGE</name>
+ <desc><![CDATA[Bridge]]></desc>
+ <sym>Bridge</sym>
+ <type><![CDATA[Bridge]]></type>
+</wpt>
+<wpt lat="50.142993" lon="8.605878">
+ <ele>52.730400</ele>
+ <time>2001-06-02T03:27:05Z</time>
+ <name>6181CROSS</name>
+ <desc><![CDATA[Crossing]]></desc>
+ <sym>Crossing</sym>
+ <type><![CDATA[Crossing]]></type>
+</wpt>
+<wpt lat="50.135472" lon="8.609664">
+ <ele>45.110400</ele>
+ <time>2001-06-02T03:27:05Z</time>
+ <name>6042CROSS</name>
+ <desc><![CDATA[Crossing]]></desc>
+ <sym>Crossing</sym>
+ <type><![CDATA[Crossing]]></type>
+</wpt>
+<wpt lat="50.158516" lon="8.603646">
+ <name>DARKHOLLPO</name>
+ <desc><![CDATA[Dark Hollow Pond]]></desc>
+ <sym>Fishing Area</sym>
+</wpt>
+<wpt lat="50.143109" lon="8.612675">
+ <ele>56.083200</ele>
+ <time>2001-06-02T03:26:57Z</time>
+ <name>6121DEAD</name>
+ <desc><![CDATA[Dead End]]></desc>
+ <sym>Danger Area</sym>
+ <type><![CDATA[Dead End]]></type>
+</wpt>
+<wpt lat="50.149866" lon="8.619298">
+ <ele>117.043200</ele>
+ <time>2001-06-02T03:26:59Z</time>
+ <name>5179DEAD</name>
+ <desc><![CDATA[Dead End]]></desc>
+ <sym>Danger Area</sym>
+ <type><![CDATA[Dead End]]></type>
+</wpt>
+<wpt lat="50.159629" lon="8.616524">
+ <ele>69.494400</ele>
+ <time>2001-06-02T03:27:01Z</time>
+ <name>5299DEAD</name>
+ <desc><![CDATA[Dead End]]></desc>
+ <sym>Danger Area</sym>
+ <type><![CDATA[Dead End]]></type>
+</wpt>
+<wpt lat="50.165485" lon="8.619148">
+ <ele>56.997600</ele>
+ <time>2001-06-02T03:27:02Z</time>
+ <name>5376DEAD</name>
+ <desc><![CDATA[Dead End]]></desc>
+ <sym>Danger Area</sym>
+ <type><![CDATA[Dead End]]></type>
+</wpt>
+<wpt lat="50.162776" lon="8.609986">
+ <ele>46.939200</ele>
+ <time>2001-06-02T03:27:03Z</time>
+ <name>6353DEAD</name>
+ <desc><![CDATA[Dead End]]></desc>
+ <sym>Danger Area</sym>
+ <type><![CDATA[Dead End]]></type>
+</wpt>
+<wpt lat="50.146793" lon="8.608784">
+ <ele>61.264800</ele>
+ <time>2001-06-02T03:27:04Z</time>
+ <name>6155DEAD</name>
+ <desc><![CDATA[Dead End]]></desc>
+ <sym>Danger Area</sym>
+ <type><![CDATA[Dead End]]></type>
+</wpt>
+<wpt lat="50.151204" lon="8.626602">
+ <ele>110.947200</ele>
+ <time>2001-06-02T03:26:59Z</time>
+ <name>GATE14</name>
+ <desc><![CDATA[Gate 14]]></desc>
+ <sym>Truck Stop</sym>
+ <type><![CDATA[Road]]></type>
+</wpt>
+<wpt lat="50.158499" lon="8.622078">
+ <ele>77.724000</ele>
+ <time>2001-06-02T03:27:00Z</time>
+ <name>GATE16</name>
+ <desc><![CDATA[Gate 16]]></desc>
+ <sym>Truck Stop</sym>
+ <type><![CDATA[Road]]></type>
+</wpt>
+<wpt lat="50.159376" lon="8.619238">
+ <ele>65.836800</ele>
+ <time>2001-06-02T03:27:01Z</time>
+ <name>GATE17</name>
+ <desc><![CDATA[Gate 17]]></desc>
+ <sym>Truck Stop</sym>
+ <type><![CDATA[Road]]></type>
+</wpt>
+<wpt lat="50.166353" lon="8.619240">
+ <ele>57.302400</ele>
+ <time>2001-06-02T03:27:02Z</time>
+ <name>GATE19</name>
+ <desc><![CDATA[Gate 19]]></desc>
+ <sym>Truck Stop</sym>
+ <type><![CDATA[Road]]></type>
+</wpt>
+<wpt lat="50.168655" lon="8.607697">
+ <ele>49.377600</ele>
+ <time>2001-06-02T03:27:03Z</time>
+ <name>GATE21</name>
+ <desc><![CDATA[Gate 21]]></desc>
+ <sym>Truck Stop</sym>
+ <type><![CDATA[Road]]></type>
+</wpt>
+<wpt lat="50.156718" lon="8.602973">
+ <ele>81.076800</ele>
+ <time>2001-06-02T03:27:03Z</time>
+ <name>GATE24</name>
+ <desc><![CDATA[Gate 24]]></desc>
+ <sym>Truck Stop</sym>
+ <type><![CDATA[Road]]></type>
+</wpt>
+<wpt lat="50.130847" lon="8.607690">
+ <ele>21.515015</ele>
+ <time>2001-11-28T21:05:28Z</time>
+ <name>GATE5</name>
+ <desc><![CDATA[Gate 5]]></desc>
+ <sym>Truck Stop</sym>
+ <type><![CDATA[Truck Stop]]></type>
+</wpt>
+<wpt lat="50.131240" lon="8.609236">
+ <ele>26.561890</ele>
+ <time>2001-11-07T23:53:41Z</time>
+ <name>GATE6</name>
+ <desc><![CDATA[Gate 6]]></desc>
+ <sym>Trailhead</sym>
+ <type><![CDATA[Trail Head]]></type>
+</wpt>
+<wpt lat="50.139502" lon="8.606556">
+ <ele>32.004000</ele>
+ <time>2001-06-02T00:18:16Z</time>
+ <name>6077LOGS</name>
+ <desc><![CDATA[Log Crossing]]></desc>
+ <sym>Amusement Park</sym>
+ <type><![CDATA[Obstacle]]></type>
+</wpt>
+<wpt lat="50.149765" lon="8.622320">
+ <ele>119.809082</ele>
+ <time>2001-11-07T23:53:41Z</time>
+ <name>5148NANEPA</name>
+ <desc><![CDATA[Nanepashemet Road Crossing]]></desc>
+ <sym>Trailhead</sym>
+ <type><![CDATA[Trail Head]]></type>
+</wpt>
+<wpt lat="50.157388" lon="8.619845">
+ <ele>73.761600</ele>
+ <time>2001-06-02T03:27:00Z</time>
+ <name>5267OBSTAC</name>
+ <desc><![CDATA[Obstacle]]></desc>
+ <sym>Amusement Park</sym>
+ <type><![CDATA[Obstacle]]></type>
+</wpt>
+<wpt lat="50.134980" lon="8.609942">
+ <ele>45.307495</ele>
+ <time>2001-11-07T23:53:41Z</time>
+ <name>PANTHRCAVE</name>
+ <desc><![CDATA[Panther Cave]]></desc>
+ <sym>Tunnel</sym>
+ <type><![CDATA[Tunnel]]></type>
+</wpt>
+<wpt lat="50.153256" lon="8.621211">
+ <ele>77.992066</ele>
+ <time>2001-11-07T23:53:41Z</time>
+ <name>5252PURPLE</name>
+ <desc><![CDATA[Purple Rock Hill]]></desc>
+ <sym>Summit</sym>
+ <type><![CDATA[Summit]]></type>
+</wpt>
+<wpt lat="50.157734" lon="8.617481">
+ <ele>67.970400</ele>
+ <time>2001-06-02T03:27:01Z</time>
+ <name>5287WATER</name>
+ <desc><![CDATA[Reservoir]]></desc>
+ <sym>Swimming Area</sym>
+ <type><![CDATA[Reservoir]]></type>
+</wpt>
+<wpt lat="50.159278" lon="8.624574">
+ <ele>81.076800</ele>
+ <time>2001-06-02T03:27:00Z</time>
+ <name>5239ROAD</name>
+ <desc><![CDATA[Road]]></desc>
+ <sym>Truck Stop</sym>
+ <type><![CDATA[Road]]></type>
+</wpt>
+<wpt lat="50.158782" lon="8.618991">
+ <ele>67.360800</ele>
+ <time>2001-06-02T03:27:01Z</time>
+ <name>5278ROAD</name>
+ <desc><![CDATA[Road]]></desc>
+ <sym>Truck Stop</sym>
+ <type><![CDATA[Road]]></type>
+</wpt>
+<wpt lat="50.139993" lon="8.620925">
+ <ele>53.949600</ele>
+ <time>2001-06-02T00:18:14Z</time>
+ <name>5058ROAD</name>
+ <cmt>ROAD CROSSING</cmt>
+ <desc><![CDATA[Road Crossing]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Road Crossing]]></type>
+</wpt>
+<wpt lat="50.153415" lon="8.606782">
+ <ele>69.799200</ele>
+ <time>2001-06-02T00:18:13Z</time>
+ <name>SHEEPFOLD</name>
+ <desc><![CDATA[Sheepfold Parking Lot]]></desc>
+ <sym>Parking Area</sym>
+ <type><![CDATA[Parking]]></type>
+</wpt>
+<wpt lat="50.155956" lon="8.607483">
+ <ele>64.008000</ele>
+ <time>2001-06-02T03:27:04Z</time>
+ <name>SOAPBOX</name>
+ <desc><![CDATA[Soap Box Derby Track]]></desc>
+ <sym>Cemetery</sym>
+ <type><![CDATA[Intersection]]></type>
+</wpt>
+<wpt lat="50.165913" lon="8.619328">
+ <ele>64.533692</ele>
+ <time>2001-11-07T23:53:41Z</time>
+ <name>5376STREAM</name>
+ <desc><![CDATA[Stream Crossing]]></desc>
+ <sym>Bridge</sym>
+ <type><![CDATA[Bridge]]></type>
+</wpt>
+<wpt lat="50.145359" lon="8.622845">
+ <ele>61.649902</ele>
+ <time>2001-11-28T21:05:28Z</time>
+ <name>5144SUMMIT</name>
+ <desc><![CDATA[Summit]]></desc>
+ <sym>Summit</sym>
+ <type><![CDATA[Summit]]></type>
+</wpt>
+<wpt lat="50.141727" lon="8.621676">
+ <ele>67.360800</ele>
+ <time>2001-06-02T00:18:16Z</time>
+ <name>5150TANK</name>
+ <cmt>WATER TANK</cmt>
+ <desc><![CDATA[Water Tank]]></desc>
+ <sym>Museum</sym>
+ <type><![CDATA[Water Tank]]></type>
+</wpt>
+<rte>
+ <name>BELLEVUE</name>
+ <desc><![CDATA[Bike Loop Bellevue]]></desc>
+ <number>1</number>
+<rtept lat="50.130950" lon="8.607628">
+ <ele>23.469600</ele>
+ <time>2001-06-02T00:18:15Z</time>
+ <name>BELLEVUE</name>
+ <cmt>BELLEVUE</cmt>
+ <desc><![CDATA[Bellevue Parking Lot]]></desc>
+ <sym>Parking Area</sym>
+ <type><![CDATA[Parking]]></type>
+</rtept>
+<rtept lat="50.131240" lon="8.609236">
+ <ele>26.561890</ele>
+ <time>2001-11-07T23:53:41Z</time>
+ <name>GATE6</name>
+ <desc><![CDATA[Gate 6]]></desc>
+ <sym>Trailhead</sym>
+ <type><![CDATA[Trail Head]]></type>
+</rtept>
+<rtept lat="50.134980" lon="8.609942">
+ <ele>45.307495</ele>
+ <time>2001-11-07T23:53:41Z</time>
+ <name>PANTHRCAVE</name>
+ <desc><![CDATA[Panther Cave]]></desc>
+ <sym>Tunnel</sym>
+ <type><![CDATA[Tunnel]]></type>
+</rtept>
+<rtept lat="50.136757" lon="8.613223">
+ <ele>37.616943</ele>
+ <time>2001-11-28T21:05:28Z</time>
+ <name>6014MEADOW</name>
+ <desc><![CDATA[6014MEADOW]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</rtept>
+<rtept lat="50.139018" lon="8.614456">
+ <ele>56.388000</ele>
+ <time>2001-06-02T03:26:55Z</time>
+ <name>6006</name>
+ <desc><![CDATA[600698]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</rtept>
+<rtept lat="50.138594" lon="8.614803">
+ <ele>46.028564</ele>
+ <time>2001-11-28T21:05:28Z</time>
+ <name>6006BLUE</name>
+ <desc><![CDATA[6006BLUE]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</rtept>
+<rtept lat="50.138917" lon="8.616146">
+ <ele>44.826904</ele>
+ <time>2001-11-16T23:03:38Z</time>
+ <name>5096</name>
+ <desc><![CDATA[5096]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</rtept>
+<rtept lat="50.138878" lon="8.619277">
+ <ele>44.586548</ele>
+ <time>2001-11-28T21:05:28Z</time>
+ <name>5066</name>
+ <desc><![CDATA[5066]]></desc>
+ <sym>Crossing</sym>
+ <type><![CDATA[Crossing]]></type>
+</rtept>
+<rtept lat="50.139227" lon="8.619689">
+ <ele>57.607200</ele>
+ <time>2001-06-02T03:26:55Z</time>
+ <name>5067</name>
+ <desc><![CDATA[5067]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</rtept>
+<rtept lat="50.139993" lon="8.620925">
+ <ele>53.949600</ele>
+ <time>2001-06-02T00:18:14Z</time>
+ <name>5058ROAD</name>
+ <cmt>ROAD CROSSING</cmt>
+ <desc><![CDATA[Road Crossing]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Road Crossing]]></type>
+</rtept>
+<rtept lat="50.141727" lon="8.621676">
+ <ele>67.360800</ele>
+ <time>2001-06-02T00:18:16Z</time>
+ <name>5150TANK</name>
+ <cmt>WATER TANK</cmt>
+ <desc><![CDATA[Water Tank]]></desc>
+ <sym>Museum</sym>
+ <type><![CDATA[Water Tank]]></type>
+</rtept>
+<rtept lat="50.143904" lon="8.622044">
+ <ele>50.594727</ele>
+ <time>2001-11-28T21:05:28Z</time>
+ <name>5142</name>
+ <desc><![CDATA[5142]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</rtept>
+<rtept lat="50.145359" lon="8.622845">
+ <ele>61.649902</ele>
+ <time>2001-11-28T21:05:28Z</time>
+ <name>5144SUMMIT</name>
+ <desc><![CDATA[Summit]]></desc>
+ <sym>Summit</sym>
+ <type><![CDATA[Summit]]></type>
+</rtept>
+<rtept lat="50.147298" lon="8.621447">
+ <ele>127.711200</ele>
+ <time>2001-06-02T03:26:58Z</time>
+ <name>5156</name>
+ <desc><![CDATA[5156]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</rtept>
+<rtept lat="50.149765" lon="8.622320">
+ <ele>119.809082</ele>
+ <time>2001-11-07T23:53:41Z</time>
+ <name>5148NANEPA</name>
+ <desc><![CDATA[Nanepashemet Road Crossing]]></desc>
+ <sym>Trailhead</sym>
+ <type><![CDATA[Trail Head]]></type>
+</rtept>
+<rtept lat="50.151442" lon="8.621746">
+ <ele>74.627442</ele>
+ <time>2001-11-07T23:53:41Z</time>
+ <name>5258</name>
+ <desc><![CDATA[5258]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</rtept>
+<rtept lat="50.153256" lon="8.621211">
+ <ele>77.992066</ele>
+ <time>2001-11-07T23:53:41Z</time>
+ <name>5252PURPLE</name>
+ <desc><![CDATA[Purple Rock Hill]]></desc>
+ <sym>Summit</sym>
+ <type><![CDATA[Summit]]></type>
+</rtept>
+<rtept lat="50.156252" lon="8.619356">
+ <ele>78.713135</ele>
+ <time>2001-11-07T23:53:41Z</time>
+ <name>527631</name>
+ <desc><![CDATA[527631]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</rtept>
+<rtept lat="50.156592" lon="8.619676">
+ <ele>78.713135</ele>
+ <time>2001-11-07T23:53:41Z</time>
+ <name>527614</name>
+ <desc><![CDATA[527614]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</rtept>
+<rtept lat="50.157388" lon="8.619845">
+ <ele>73.761600</ele>
+ <time>2001-06-02T03:27:00Z</time>
+ <name>5267OBSTAC</name>
+ <desc><![CDATA[Obstacle]]></desc>
+ <sym>Amusement Park</sym>
+ <type><![CDATA[Obstacle]]></type>
+</rtept>
+<rtept lat="50.158148" lon="8.619135">
+ <ele>68.275200</ele>
+ <time>2001-06-02T03:27:00Z</time>
+ <name>5278</name>
+ <desc><![CDATA[5278]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</rtept>
+<rtept lat="50.159377" lon="8.617693">
+ <ele>64.008000</ele>
+ <time>2001-06-02T03:27:01Z</time>
+ <name>5289</name>
+ <desc><![CDATA[5289]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</rtept>
+<rtept lat="50.164183" lon="8.619828">
+ <ele>52.997925</ele>
+ <time>2001-11-28T21:05:28Z</time>
+ <name>5374FIRE</name>
+ <desc><![CDATA[5374FIRE]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</rtept>
+<rtept lat="50.165650" lon="8.619399">
+ <ele>56.388000</ele>
+ <time>2001-06-02T03:27:02Z</time>
+ <name>5376</name>
+ <desc><![CDATA[5376]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</rtept>
+<rtept lat="50.165913" lon="8.619328">
+ <ele>64.533692</ele>
+ <time>2001-11-07T23:53:41Z</time>
+ <name>5376STREAM</name>
+ <desc><![CDATA[Stream Crossing]]></desc>
+ <sym>Bridge</sym>
+ <type><![CDATA[Bridge]]></type>
+</rtept>
+<rtept lat="50.167110" lon="8.613574">
+ <ele>53.644800</ele>
+ <time>2001-06-02T03:27:02Z</time>
+ <name>6328</name>
+ <desc><![CDATA[6328]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</rtept>
+<rtept lat="50.166459" lon="8.610067">
+ <ele>48.768000</ele>
+ <time>2001-06-02T03:27:02Z</time>
+ <name>635722</name>
+ <desc><![CDATA[635722]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</rtept>
+<rtept lat="50.166557" lon="8.609410">
+ <ele>49.072800</ele>
+ <time>2001-06-02T03:27:02Z</time>
+ <name>635783</name>
+ <desc><![CDATA[635783]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</rtept>
+<rtept lat="50.163495" lon="8.607117">
+ <ele>62.484000</ele>
+ <time>2001-06-02T03:27:03Z</time>
+ <name>6373</name>
+ <desc><![CDATA[6373]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</rtept>
+<rtept lat="50.165687" lon="8.607360">
+ <ele>87.782400</ele>
+ <time>2001-06-02T03:27:03Z</time>
+ <name>BEAR HILL</name>
+ <cmt>BEAR HILL TOWER</cmt>
+ <desc><![CDATA[Bear Hill Tower]]></desc>
+ <sym>Tall Tower</sym>
+ <type><![CDATA[Tower]]></type>
+</rtept>
+<rtept lat="50.159986" lon="8.606170">
+ <ele>72.945191</ele>
+ <time>2001-11-16T23:03:38Z</time>
+ <name>6289</name>
+ <desc><![CDATA[6289]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</rtept>
+<rtept lat="50.157616" lon="8.605116">
+ <ele>72.847200</ele>
+ <time>2001-06-02T03:27:04Z</time>
+ <name>6297</name>
+ <desc><![CDATA[6297]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</rtept>
+<rtept lat="50.153845" lon="8.605206">
+ <ele>66.696655</ele>
+ <time>2001-11-16T23:03:38Z</time>
+ <name>6283</name>
+ <desc><![CDATA[6283]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</rtept>
+<rtept lat="50.151430" lon="8.605413">
+ <ele>57.564209</ele>
+ <time>2001-11-16T23:03:38Z</time>
+ <name>6280</name>
+ <desc><![CDATA[6280]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</rtept>
+<rtept lat="50.148448" lon="8.606158">
+ <ele>62.179200</ele>
+ <time>2001-06-02T03:27:04Z</time>
+ <name>6177</name>
+ <desc><![CDATA[6177]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</rtept>
+<rtept lat="50.147804" lon="8.606624">
+ <ele>62.484000</ele>
+ <time>2001-06-02T03:27:04Z</time>
+ <name>6176</name>
+ <desc><![CDATA[6176]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</rtept>
+<rtept lat="50.144773" lon="8.608882">
+ <ele>62.788800</ele>
+ <time>2001-06-02T03:27:05Z</time>
+ <name>6153</name>
+ <desc><![CDATA[6153]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</rtept>
+<rtept lat="50.143592" lon="8.606301">
+ <ele>55.473600</ele>
+ <time>2001-06-02T03:27:05Z</time>
+ <name>6171</name>
+ <desc><![CDATA[6171]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</rtept>
+<rtept lat="50.142981" lon="8.611441">
+ <ele>64.008000</ele>
+ <time>2001-06-02T03:26:58Z</time>
+ <name>6131</name>
+ <desc><![CDATA[6131]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</rtept>
+<rtept lat="50.142196" lon="8.610975">
+ <ele>64.008000</ele>
+ <time>2001-06-02T03:26:55Z</time>
+ <name>6130</name>
+ <desc><![CDATA[6130]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</rtept>
+<rtept lat="50.141754" lon="8.613220">
+ <ele>56.388000</ele>
+ <time>2001-06-02T03:26:55Z</time>
+ <name>6029</name>
+ <desc><![CDATA[6029]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</rtept>
+<rtept lat="50.139018" lon="8.614456">
+ <ele>56.388000</ele>
+ <time>2001-06-02T03:26:55Z</time>
+ <name>6006</name>
+ <desc><![CDATA[600698]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Intersection]]></type>
+</rtept>
+<rtept lat="50.136757" lon="8.613223">
+ <ele>37.616943</ele>
+ <time>2001-11-28T21:05:28Z</time>
+ <name>6014MEADOW</name>
+ <desc><![CDATA[6014MEADOW]]></desc>
+ <sym>Dot</sym>
+ <type><![CDATA[Dot]]></type>
+</rtept>
+<rtept lat="50.134980" lon="8.609942">
+ <ele>45.307495</ele>
+ <time>2001-11-07T23:53:41Z</time>
+ <name>PANTHRCAVE</name>
+ <desc><![CDATA[Panther Cave]]></desc>
+ <sym>Tunnel</sym>
+ <type><![CDATA[Tunnel]]></type>
+</rtept>
+<rtept lat="50.131240" lon="8.609236">
+ <ele>26.561890</ele>
+ <time>2001-11-07T23:53:41Z</time>
+ <name>GATE6</name>
+ <desc><![CDATA[Gate 6]]></desc>
+ <sym>Trailhead</sym>
+ <type><![CDATA[Trail Head]]></type>
+</rtept>
+<rtept lat="50.130950" lon="8.607628">
+ <ele>23.469600</ele>
+ <time>2001-06-02T00:18:15Z</time>
+ <name>BELLEVUE</name>
+ <cmt>BELLEVUE</cmt>
+ <desc><![CDATA[Bellevue Parking Lot]]></desc>
+ <sym>Parking Area</sym>
+ <type><![CDATA[Parking]]></type>
+</rtept>
+</rte>
+</gpx>

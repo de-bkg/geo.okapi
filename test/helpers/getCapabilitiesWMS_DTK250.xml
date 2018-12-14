@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WMS_Capabilities xmlns:inspire_common="http://inspire.ec.europa.eu/schemas/common/1.0"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xmlns:inspire_vs="http://inspire.ec.europa.eu/schemas/inspire_vs/1.0"
+                  xmlns="http://www.opengis.net/wms" version="1.3.0"
+                  xsi:schemaLocation="http://www.opengis.net/wms http://schemas.opengis.net/wms/1.3.0/capabilities_1_3_0.xsd http://inspire.ec.europa.eu/schemas/inspire_vs/1.0 http://inspire.ec.europa.eu/schemas/inspire_vs/1.0/inspire_vs.xsd">
+    <Service>
+        <Name>WMS</Name>
+        <Title>WMS Digitale Topographische Karte 1 : 250.000</Title>
+        <Abstract>Darstellungsdienst der Digitale Topographische Karte 1 : 250.000 (DTK250) für das Gebiet der
+            Bundesrepublik Deutschland.
+        </Abstract>
+        <KeywordList>
+            <Keyword>DTK250</Keyword>
+            <Keyword vocabulary="ISO">infoMapAccessService</Keyword>
+            <Keyword>WMS</Keyword>
+            <Keyword>ViewService</Keyword>
+            <Keyword>INSPIRE:ViewService</Keyword>
+            <Keyword>INSPIRE</Keyword>
+        </KeywordList>
+        <OnlineResource xlink:href="http://sg.geodatenzentrum.de/wms_dtk250?" xlink:type="simple"/>
+        <ContactInformation>
+            <ContactPersonPrimary>
+                <ContactPerson/>
+                <ContactOrganization>Dienstleistungszentrum des Bundes für Geoinformation und Geodäsie
+                </ContactOrganization>
+            </ContactPersonPrimary>
+            <ContactPosition>Technischer Administrator</ContactPosition>
+            <ContactAddress>
+                <AddressType/>
+                <Address>Karl-Rothe-Str. 10 - 14</Address>
+                <City>Leipzig</City>
+                <StateOrProvince>DE-BKG</StateOrProvince>
+                <PostCode>04105</PostCode>
+                <Country>Deutschland</Country>
+            </ContactAddress>
+            <ContactVoiceTelephone>+49 (0) 341 5634 333</ContactVoiceTelephone>
+            <ContactFacsimileTelephone>+49 (0) 341 5634 415</ContactFacsimileTelephone>
+            <ContactElectronicMailAddress>dlz@bkg.bund.de</ContactElectronicMailAddress>
+        </ContactInformation>
+        <Fees>Der Dienst steht gemäß Geodatenzugangsgesetz (http://www.geodatenzentrum.de/docpdf/geozg.pdf)
+            geldleistungsfrei zur Verfügung.
+        </Fees>
+        <AccessConstraints>
+            Es gelten die Bedingungen der Verordnung zur Festlegung der Nutzungsbestimmungen für die Bereitstellung von
+            Geodaten des Bundes (GeoNutzV) vom 19. März 2013
+            (Bundesgesetzblatt Jahrgang 2013 Teil I Nr. 14), URL: http://www.geodatenzentrum.de/docpdf/geonutzv.pdf
+            | Quellenvermerk: &amp;copy; GeoBasis-DE / BKG &amp;lt;Jahr des letzten Datenbezugs&amp;gt;
+        </AccessConstraints>
+        <MaxWidth>7060</MaxWidth>
+        <MaxHeight>7060</MaxHeight>
+    </Service>
+    <Capability>
+        <Request>
+            <GetCapabilities>
+                <Format>application/vnd.ogc.wms_xml</Format>
+                <Format>text/xml</Format>
+                <DCPType>
+                    <HTTP>
+                        <Get>
+                            <OnlineResource xlink:href="http://sg.geodatenzentrum.de/wms_dtk250?" xlink:type="simple"/>
+                        </Get>
+                    </HTTP>
+                </DCPType>
+            </GetCapabilities>
+            <GetMap>
+                <Format>image/jpeg</Format>
+                <Format>image/tiff</Format>
+                <Format>image/png</Format>
+                <Format>image/png8</Format>
+                <Format>image/png24</Format>
+                <Format>image/png32</Format>
+                <Format>image/gif</Format>
+                <DCPType>
+                    <HTTP>
+                        <Get>
+                            <OnlineResource xlink:href="http://sg.geodatenzentrum.de/wms_dtk250?" xlink:type="simple"/>
+                        </Get>
+                    </HTTP>
+                </DCPType>
+            </GetMap>
+            <GetFeatureInfo>
+                <Format>application/vnd.esri.wms_raw_xml</Format>
+                <Format>application/vnd.esri.wms_featureinfo_xml</Format>
+                <Format>application/vnd.ogc.wms_xml</Format>
+                <Format>text/xml</Format>
+                <Format>text/html</Format>
+                <Format>text/plain</Format>
+                <Format>application/geojson</Format>
+                <DCPType>
+                    <HTTP>
+                        <Get>
+                            <OnlineResource xlink:href="http://sg.geodatenzentrum.de/wms_dtk250?" xlink:type="simple"/>
+                        </Get>
+                    </HTTP>
+                </DCPType>
+            </GetFeatureInfo>
+        </Request>
+        <Exception>
+            <Format>application/vnd.ogc.se_xml</Format>
+            <Format>application/vnd.ogc.se_inimage</Format>
+            <Format>application/vnd.ogc.se_blank</Format>
+            <Format>text/xml</Format>
+            <Format>XML</Format>
+        </Exception>
+        <inspire_vs:ExtendedCapabilities>
+            <inspire_common:MetadataUrl>
+                <inspire_common:URL>http://mis.bkg.bund.de/geonetwork/srv/eng/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;OutputSchema=http://www.isotc211.org/2005/gmd&amp;elementSetName=full&amp;ID=fc4c439a-f242-4154-ac9e-0b3498d14209</inspire_common:URL>
+                <inspire_common:MediaType>application/vnd.ogc.csw.GetRecordByIdResponse_xml</inspire_common:MediaType>
+            </inspire_common:MetadataUrl>
+            <inspire_common:SupportedLanguages>
+                <inspire_common:DefaultLanguage>
+                    <inspire_common:Language>ger</inspire_common:Language>
+                </inspire_common:DefaultLanguage>
+            </inspire_common:SupportedLanguages>
+            <inspire_common:ResponseLanguage>
+                <inspire_common:Language>ger</inspire_common:Language>
+            </inspire_common:ResponseLanguage>
+        </inspire_vs:ExtendedCapabilities>
+        <Layer>
+            <Title>DTK250 Layers</Title>
+            <Abstract>Gruppenlayer für DTK250</Abstract>
+            <CRS>EPSG:4326</CRS>
+            <CRS>CRS:84</CRS>
+            <CRS>EPSG:25832</CRS>
+            <CRS>EPSG:25833</CRS>
+            <CRS>EPSG:31466</CRS>
+            <CRS>EPSG:31462</CRS>
+            <CRS>EPSG:31467</CRS>
+            <CRS>EPSG:31463</CRS>
+            <CRS>EPSG:31468</CRS>
+            <CRS>EPSG:31464</CRS>
+            <CRS>EPSG:31469</CRS>
+            <CRS>EPSG:31465</CRS>
+            <CRS>EPSG:5676</CRS>
+            <CRS>EPSG:5677</CRS>
+            <CRS>EPSG:5678</CRS>
+            <CRS>EPSG:5679</CRS>
+            <CRS>EPSG:3857</CRS>
+            <CRS>EPSG:102100</CRS>
+            <CRS>EPSG:4258</CRS>
+            <CRS>EPSG:3034</CRS>
+            <CRS>EPSG:3035</CRS>
+            <CRS>EPSG:3044</CRS>
+            <CRS>EPSG:3045</CRS>
+            <CRS>EPSG:4839</CRS>
+            <CRS>EPSG:4647</CRS>
+            <CRS>EPSG:5650</CRS>
+            <CRS>EPSG:2397</CRS>
+            <CRS>EPSG:2398</CRS>
+            <CRS>EPSG:2399</CRS>
+            <EX_GeographicBoundingBox>
+                <westBoundLongitude>5.161452</westBoundLongitude>
+                <eastBoundLongitude>15.721615</eastBoundLongitude>
+                <southBoundLatitude>47.105427</southBoundLatitude>
+                <northBoundLatitude>55.17763</northBoundLatitude>
+            </EX_GeographicBoundingBox>
+            <BoundingBox minx="47.105427" CRS="EPSG:4326" maxx="55.17763" maxy="15.721615" miny="5.161452"/>
+            <BoundingBox minx="5.161452" CRS="CRS:84" maxx="15.721615" maxy="55.17763" miny="47.105427"/>
+            <BoundingBox minx="208762.550325" CRS="EPSG:25832" maxx="1009921.84305" maxy="6135193.85322"
+                         miny="5224032.26874"/>
+            <BoundingBox minx="-246227.487386" CRS="EPSG:25833" maxx="554753.08381" maxy="6158824.69181"
+                         miny="5217132.54467"/>
+            <BoundingBox minx="5218777.53082" CRS="EPSG:31466" maxx="6159601.43848" maxy="3237570.89967"
+                         miny="2436356.84476"/>
+            <BoundingBox minx="2436356.84476" CRS="EPSG:31462" maxx="3237570.89967" maxy="6159601.43848"
+                         miny="5218777.53082"/>
+            <BoundingBox minx="5225590.6511" CRS="EPSG:31467" maxx="6137012.69825" maxy="4010063.96679"
+                         miny="3208681.37566"/>
+            <BoundingBox minx="3208681.37566" CRS="EPSG:31463" maxx="4010063.96679" maxy="6137012.69825"
+                         miny="5225590.6511"/>
+            <BoundingBox minx="5225161.13812" CRS="EPSG:31468" maxx="6137737.94559" maxy="4782445.16726"
+                         miny="3981065.86596"/>
+            <BoundingBox minx="3981065.86596" CRS="EPSG:31464" maxx="4782445.16726" maxy="6137737.94559"
+                         miny="5225161.13812"/>
+            <BoundingBox minx="5218689.00401" CRS="EPSG:31469" maxx="6160650.08905" maxy="5554768.34494"
+                         miny="4753564.5346"/>
+            <BoundingBox minx="4753564.5346" CRS="EPSG:31465" maxx="5554768.34494" maxy="6160650.08905"
+                         miny="5218689.00401"/>
+            <BoundingBox minx="2436356.84476" CRS="EPSG:5676" maxx="3237570.89967" maxy="6159601.43848"
+                         miny="5218777.53082"/>
+            <BoundingBox minx="3208681.37566" CRS="EPSG:5677" maxx="4010063.96679" maxy="6137012.69825"
+                         miny="5225590.6511"/>
+            <BoundingBox minx="3981065.86596" CRS="EPSG:5678" maxx="4782445.16726" maxy="6137737.94559"
+                         miny="5225161.13812"/>
+            <BoundingBox minx="4753564.5346" CRS="EPSG:5679" maxx="5554768.34494" maxy="6160650.08905"
+                         miny="5218689.00401"/>
+            <BoundingBox minx="574570.208394" CRS="EPSG:3857" maxx="1750122.17625" maxy="7396417.07473"
+                         miny="5959299.45216"/>
+            <BoundingBox minx="574570.208394" CRS="EPSG:102100" maxx="1750122.17625" maxy="7396417.07473"
+                         miny="5959299.45216"/>
+            <BoundingBox minx="47.105427" CRS="EPSG:4258" maxx="55.17763" maxy="15.721615" miny="5.161452"/>
+            <BoundingBox minx="3644870.53109" CRS="EPSG:3034" maxx="4419823.38761" maxy="3155612.10852"
+                         miny="2285682.9152"/>
+            <BoundingBox minx="3953721.4464" CRS="EPSG:3035" maxx="4755168.6468" maxy="3578068.36675"
+                         miny="2677756.07481"/>
+            <BoundingBox minx="208762.550325" CRS="EPSG:3044" maxx="1009921.84305" maxy="6135193.85322"
+                         miny="5224032.26874"/>
+            <BoundingBox minx="-246227.487386" CRS="EPSG:3045" maxx="554753.08381" maxy="6158824.69181"
+                         miny="5217132.54467"/>
+            <BoundingBox minx="-418993.639333" CRS="EPSG:4839" maxx="477204.614257" maxy="396620.555553"
+                         miny="-405487.047146"/>
+            <BoundingBox minx="32208762.5503" CRS="EPSG:4647" maxx="33009921.843" maxy="6135193.85322"
+                         miny="5224032.26874"/>
+            <BoundingBox minx="32753772.5126" CRS="EPSG:5650" maxx="33554753.0838" maxy="6158824.69181"
+                         miny="5217132.54467"/>
+            <BoundingBox minx="5226214.76322" CRS="EPSG:2397" maxx="6137756.46893" maxy="4010134.39937"
+                         miny="3208641.15053"/>
+            <BoundingBox minx="5225785.19092" CRS="EPSG:2398" maxx="6138481.8174" maxy="4782484.1671"
+                         miny="3980994.20837"/>
+            <BoundingBox minx="5219312.16307" CRS="EPSG:2399" maxx="6161397.15619" maxy="5554775.90716"
+                         miny="4753461.4548"/>
+            <Layer queryable="1">
+                <Name>dtk250</Name>
+                <Title>DTK250 Farbe</Title>
+                <Abstract>Farbdarstellung DTK250</Abstract>
+                <CRS>EPSG:4326</CRS>
+                <CRS>CRS:84</CRS>
+                <CRS>EPSG:25832</CRS>
+                <CRS>EPSG:25833</CRS>
+                <CRS>EPSG:31466</CRS>
+                <CRS>EPSG:31462</CRS>
+                <CRS>EPSG:31467</CRS>
+                <CRS>EPSG:31463</CRS>
+                <CRS>EPSG:31468</CRS>
+                <CRS>EPSG:31464</CRS>
+                <CRS>EPSG:31469</CRS>
+                <CRS>EPSG:31465</CRS>
+                <CRS>EPSG:5676</CRS>
+                <CRS>EPSG:5677</CRS>
+                <CRS>EPSG:5678</CRS>
+                <CRS>EPSG:5679</CRS>
+                <CRS>EPSG:3857</CRS>
+                <CRS>EPSG:102100</CRS>
+                <CRS>EPSG:4258</CRS>
+                <CRS>EPSG:3034</CRS>
+                <CRS>EPSG:3035</CRS>
+                <CRS>EPSG:3044</CRS>
+                <CRS>EPSG:3045</CRS>
+                <CRS>EPSG:4839</CRS>
+                <CRS>EPSG:4647</CRS>
+                <CRS>EPSG:5650</CRS>
+                <CRS>EPSG:2397</CRS>
+                <CRS>EPSG:2398</CRS>
+                <CRS>EPSG:2399</CRS>
+                <EX_GeographicBoundingBox>
+                    <westBoundLongitude>5.161452</westBoundLongitude>
+                    <eastBoundLongitude>15.721615</eastBoundLongitude>
+                    <southBoundLatitude>47.105427</southBoundLatitude>
+                    <northBoundLatitude>55.17763</northBoundLatitude>
+                </EX_GeographicBoundingBox>
+                <BoundingBox minx="47.105427" CRS="EPSG:4326" maxx="55.17763" maxy="15.721615" miny="5.161452"/>
+                <BoundingBox minx="5.161452" CRS="CRS:84" maxx="15.721615" maxy="55.17763" miny="47.105427"/>
+                <BoundingBox minx="208762.550325" CRS="EPSG:25832" maxx="1009921.84305" maxy="6135193.85322"
+                             miny="5224032.26874"/>
+                <BoundingBox minx="-246227.487386" CRS="EPSG:25833" maxx="554753.08381" maxy="6158824.69181"
+                             miny="5217132.54467"/>
+                <BoundingBox minx="5218777.53082" CRS="EPSG:31466" maxx="6159601.43848" maxy="3237570.89967"
+                             miny="2436356.84476"/>
+                <BoundingBox minx="2436356.84476" CRS="EPSG:31462" maxx="3237570.89967" maxy="6159601.43848"
+                             miny="5218777.53082"/>
+                <BoundingBox minx="5225590.6511" CRS="EPSG:31467" maxx="6137012.69825" maxy="4010063.96679"
+                             miny="3208681.37566"/>
+                <BoundingBox minx="3208681.37566" CRS="EPSG:31463" maxx="4010063.96679" maxy="6137012.69825"
+                             miny="5225590.6511"/>
+                <BoundingBox minx="5225161.13812" CRS="EPSG:31468" maxx="6137737.94559" maxy="4782445.16726"
+                             miny="3981065.86596"/>
+                <BoundingBox minx="3981065.86596" CRS="EPSG:31464" maxx="4782445.16726" maxy="6137737.94559"
+                             miny="5225161.13812"/>
+                <BoundingBox minx="5218689.00401" CRS="EPSG:31469" maxx="6160650.08905" maxy="5554768.34494"
+                             miny="4753564.5346"/>
+                <BoundingBox minx="4753564.5346" CRS="EPSG:31465" maxx="5554768.34494" maxy="6160650.08905"
+                             miny="5218689.00401"/>
+                <BoundingBox minx="2436356.84476" CRS="EPSG:5676" maxx="3237570.89967" maxy="6159601.43848"
+                             miny="5218777.53082"/>
+                <BoundingBox minx="3208681.37566" CRS="EPSG:5677" maxx="4010063.96679" maxy="6137012.69825"
+                             miny="5225590.6511"/>
+                <BoundingBox minx="3981065.86596" CRS="EPSG:5678" maxx="4782445.16726" maxy="6137737.94559"
+                             miny="5225161.13812"/>
+                <BoundingBox minx="4753564.5346" CRS="EPSG:5679" maxx="5554768.34494" maxy="6160650.08905"
+                             miny="5218689.00401"/>
+                <BoundingBox minx="574570.208394" CRS="EPSG:3857" maxx="1750122.17625" maxy="7396417.07473"
+                             miny="5959299.45216"/>
+                <BoundingBox minx="574570.208394" CRS="EPSG:102100" maxx="1750122.17625" maxy="7396417.07473"
+                             miny="5959299.45216"/>
+                <BoundingBox minx="47.105427" CRS="EPSG:4258" maxx="55.17763" maxy="15.721615" miny="5.161452"/>
+                <BoundingBox minx="3644870.53109" CRS="EPSG:3034" maxx="4419823.38761" maxy="3155612.10852"
+                             miny="2285682.9152"/>
+                <BoundingBox minx="3953721.4464" CRS="EPSG:3035" maxx="4755168.6468" maxy="3578068.36675"
+                             miny="2677756.07481"/>
+                <BoundingBox minx="208762.550325" CRS="EPSG:3044" maxx="1009921.84305" maxy="6135193.85322"
+                             miny="5224032.26874"/>
+                <BoundingBox minx="-246227.487386" CRS="EPSG:3045" maxx="554753.08381" maxy="6158824.69181"
+                             miny="5217132.54467"/>
+                <BoundingBox minx="-418993.639333" CRS="EPSG:4839" maxx="477204.614257" maxy="396620.555553"
+                             miny="-405487.047146"/>
+                <BoundingBox minx="32208762.5503" CRS="EPSG:4647" maxx="33009921.843" maxy="6135193.85322"
+                             miny="5224032.26874"/>
+                <BoundingBox minx="32753772.5126" CRS="EPSG:5650" maxx="33554753.0838" maxy="6158824.69181"
+                             miny="5217132.54467"/>
+                <BoundingBox minx="5226214.76322" CRS="EPSG:2397" maxx="6137756.46893" maxy="4010134.39937"
+                             miny="3208641.15053"/>
+                <BoundingBox minx="5225785.19092" CRS="EPSG:2398" maxx="6138481.8174" maxy="4782484.1671"
+                             miny="3980994.20837"/>
+                <BoundingBox minx="5219312.16307" CRS="EPSG:2399" maxx="6161397.15619" maxy="5554775.90716"
+                             miny="4753461.4548"/>
+                <AuthorityURL name="BKG">
+                    <OnlineResource xlink:href="http://www.bkg.bund.de" xlink:type="simple"/>
+                </AuthorityURL>
+                <Identifier authority="BKG">https://registry.gdi-de.org/id/de.bund.bkg.csw/DEBKG00M00000168</Identifier>
+                <MetadataURL type="TC211">
+                    <Format>text/xml</Format>
+                    <OnlineResource
+                            xlink:href="http://mis.bkg.bund.de/geonetwork/srv/eng/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;OutputSchema=http://www.isotc211.org/2005/gmd&amp;elementSetName=full&amp;ID=bd28db95-963f-412a-acc1-926bf49ae8c0"
+                            xlink:type="simple"/>
+                </MetadataURL>
+                <Style>
+                    <Name>default</Name>
+                    <Title>default</Title>
+                    <LegendURL width="300" height="1592">
+                        <Format>image/png</Format>
+                        <OnlineResource xlink:href="http://sg.geodatenzentrum.de/web_public/legenden/dtk/dtk250.png"
+                                        xlink:type="simple"/>
+                    </LegendURL>
+                </Style>
+            </Layer>
+            <Layer queryable="1">
+                <Name>dtk250_grau</Name>
+                <Title>DTK250 Grau</Title>
+                <Abstract>Graustufendarstellung DTK250</Abstract>
+                <CRS>EPSG:4326</CRS>
+                <CRS>CRS:84</CRS>
+                <CRS>EPSG:25832</CRS>
+                <CRS>EPSG:25833</CRS>
+                <CRS>EPSG:31466</CRS>
+                <CRS>EPSG:31462</CRS>
+                <CRS>EPSG:31467</CRS>
+                <CRS>EPSG:31463</CRS>
+                <CRS>EPSG:31468</CRS>
+                <CRS>EPSG:31464</CRS>
+                <CRS>EPSG:31469</CRS>
+                <CRS>EPSG:31465</CRS>
+                <CRS>EPSG:5676</CRS>
+                <CRS>EPSG:5677</CRS>
+                <CRS>EPSG:5678</CRS>
+                <CRS>EPSG:5679</CRS>
+                <CRS>EPSG:3857</CRS>
+                <CRS>EPSG:102100</CRS>
+                <CRS>EPSG:4258</CRS>
+                <CRS>EPSG:3034</CRS>
+                <CRS>EPSG:3035</CRS>
+                <CRS>EPSG:3044</CRS>
+                <CRS>EPSG:3045</CRS>
+                <CRS>EPSG:4839</CRS>
+                <CRS>EPSG:4647</CRS>
+                <CRS>EPSG:5650</CRS>
+                <CRS>EPSG:2397</CRS>
+                <CRS>EPSG:2398</CRS>
+                <CRS>EPSG:2399</CRS>
+                <EX_GeographicBoundingBox>
+                    <westBoundLongitude>5.161452</westBoundLongitude>
+                    <eastBoundLongitude>15.721615</eastBoundLongitude>
+                    <southBoundLatitude>47.105427</southBoundLatitude>
+                    <northBoundLatitude>55.17763</northBoundLatitude>
+                </EX_GeographicBoundingBox>
+                <BoundingBox minx="47.105427" CRS="EPSG:4326" maxx="55.17763" maxy="15.721615" miny="5.161452"/>
+                <BoundingBox minx="5.161452" CRS="CRS:84" maxx="15.721615" maxy="55.17763" miny="47.105427"/>
+                <BoundingBox minx="208762.550325" CRS="EPSG:25832" maxx="1009921.84305" maxy="6135193.85322"
+                             miny="5224032.26874"/>
+                <BoundingBox minx="-246227.487386" CRS="EPSG:25833" maxx="554753.08381" maxy="6158824.69181"
+                             miny="5217132.54467"/>
+                <BoundingBox minx="5218777.53082" CRS="EPSG:31466" maxx="6159601.43848" maxy="3237570.89967"
+                             miny="2436356.84476"/>
+                <BoundingBox minx="2436356.84476" CRS="EPSG:31462" maxx="3237570.89967" maxy="6159601.43848"
+                             miny="5218777.53082"/>
+                <BoundingBox minx="5225590.6511" CRS="EPSG:31467" maxx="6137012.69825" maxy="4010063.96679"
+                             miny="3208681.37566"/>
+                <BoundingBox minx="3208681.37566" CRS="EPSG:31463" maxx="4010063.96679" maxy="6137012.69825"
+                             miny="5225590.6511"/>
+                <BoundingBox minx="5225161.13812" CRS="EPSG:31468" maxx="6137737.94559" maxy="4782445.16726"
+                             miny="3981065.86596"/>
+                <BoundingBox minx="3981065.86596" CRS="EPSG:31464" maxx="4782445.16726" maxy="6137737.94559"
+                             miny="5225161.13812"/>
+                <BoundingBox minx="5218689.00401" CRS="EPSG:31469" maxx="6160650.08905" maxy="5554768.34494"
+                             miny="4753564.5346"/>
+                <BoundingBox minx="4753564.5346" CRS="EPSG:31465" maxx="5554768.34494" maxy="6160650.08905"
+                             miny="5218689.00401"/>
+                <BoundingBox minx="2436356.84476" CRS="EPSG:5676" maxx="3237570.89967" maxy="6159601.43848"
+                             miny="5218777.53082"/>
+                <BoundingBox minx="3208681.37566" CRS="EPSG:5677" maxx="4010063.96679" maxy="6137012.69825"
+                             miny="5225590.6511"/>
+                <BoundingBox minx="3981065.86596" CRS="EPSG:5678" maxx="4782445.16726" maxy="6137737.94559"
+                             miny="5225161.13812"/>
+                <BoundingBox minx="4753564.5346" CRS="EPSG:5679" maxx="5554768.34494" maxy="6160650.08905"
+                             miny="5218689.00401"/>
+                <BoundingBox minx="574570.208394" CRS="EPSG:3857" maxx="1750122.17625" maxy="7396417.07473"
+                             miny="5959299.45216"/>
+                <BoundingBox minx="574570.208394" CRS="EPSG:102100" maxx="1750122.17625" maxy="7396417.07473"
+                             miny="5959299.45216"/>
+                <BoundingBox minx="47.105427" CRS="EPSG:4258" maxx="55.17763" maxy="15.721615" miny="5.161452"/>
+                <BoundingBox minx="3644870.53109" CRS="EPSG:3034" maxx="4419823.38761" maxy="3155612.10852"
+                             miny="2285682.9152"/>
+                <BoundingBox minx="3953721.4464" CRS="EPSG:3035" maxx="4755168.6468" maxy="3578068.36675"
+                             miny="2677756.07481"/>
+                <BoundingBox minx="208762.550325" CRS="EPSG:3044" maxx="1009921.84305" maxy="6135193.85322"
+                             miny="5224032.26874"/>
+                <BoundingBox minx="-246227.487386" CRS="EPSG:3045" maxx="554753.08381" maxy="6158824.69181"
+                             miny="5217132.54467"/>
+                <BoundingBox minx="-418993.639333" CRS="EPSG:4839" maxx="477204.614257" maxy="396620.555553"
+                             miny="-405487.047146"/>
+                <BoundingBox minx="32208762.5503" CRS="EPSG:4647" maxx="33009921.843" maxy="6135193.85322"
+                             miny="5224032.26874"/>
+                <BoundingBox minx="32753772.5126" CRS="EPSG:5650" maxx="33554753.0838" maxy="6158824.69181"
+                             miny="5217132.54467"/>
+                <BoundingBox minx="5226214.76322" CRS="EPSG:2397" maxx="6137756.46893" maxy="4010134.39937"
+                             miny="3208641.15053"/>
+                <BoundingBox minx="5225785.19092" CRS="EPSG:2398" maxx="6138481.8174" maxy="4782484.1671"
+                             miny="3980994.20837"/>
+                <BoundingBox minx="5219312.16307" CRS="EPSG:2399" maxx="6161397.15619" maxy="5554775.90716"
+                             miny="4753461.4548"/>
+                <AuthorityURL name="BKG">
+                    <OnlineResource xlink:href="http://www.bkg.bund.de" xlink:type="simple"/>
+                </AuthorityURL>
+                <Identifier authority="BKG">https://registry.gdi-de.org/id/de.bund.bkg.csw/DEBKG00M00000168</Identifier>
+                <MetadataURL type="TC211">
+                    <Format>text/xml</Format>
+                    <OnlineResource
+                            xlink:href="http://mis.bkg.bund.de/geonetwork/srv/eng/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;OutputSchema=http://www.isotc211.org/2005/gmd&amp;elementSetName=full&amp;ID=bd28db95-963f-412a-acc1-926bf49ae8c0"
+                            xlink:type="simple"/>
+                </MetadataURL>
+                <Style>
+                    <Name>default</Name>
+                    <Title>default</Title>
+                    <LegendURL width="300" height="1592">
+                        <Format>image/png</Format>
+                        <OnlineResource
+                                xlink:href="http://sg.geodatenzentrum.de/web_public/legenden/dtk/dtk250_grau.png"
+                                xlink:type="simple"/>
+                    </LegendURL>
+                </Style>
+            </Layer>
+        </Layer>
+    </Capability>
+</WMS_Capabilities>

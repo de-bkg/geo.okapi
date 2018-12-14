@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BKG WebMap - Persistence</title>
+    <link rel="stylesheet" href="../build/libs/geo.okapi.min.css">
+    <style>
+        #map {
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script src="../build/libs/geo.okapi.min.js"></script>
+<script>
+    new okapi.MapBuilder()
+        .setLayers({
+            baseLayers: [
+                {
+                    type: 'WMS',
+                    name: 'WMS Layer',
+                    id: 'basewms',
+                    tiles: false,
+                    url: 'https://sg.geodatenzentrum.de/wms_vg2500',
+                    layers: [{
+                        id: '0',
+                        name: '0',
+                        layer: '0'
+                    }]
+                },
+                {
+                    type: 'BKG',
+                    name: 'WebAtlasDE',
+                    id: 'basebkg',
+                    ref: 'webatlasde_light',
+                    visibility: true,
+                    minResolution: 0.0001,
+                    maxResolution: 156545
+                }
+            ],
+            overlays: [
+                {
+                    type: 'GROUP',
+                    name: 'GROUP Layer',
+                    id: 'grouplayer',
+                    layers: [
+                        {
+                            type: 'WFS',
+                            name: 'WFS Layer',
+                            id: 'wfs1',
+                            visibility: true,
+                            url: 'https://web-mapping.com/geoserver/ows',
+                            typename: 'kurs:berliner_bezirke',
+                            srsName: 'EPSG:3857',
+                            format: 'GML3',
+                            version: '1.1.0',
+                            minResolution: 0.0001,
+                            maxResolution: 156545,
+                            edit: false
+                        },
+                        {
+                            type: 'MARKER',
+                            name: 'Marker Leipzig',
+                            id: 'marker1',
+                            visibility: true,
+                            srsName: 'EPSG:4326',
+                            markers: [
+                                {
+                                    coordinates: {
+                                        lat: 50.091176,
+                                        lon: 8.663281
+                                    }
+
+                                },
+                                {
+                                    coordinates: {
+                                        lat: 51.354210,
+                                        lon: 12.374295
+                                    }
+                                }
+                            ],
+                            minResolution: 0.0001,
+                            maxResolution: 156545,
+                            edit: false
+                        }
+                    ]
+                },
+                {
+                    type: 'WMS',
+                    name: 'wms_vz250_0101',
+                    id: 'wms1',
+                    url: 'http://sg.geodatenzentrum.de/wms_vz250_0101',
+                    layers: [
+                        {
+                            name: 'VZ 250',
+                            layer: 'vz250',
+                            visibility: true,
+                            selectStyle: false
+                        }
+                    ],
+                    tiles: true,
+                    srsName: 'EPSG:25832',
+                    version: '1.1.0',
+                    minResolution: 0.0001,
+                    maxResolution: 156545
+                },
+                {
+                    type: 'CSV',
+                    name: 'CSV test',
+                    id: 'csv1',
+                    url: 'data/points.csv',
+                    visibility: true,
+                    srsName: 'EPSG:4326',
+                    csvOptions: {
+                        delimiter: ';',
+                        header: true,
+                        columnsToParse: [2, 3, 4],
+                        LatColumn: 1,
+                        LonColumn: 2,
+                        encoding: 'UTF-8'
+                    },
+                    minResolution: 0.0001,
+                    maxResolution: 156545,
+                    edit: false
+                },
+                {
+                    type: 'GPS',
+                    name: 'GPS Layer',
+                    id: 'gps1',
+                    url: 'data/Frankfurt.gpx',
+                    visibility: true,
+                    minResolution: 0.0001,
+                    maxResolution: 156545,
+                    edit: false
+                }
+            ]
+        })
+        .setControls({
+            panelPosition: 'left',
+            tools: {
+                layerSwitcher: {
+                    active: true,
+                    style: 'customLayerSwitcher',
+                    editStyle: false,
+                    changeVisibility: true,
+                    showWMSLayers: true,
+                    changeOrder: true,
+                    openLevel: 1
+                },
+                zoom: {
+                    active: true,
+                    showZoomLevel: false,
+                    zoomToFullExtent: false,
+                    history: false,
+                    position: 'top-left'
+                },
+                share: {
+                    active: true,
+                    print: {
+                        active: false
+                    },
+                    permaLink : {
+                        active: false
+                    },
+                    jsonExport: {
+                        active: true
+                    }
+                }
+            }
+        })
+        .create();
+</script>
+
+</body>
+</html>

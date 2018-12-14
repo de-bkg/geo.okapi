@@ -1,0 +1,166 @@
+{
+  "exports": [
+    "ol.Map",
+    "ol.Map#*",
+
+    "ol.View",
+    "ol.View#*",
+
+    "ol.interaction.Draw",
+    "ol.interaction.Draw#*",
+    "ol.interaction.Modify",
+    "ol.interaction.Modify#*",
+    "ol.interaction.Snap",
+    "ol.interaction.Snap#*",
+    "ol.interaction.Select",
+    "ol.interaction.Select#*",
+    "ol.interaction.KeyboardPan",
+
+    "ol.events.condition.pointerMove",
+    "ol.events.condition.singleClick",
+
+    "ol.layer.Image",
+    "ol.layer.Image#*",
+    "ol.layer.Tile",
+    "ol.layer.Tile#*",
+    "ol.layer.Vector",
+    "ol.layer.Vector#*",
+    "ol.layer.Base",
+    "ol.layer.Base#*",
+    "ol.layer.Group",
+    "ol.layer.Group#*",
+
+    "ol.Overlay",
+    "ol.Overlay#*",
+
+    "ol.source.ImageWMS",
+    "ol.source.ImageWMS#*",
+    "ol.source.TileWMS",
+    "ol.source.TileWMS#*",
+    "ol.source.WMTS",
+    "ol.source.WMTS#*",
+    "ol.source.WMTS.optionsFromCapabilities",
+    "ol.source.Vector",
+    "ol.source.Vector#*",
+
+    "ol.format.GeoJSON",
+    "ol.format.GeoJSON#*",
+    "ol.format.GML",
+    "ol.format.GML#*",
+    "ol.format.GML2",
+    "ol.format.GML2#*",
+    "ol.format.GML3",
+    "ol.format.GML3#*",
+    "ol.format.GPX",
+    "ol.format.GPX#*",
+    "ol.format.KML",
+    "ol.format.KML#*",
+    "ol.format.WKT",
+    "ol.format.WKT#*",
+    "ol.format.WFS",
+    "ol.format.WFS#*",
+    "ol.format.WMSCapabilities",
+    "ol.format.WMTSCapabilities",
+    "ol.format.filter.like",
+
+    "ol.control.defaults",
+    "ol.control.Control",
+    "ol.control.Zoom",
+    "ol.control.FullScreen",
+    "ol.control.ScaleLine",
+    "ol.control.MousePosition",
+    "ol.control.MousePosition#*",
+    "ol.control.OverviewMap",
+    "ol.control.OverviewMap#*",
+
+    "ol.coordinate.createStringXY",
+    "ol.coordinate.format",
+
+    "ol.proj.Projection",
+    "ol.proj.Projection#*",
+    "ol.proj.transform",
+    "ol.proj.get",
+    "ol.proj.transformExtent",
+
+    "ol.Feature",
+    "ol.Feature#*",
+
+    "ol.geom.Geometry",
+    "ol.geom.Geometry#*",
+    "ol.geom.Point",
+    "ol.geom.Point#*",
+    "ol.geom.Polygon",
+    "ol.geom.Polygon#*",
+    "ol.geom.LineString",
+    "ol.geom.LineString#*",
+    "ol.geom.LinearRing",
+    "ol.geom.LinearRing#*",
+
+    "ol.Sphere",
+    "ol.Sphere#*",
+    "ol.Sphere.getArea",
+    "ol.Sphere.getLength",
+
+    "ol.Observable",
+    "ol.Observable#*",
+    "ol.Observable.unByKey",
+
+    "ol.style.Style",
+    "ol.style.Style#*",
+    "ol.style.Fill",
+    "ol.style.Fill#*",
+    "ol.style.Stroke",
+    "ol.style.Stroke#*",
+    "ol.style.Circle",
+    "ol.style.Circle#*",
+    "ol.style.Icon",
+    "ol.style.Icon#*",
+    "ol.style.RegularShape",
+    "ol.style.RegularShape#*",
+    "ol.style.Text",
+    "ol.style.Text#*",
+
+    "ol.loadingstrategy.bbox",
+    "ol.loadingstrategy.tile",
+
+    "ol.Collection",
+    "ol.Collection#*",
+
+    "ol.extent.containsCoordinate",
+    "ol.extent.getWidth",
+    "ol.extent.getHeight",
+    "ol.extent.getTopLeft",
+    "ol.extent.createEmpty",
+    "ol.extent.extend",
+    "ol.extent.intersects",
+    "ol.extent.getIntersection",
+
+    "ol.tilegrid.WMTS",
+    "ol.tilegrid.createXYZ",
+
+    "ol.easing.easeOut",
+
+    "ol.inherits"
+  ],
+  "compile": {
+    "externs": [
+      "externs/bingmaps.js",
+      "externs/cartodb.js",
+      "externs/closure-compiler.js",
+      "externs/esrijson.js",
+      "externs/geojson.js",
+      "externs/oli.js",
+      "externs/olx.js",
+      "externs/proj4js.js",
+      "externs/tilejson.js",
+      "externs/topojson.js"
+    ],
+    "extra_annotation_name": [
+      "api", "observable"
+    ],
+    "compilation_level": "ADVANCED",
+    "manage_closure_dependencies": true,
+    "rewrite_polyfills": false
+  },
+  "umd": true
+}

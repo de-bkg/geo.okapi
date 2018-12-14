@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BKG WebMap - GeoSearch (gdz_ortssuche)</title>
+    <link rel="stylesheet" href="../build/libs/geo.okapi.min.css">
+    <style>
+        #map {
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script src="../build/libs/geo.okapi.min.js"></script>
+<script>
+    new okapi.MapBuilder()
+        .setLayers({
+            baseLayers: [
+                {
+                    type: 'BKG',
+                    name: 'WebAtlasDE',
+                    ref: 'webatlasde_light',
+                    visibility: true,
+                    minResolution: 0.0001,
+                    maxResolution: 156545
+                }
+            ]
+        })
+        .setControls({
+            panelPosition: 'left',
+            tools: {
+                zoom: {
+                    active: true,
+                    showZoomLevel: false,
+                    zoomToFullExtent: false,
+                    history: false,
+                    position: 'top-left'
+                },
+                geoSearch: {
+                    active: true,
+                    resultsMaxZoom: 13,
+                    suggestCount: 10,
+                    resultsCount: 5,
+                    protocol: {
+                        type: 'ortssuche',
+                        url: 'https://sg.geodatenzentrum.de/gdz_ortssuche__c9ebe5b6-9dd6-3a43-5310-76aa2cfa13d6',
+                        // filter: 'bundesland:Sachsen',
+                        bbox: {
+                            coordinates: [722200,5682000,747600,5703000],
+                            projection: 'EPSG:25832'
+                        }
+                    },
+                    reverseGeocoding: {
+                        active: true,
+                        count: 10,
+                        // maxResolution: 1000,
+                        // minResolution: 50,
+                        // maxZoom: 10,
+                        // minZoom: 3
+                    }
+                }
+            }
+        })
+        .create();
+</script>
+
+</body>
+</html>

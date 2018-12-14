@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BKG WebMap - Layerswitcher</title>
+    <link rel="stylesheet" href="../build/libs/geo.okapi.min.css">
+    <style>
+        #map {
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script src="../build/libs/geo.okapi.min.js"></script>
+<script>
+     new okapi.MapBuilder()
+        .setLayers({
+            baseLayers: [
+                {
+                  type: 'NONE'
+                },
+                {
+                    type: 'WMS',
+                    name: 'WMS Layer',
+                    tiles: false,
+                    url: 'https://sg.geodatenzentrum.de/wms_vg2500',
+                    layers: [{
+                        id: '0',
+                        name: '0',
+                        layer: '0'
+                    }, {
+                        id: '1',
+                        name: '1',
+                        layer: '1'
+                    }, {
+                        id: '2',
+                        name: '2',
+                        layer: '2'
+                    }]
+                },
+                {
+                    type: 'BKG',
+                    name: 'WebAtlasDE',
+                    ref: 'webatlasde_light',
+                    visibility: true,
+                    minResolution: 0.0001,
+                    maxResolution: 156545
+                }
+            ],
+            overlays: [
+                {
+                    type: 'GROUP',
+                    name: 'GROUP Layer',
+                    layers: [
+                        {
+                            type: 'WFS',
+                            name: 'WFS Layer',
+                            visibility: true,
+                            url: 'https://web-mapping.com/geoserver/ows',
+                            typename: 'kurs:berliner_bezirke',
+                            srsName: 'EPSG:3857',
+                            format: 'GML3',
+                            version: '1.1.0',
+                            edit: false
+                        },
+                        {
+                            type: 'MARKER',
+                            name: 'Marker Leipzig',
+                            visibility: true,
+                            srsName: 'EPSG:4326',
+                            markers: [
+                                {
+                                    coordinates: {
+                                        lat: 50.091176,
+                                        lon: 8.663281
+                                    },
+                                    content: '<h3>Zentrale Dienststelle in Frankfurt am Main</h3><p>Bundesamt für Kartographie und Geodäsie<br>Richard-Strauss-Allee 11<br>60598 Frankfurt am Main<br>Deutschland</p>'
+
+                                },
+                                {
+                                    coordinates: {
+                                        lat: 51.354210,
+                                        lon: 12.374295
+                                    },
+                                    content: '<h3>Außenstelle Leipzig</h3><p>Bundesamt für Kartographie und Geodäsie<br> - Außenstelle Leipzig -<br>Karl-Rothe-Straße 10-14<br>04105 Leipzig<br>Deutschland</p>'
+                                }
+                            ],
+                            edit: false
+                        }
+                    ]
+                },
+                {
+                    type: 'WMS',
+                    name: 'wms_vz250_0101',
+                    url: 'https://sg.geodatenzentrum.de/wms_vz250_0101',
+                    layers: [
+                        {
+                            name: 'VZ 250',
+                            layer: 'vz250',
+                            visibility: true,
+                            selectStyle: false
+                        }
+                    ],
+                    tiles: true,
+                    srsName: 'EPSG:25832',
+                    version: '1.1.0',
+                    minResolution: 0.0001,
+                    maxResolution: 156545
+                },
+                {
+                    type: 'CSV',
+                    name: 'CSV test',
+                    url: 'data/points.csv',
+                    visibility: true,
+                    srsName: 'EPSG:4326',
+                    csvOptions: {
+                        delimiter: ';',
+                        header: true,
+                        columnsToParse: ['name', 'place', 'infos'],
+                        LatColumn: 'lat',
+                        LonColumn: 'lon',
+                        delimiter: ';',
+                        encoding: 'UTF-8'
+                    },
+                    edit: false
+                },
+                {
+                    type: 'GPS',
+                    name: 'GPS Layer',
+                    url: 'data/Frankfurt.gpx',
+                    visibility: true,
+                    edit: false
+                }
+            ]
+        })
+        .setControls({
+            panelPosition: 'left',
+            tools: {
+                layerSwitcher: {
+                    active: true,
+                    style: 'customLayerSwitcher',
+                    editStyle: false,
+                    changeVisibility: true,
+                    showWMSLayers: true,
+                    changeOrder: true,
+                    openLevel: 1
+                },
+                zoom: {
+                    active: true,
+                    showZoomLevel: false,
+                    zoomToFullExtent: false,
+                    history: false,
+                    position: 'top-left'
+                }
+            }
+        })
+        .create();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,3016 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "BKG_WebMap_Konfigurative_Schnittstelle_Schema",
+  "title": "BKG WebMap - Konfigurative Schnittstelle: Schema - Version 0.7.4",
+  "type": "object",
+  "properties": {
+    "description": {
+      "id": "/description",
+      "type": "string",
+      "description": "Description of current JSON."
+    },
+    "version": {
+      "id": "/version",
+      "type": "string",
+      "description": "Version of current configuration."
+    },
+    "appName": {
+      "id": "/appName",
+      "type": "string",
+      "description": "Name of BKG Webmap implementation. This will be used in export JSON."
+    },
+    "options": {
+      "id": "/options",
+      "type": "object",
+      "description": "General options.",
+      "properties": {
+        "panelPosition": {
+          "id": "/options/panelPosition",
+          "type": "string",
+          "description": "Panel position.",
+          "enum": [
+            "left",
+            "right"
+          ],
+          "default": "left"
+        },
+        "initialize": {
+          "id": "/options/initialize",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Tool that should be shown, wenn starting the Application. If empty or null, then panel will be closed.",
+          "enum": [
+            "geoSearch",
+            "searchCoordinates",
+            "layerSwitcher",
+            "legend",
+            "showAttributes",
+            "copyCoordinates",
+            "measure",
+            "edit",
+            "share"
+          ]
+        },
+        "tools": {
+          "id": "/options/tools",
+          "type": "object",
+          "description": "Tools in panel.",
+          "properties": {
+            "geoSearch": {
+              "id": "/options/tools/geoSearch",
+              "description": "Search a place through name",
+              "type": "object",
+              "properties": {
+                "active": {
+                  "id": "/options/tools/geoSearch/active",
+                  "type": "boolean",
+                  "description": "Activate tool.",
+                  "default": false
+                },
+                "div": {
+                  "id": "/options/tools/geoSearch/div",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "DIV ID",
+                  "default": null
+                },
+                "style": {
+                  "id": "/options/tools/geoSearch/style",
+                  "description": "Class used for CSS styling",
+                  "type": "string"
+                },
+                "resultsMaxZoom": {
+                  "id": "/options/tools/geoSearch/resultsMaxZoom",
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "description": "Max value for zooming to result features. Default: 13.",
+                  "default": 13
+                },
+                "suggestCount": {
+                  "id": "/options/tools/geoSearch/suggestCount",
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "description": "Suggestion results that will be fetched.",
+                  "default": 20
+                },
+                "resultsCount": {
+                  "id": "/options/tools/geoSearch/resultsCount",
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "description": "Results that will be fetched.",
+                  "default": 20
+                },
+                "templatePopup": {
+                  "id": "/options/tools/geoSearch/templatePopup",
+                  "type": "string",
+                  "description": "Template for popups (e.g. '< b>${text}< /b>< br/>${typ}< br/>(${geometry.x} {$geometry.y})')."
+                },
+                "templateList": {
+                  "id": "/options/tools/geoSearch/templateList",
+                  "type": "string",
+                  "description": "Template for results list. (e.g. '< b>${text}< /b>< br/>${typ}< br/>(${geometry.x} {$geometry.y})')."
+                },
+                "protocol": {
+                  "id": "/options/tools/geoSearch/protocol",
+                  "description": "Protocol used for geoSearch control. Default: ortssuche",
+                  "type": "object",
+                  "properties": {
+                    "oneOf": [
+                      {
+                        "$ref": "ortssuche"
+                      },
+                      {
+                        "$ref": "wfs"
+                      }
+                    ]
+                  }
+                },
+                "reverseGeocoding": {
+                  "id": "/options/tools/geoSearch/reverseGeocoding",
+                  "description": "Reverse geocoding option",
+                  "type": "object",
+                  "properties": {
+                    "active": {
+                      "id": "/options/tools/geoSearch/reverseGeocoding/active",
+                      "type": "boolean",
+                      "description": "Activate reverse geocoding.",
+                      "default": true
+                    },
+                    "maxResolution": {
+                      "id": "/options/tools/geoSearch/reverseGeocoding/maxResolution",
+                      "type": [
+                        "number",
+                        "null"
+                      ],
+                      "description": "Maximum resolution. If null, maxZoom will be used.",
+                      "default": null
+                    },
+                    "minResolution": {
+                      "id": "/options/tools/geoSearch/reverseGeocoding/minResolution",
+                      "type": [
+                        "number",
+                        "null"
+                      ],
+                      "description": "Minimum resolution. If null, minZoom will be used.",
+                      "default": null
+                    },
+                    "maxZoom": {
+                      "id": "/options/tools/geoSearch/reverseGeocoding/maxZoom",
+                      "type": [
+                        "integer",
+                        "null"
+                      ],
+                      "description": "Maximum zoom. It will be used only if maxResolution is null.",
+                      "default": null
+                    },
+                    "minZoom": {
+                      "id": "/options/tools/geoSearch/reverseGeocoding/minZoom",
+                      "type": [
+                        "integer",
+                        "null"
+                      ],
+                      "description": "Minimum zoom. It will be used only if minResolution is null.",
+                      "default": null
+                    },
+                    "count": {
+                      "id": "/options/tools/geoSearch/reverseGeocoding/count",
+                      "type": [
+                        "number",
+                        "null"
+                      ],
+                      "description": "Results that will be fetched.",
+                      "default": 20
+                    }
+                  }
+                }
+              },
+              "ortssuche": {
+                "id": "/options/tools/geoSearch/ortssuche",
+                "description": "Properties of service ortssuche",
+                "title": "ortssuche",
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "id": "/options/tools/geoSearch/ortssuche/type",
+                    "type": "string",
+                    "description": "Service type: ortssuche",
+                    "enum": [
+                      "ortssuche"
+                    ]
+                  },
+                  "url": {
+                    "id": "/options/tools/geoSearch/gdz_ortssuche/url",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Service URL. Use it only if need to change predefined URL.",
+                    "default": null
+                  },
+                  "filter": {
+                    "id": "/options/tools/geoSearch/ortssuche/filter",
+                    "type": "string",
+                    "description": "Filter results"
+                  },
+                  "bbox": {
+                    "id": "/options/tools/geoSearch/ortssuche/bbox",
+                    "description": "Properties of bounding box filter",
+                    "title": "bbox",
+                    "type": "object",
+                    "properties": {
+                      "coordinates": {
+                        "id": "/options/tools/geoSearch/ortssuche/bbox/coordinates",
+                        "type": [
+                          "array"
+                        ],
+                        "description": "Array with coordinates [minX, minY, maxX, maxY]",
+                        "items": {
+                          "type": "number"
+                        }
+                      },
+                      "projection": {
+                        "id": "/options/tools/geoSearch/ortssuche/bbox/projection",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "Projection of layer. If null, then map projection will be used."
+                      }
+                    }
+                  }
+                }
+              },
+              "wfs": {
+                "id": "/options/tools/geoSearch/wfs",
+                "description": "Properties of a WFS service used in geoSearch",
+                "title": "wfs",
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "id": "/options/tools/geoSearch/wfs/type",
+                    "type": "string",
+                    "description": "Service type: wfs",
+                    "enum": [
+                      "wfs"
+                    ]
+                  },
+                  "url": {
+                    "id": "/options/tools/geoSearch/wfs/url",
+                    "type": "string",
+                    "description": "Service URL"
+                  },
+                  "featurePrefix": {
+                    "id": "/options/tools/geoSearch/wfs/featurePrefix",
+                    "type": "string",
+                    "description": "Feature prefix of WFS"
+                  },
+                  "featureType": {
+                    "id": "/options/tools/geoSearch/wfs/featureType",
+                    "type": "string",
+                    "description": "Feature type of WFS"
+                  },
+                  "searchAttribute": {
+                    "id": "/options/tools/geoSearch/wfs/searchAttribute",
+                    "type": "string",
+                    "description": "Attribute to use for searching"
+                  },
+                  "showAttributes": {
+                    "id": "/options/tools/geoSearch/wfs/showAttributes",
+                    "description": "Array of attributes that are shown as result",
+                    "type": "array",
+                    "items": {
+                      "id": "/options/tools/geoSearch/wfs/showAttributes/items",
+                      "type": "string",
+                      "description": "Attributes"
+                    }
+                  },
+                  "format": {
+                    "id": "/options/tools/geoSearch/wfs/format",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Format of WFS service. If null, then GML3 will be used",
+                    "enum": [
+                      "GEOJSON",
+                      "GML2",
+                      "GML3",
+                      "null"
+                    ],
+                    "default": null
+                  }
+                }
+              }
+            },
+            "searchCoordinates": {
+              "id": "/options/tools/searchCoordinates",
+              "description": "Search and zoom to coordinates.",
+              "type": "object",
+              "properties": {
+                "active": {
+                  "id": "/options/tools/searchCoordinates/active",
+                  "type": "boolean",
+                  "description": "Activate tool.",
+                  "default": false
+                },
+                "div": {
+                  "id": "/options/tools/searchCoordinates/div",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "DIV ID",
+                  "default": null
+                },
+                "style": {
+                  "id": "/options/tools/searchCoordinates/style",
+                  "description": "Class used for CSS styling",
+                  "type": "string"
+                },
+                "coordinateSystems": {
+                  "id": "/options/tools/searchCoordinates/coordinateSystems",
+                  "description": "Coordinate systems for dropdown menu",
+                  "type": "array",
+                  "items": {
+                    "id": "/options/tools/searchCoordinates/coordinateSystems/items",
+                    "type": "object",
+                    "properties": {
+                      "epsg": {
+                        "id": "/options/tools/searchCoordinates/coordinateSystems/items/epsg",
+                        "type": "string",
+                        "description": "EPSG code.",
+                        "default": "EPSG:4326"
+                      },
+                      "name": {
+                        "id": "/options/tools/searchCoordinates/coordinateSystems/items/name",
+                        "type": "string",
+                        "description": "Name of coordinate system.",
+                        "default": "WGS84"
+                      }
+                    },
+                    "required": [
+                      "epsg",
+                      "name"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "coordinateSystems"
+              ]
+            },
+            "layerSwitcher": {
+              "id": "/options/tools/layerSwitcher",
+              "description": "Layer menu",
+              "type": "object",
+              "properties": {
+                "active": {
+                  "id": "/options/tools/layerSwitcher/active",
+                  "type": "boolean",
+                  "description": "Activate tool.",
+                  "default": true
+                },
+                "div": {
+                  "id": "/options/tools/layerSwitcher/div",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "DIV ID",
+                  "default": null
+                },
+                "style": {
+                  "id": "/options/tools/layerSwitcher/style",
+                  "description": "Class used for CSS styling",
+                  "type": "string"
+                },
+                "editStyle": {
+                  "id": "/options/tools/layerSwitcher/editStyle",
+                  "type": "boolean",
+                  "description": "The user can change style of vector layers.",
+                  "default": true
+                },
+                "changeVisibility": {
+                  "id": "/options/tools/layerSwitcher/changeVisibility",
+                  "type": "boolean",
+                  "description": "The user can change visibility of layers.",
+                  "default": true
+                },
+                "changeOrder": {
+                  "id": "/options/tools/layerSwitcher/changeOrder",
+                  "type": "boolean",
+                  "description": "The user can change the layer order.",
+                  "default": true
+                },
+                "showWMSLayers": {
+                  "id": "/options/tools/layerSwitcher/showWMSLayers",
+                  "type": "boolean",
+                  "description": "Show layers of WMS Services in menu.",
+                  "default": true
+                },
+                "openLevel": {
+                  "id": "/options/tools/layerSwitcher/openLevel",
+                  "type": "number",
+                  "description": "Define which level of layerswitcher should be open. 0: Menu is closed, 1: Basemaps/Overlays menu is open, 2: Group layers are open",
+                  "default": 0,
+                  "enum": [
+                    0,
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            "customLayers": {
+              "id": "/options/tools/customLayers",
+              "description": "The user can add new layers.",
+              "type": "object",
+              "properties": {
+                "active": {
+                  "id": "/options/tools/customLayers/active",
+                  "type": "boolean",
+                  "description": "Activate tool.",
+                  "default": false
+                },
+                "edit": {
+                  "id": "/options/tools/customLayers/edit",
+                  "type": "boolean",
+                  "description": "Enable editing for custom layer.",
+                  "default": true
+                },
+                "changeVisibility": {
+                  "id": "/options/tools/customLayers/changeVisibility",
+                  "type": "boolean",
+                  "description": "The user can change visibility of custom layers.",
+                  "default": true
+                },
+                "defaultStyle": {
+                  "id": "/options/tools/customLayers/defaultStyle",
+                  "type": "string",
+                  "description": "Default style of custom vector layers. Use /styles/items/name."
+                },
+                "dataTypes": {
+                  "id": "/options/tools/customLayers/dataTypes",
+                  "description": "Layer types",
+                  "type": "array",
+                  "items": {
+                    "id": "/options/tools/customLayers/dataTypes/items",
+                    "description": "Layer types that can be added.",
+                    "type": "string",
+                    "enum": [
+                      "BKG",
+                      "WMS",
+                      "WMTS",
+                      "WFS",
+                      "CSV",
+                      "XLS",
+                      "GPS"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "defaultStyle"
+              ]
+            },
+            "legend": {
+              "id": "/options/tools/legend",
+              "description": "Show legend",
+              "type": "object",
+              "properties": {
+                "active": {
+                  "id": "/options/tools/legend/active",
+                  "type": "boolean",
+                  "description": "Activate tool.",
+                  "default": true
+                },
+                "div": {
+                  "id": "/options/tools/legend/div",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "DIV ID",
+                  "default": null
+                },
+                "style": {
+                  "id": "/options/tools/legend/style",
+                  "description": "Class used for CSS styling",
+                  "type": "string"
+                }
+              }
+            },
+            "showAttributes": {
+              "id": "/options/tools/showAttributes",
+              "description": "Show attributes with click on map",
+              "type": "object",
+              "properties": {
+                "active": {
+                  "id": "/options/tools/showAttributes/active",
+                  "type": "boolean",
+                  "description": "Activate tool.",
+                  "default": true
+                },
+                "div": {
+                  "id": "/options/tools/showAttributes/div",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "DIV ID",
+                  "default": null
+                },
+                "style": {
+                  "id": "/options/tools/showAttributes/style",
+                  "description": "Class used for CSS styling",
+                  "type": "string"
+                }
+              }
+            },
+            "copyCoordinates": {
+              "id": "/options/tools/copyCoordinates",
+              "description": "Tool to copy coordinates",
+              "type": "object",
+              "properties": {
+                "active": {
+                  "id": "/options/tools/copyCoordinates/active",
+                  "type": "boolean",
+                  "description": "Activate tool.",
+                  "default": false
+                },
+                "div": {
+                  "id": "/options/tools/copyCoordinates/div",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "DIV ID",
+                  "default": null
+                },
+                "style": {
+                  "id": "/options/tools/copyCoordinates/style",
+                  "description": "Class used for CSS styling",
+                  "type": "string"
+                },
+                "coordinateSystems": {
+                  "id": "/options/tools/copyCoordinates/coordinateSystems",
+                  "description": "Coordinate systems for dropdown menu",
+                  "type": "array",
+                  "items": {
+                    "id": "/options/tools/copyCoordinates/coordinateSystems/items",
+                    "type": "object",
+                    "properties": {
+                      "epsg": {
+                        "id": "/options/tools/copyCoordinates/coordinateSystems/items/epsg",
+                        "type": "string",
+                        "description": "EPSG code.",
+                        "default": "EPSG:4326"
+                      },
+                      "name": {
+                        "id": "/options/tools/copyCoordinates/coordinateSystems/items/name",
+                        "type": "string",
+                        "description": "Name of coordinate system.",
+                        "default": "WGS84"
+                      }
+                    },
+                    "required": [
+                      "epsg",
+                      "name"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "coordinateSystems"
+              ]
+            },
+            "measure": {
+              "id": "/options/tools/measure",
+              "description": "Measure tool",
+              "type": "object",
+              "properties": {
+                "active": {
+                  "id": "/options/tools/measure/active",
+                  "type": "boolean",
+                  "description": "Activate tool.",
+                  "default": false
+                },
+                "div": {
+                  "id": "/options/tools/measure/div",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "DIV ID",
+                  "default": null
+                },
+                "style": {
+                  "id": "/options/tools/measure/style",
+                  "description": "Class used for CSS styling",
+                  "type": "string"
+                }
+              }
+            },
+            "edit": {
+              "id": "/options/tools/edit",
+              "description": "Edit vector layers tool",
+              "type": "object",
+              "properties": {
+                "active": {
+                  "id": "/options/tools/edit/active",
+                  "type": "boolean",
+                  "description": "Activate tool.",
+                  "default": false
+                },
+                "div": {
+                  "id": "/options/tools/edit/div",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "DIV ID",
+                  "default": null
+                },
+                "style": {
+                  "id": "/options/tools/edit/style",
+                  "description": "Class used for CSS styling",
+                  "type": "string"
+                },
+                "emptyLayer": {
+                  "id": "/options/tools/edit/emptyLayer",
+                  "type": "boolean",
+                  "description": "If edit is active and there is no vector layer, add an empty vector layer.",
+                  "default": true
+                },
+                "export": {
+                  "id": "/options/tools/edit/export",
+                  "description": "Export editable layers",
+                  "type": "object",
+                  "properties": {
+                    "active": {
+                      "id": "/options/tools/edit/export/active",
+                      "type": "boolean",
+                      "description": "Activate tool.",
+                      "default": false
+                    },
+                    "formats": {
+                      "id": "/options/tools/edit/export/formats",
+                      "description": "Export formats",
+                      "type": "array",
+                      "items": {
+                        "id": "/options/tools/edit/export/formats/items",
+                        "description": "Export formats",
+                        "type": "string",
+                        "enum": [
+                          "KML",
+                          "GML",
+                          "GEOJSON",
+                          "GPX",
+                          "WKT"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "share": {
+              "id": "/options/tools/share",
+              "description": "Share map",
+              "type": "object",
+              "properties": {
+                "active": {
+                  "id": "/options/tools/share/active",
+                  "type": "boolean",
+                  "description": "Activate tool.",
+                  "default": false
+                },
+                "div": {
+                  "id": "/options/tools/share/div",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "DIV ID",
+                  "default": null
+                },
+                "style": {
+                  "id": "/options/tools/share/style",
+                  "description": "Class used for CSS styling",
+                  "type": "string"
+                },
+                "print": {
+                  "id": "/options/tools/share/print",
+                  "description": "Print map",
+                  "type": "object",
+                  "properties": {
+                    "active": {
+                      "id": "/options/tools/share/print/active",
+                      "type": "boolean",
+                      "description": "Activate tool.",
+                      "default": false
+                    },
+                    "stylesheet": {
+                      "id": "/options/tools/share/stylesheet",
+                      "description": "URL of stylesheet file that can be used when printing.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "permaLink": {
+                  "id": "/options/tools/share/permaLink",
+                  "description": "Use URL paramaters for exporting-importing map status",
+                  "type": "object",
+                  "properties": {
+                    "active": {
+                      "id": "/options/tools/share/permaLink/active",
+                      "type": "boolean",
+                      "description": "Activate tool.",
+                      "default": true
+                    }
+                  }
+                },
+                "jsonExport": {
+                  "id": "/options/tools/share/jsonExport",
+                  "description": "Export-Import JSON with current status of application",
+                  "type": "object",
+                  "properties": {
+                    "active": {
+                      "id": "/options/tools/share/jsonExport/active",
+                      "type": "boolean",
+                      "description": "Activate tool.",
+                      "default": false
+                    },
+                    "appName": {
+                      "id": "/options/tools/share/jsonExport/appName",
+                      "type": "string",
+                      "description": "Name of BKG Webmap implementation that will be used in exported JSON."
+                    }
+                  }
+                }
+              },
+              "required": [
+                "active",
+                "print",
+                "permaLink",
+                "jsonExport"
+              ]
+            },
+            "zoom": {
+              "id": "/options/tools/zoom",
+              "description": "Zoom control",
+              "type": "object",
+              "properties": {
+                "active": {
+                  "id": "/options/tools/zoom/active",
+                  "type": "boolean",
+                  "description": "Activate control.",
+                  "default": true
+                },
+                "showZoomLevel": {
+                  "id": "/options/tools/zoom/showZoomLevel",
+                  "type": "boolean",
+                  "description": "Show zoom level as text under the zoom buttons.",
+                  "default": false
+                },
+                "zoomToFullExtent": {
+                  "id": "/options/tools/zoom/zoomToFullExtent",
+                  "type": "boolean",
+                  "description": "Zoom to full extent button.",
+                  "default": true
+                },
+                "history": {
+                  "id": "/options/tools/zoom/history",
+                  "type": "boolean",
+                  "description": "Navigation history buttons.",
+                  "default": true
+                },
+                "position": {
+                  "id": "/options/tools/zoom/position",
+                  "type": "string",
+                  "description": "Position of control. It will be used only if div is null. Values: 'top-left', 'top-right', 'bottom-left', 'bottom-right' or CSS properties (e.g. 'left: 5px; top: 10px;')",
+                  "default": "top-left"
+                },
+                "div": {
+                  "id": "/options/tools/zoom/div",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "DIV ID",
+                  "default": null
+                },
+                "style": {
+                  "id": "/options/tools/zoom/style",
+                  "description": "Class used for CSS styling",
+                  "type": "string"
+                },
+                "onlyFullScreen": {
+                  "id": "/options/tools/zoom/onlyFullScreen",
+                  "type": "boolean",
+                  "description": "Tool available only in full screen mode.",
+                  "default": false
+                }
+              }
+            },
+            "scalebar": {
+              "id": "/options/tools/scalebar",
+              "description": "Scalebar control",
+              "type": "object",
+              "properties": {
+                "active": {
+                  "id": "/options/tools/scalebar/active",
+                  "type": "boolean",
+                  "description": "Activate control.",
+                  "default": true
+                },
+                "position": {
+                  "id": "/options/tools/scalebar/position",
+                  "type": "string",
+                  "description": "Position of control. It will be used only if div is null. Values: 'top-left', 'top-right', 'bottom-left', 'bottom-right' or CSS properties (e.g. 'left: 5px; top: 10px;')",
+                  "default": "bottom-right"
+                },
+                "scalebarType": {
+                  "id": "/options/tools/scalebar/scalebarType",
+                  "type": "string",
+                  "description": "Type of scalebar.",
+                  "enum": [
+                    "mapscale",
+                    "resolution",
+                    "distance",
+                    "mapscaleDistance",
+                    "resolutionDistance"
+                  ],
+                  "default": "mapscaleDistance"
+                },
+                "div": {
+                  "id": "/options/tools/scalebar/div",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "DIV ID",
+                  "default": null
+                },
+                "style": {
+                  "id": "/options/tools/scalebar/style",
+                  "description": "Class used for CSS styling",
+                  "type": "string"
+                },
+                "onlyFullScreen": {
+                  "id": "/options/tools/scalebar/onlyFullScreen",
+                  "type": "boolean",
+                  "description": "Tool available only in full screen mode.",
+                  "default": false
+                }
+              }
+            },
+            "copyright": {
+              "id": "/options/tools/copyright",
+              "description": "Copyright control",
+              "type": "object",
+              "properties": {
+                "active": {
+                  "id": "/options/tools/copyright/active",
+                  "type": "boolean",
+                  "description": "Activate control.",
+                  "default": true
+                },
+                "position": {
+                  "id": "/options/tools/copyright/position",
+                  "type": "string",
+                  "description": "Position of control. It will be used only if div is null. Values: 'top-left', 'top-right', 'bottom-left', 'bottom-right' or CSS properties (e.g. 'left: 5px; top: 10px;')",
+                  "default": "bottom-left"
+                },
+                "div": {
+                  "id": "/options/tools/copyright/div",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "DIV ID",
+                  "default": null
+                },
+                "style": {
+                  "id": "/options/tools/copyright/style",
+                  "description": "Class used for CSS styling",
+                  "type": "string"
+                },
+                "maxWidth": {
+                  "id": "/options/tools/copyright/maxWidth",
+                  "description": "Maximum width of copyright div (e.g. '200px')",
+                  "type": "string"
+                },
+                "maxHeight": {
+                  "id": "/options/tools/copyright/maxHeight",
+                  "description": "Maximum height of copyright div (e.g. '100px')",
+                  "type": "string"
+                },
+                "onlyFullScreen": {
+                  "id": "/options/tools/copyright/onlyFullScreen",
+                  "type": "boolean",
+                  "description": "Tool available only in full screen mode.",
+                  "default": false
+                }
+              }
+            },
+            "showCoordinates": {
+              "id": "/options/tools/showCoordinates",
+              "description": "Show coordinates of cursor position",
+              "type": "object",
+              "properties": {
+                "active": {
+                  "id": "/options/tools/showCoordinates/active",
+                  "type": "boolean",
+                  "description": "Activate control.",
+                  "default": false
+                },
+                "position": {
+                  "id": "/options/tools/showCoordinates/position",
+                  "type": "string",
+                  "description": "Position of control. It will be used only if div is null. Values: 'top-left', 'top-right', 'bottom-left', 'bottom-right' or CSS properties (e.g. 'left: 5px; top: 10px;')",
+                  "default": "bottom-right"
+                },
+                "coordinateSystems": {
+                  "id": "/options/tools/showCoordinates/coordinateSystems",
+                  "description": "Coordinate systems for dropdown menu",
+                  "type": "array",
+                  "items": {
+                    "id": "/options/tools/showCoordinates/coordinateSystems/items",
+                    "description": "Coordinate system information",
+                    "type": "object",
+                    "properties": {
+                      "epsg": {
+                        "id": "/options/tools/showCoordinates/coordinateSystems/items/epsg",
+                        "type": "string",
+                        "description": "EPSG Code.",
+                        "default": "EPSG:4326"
+                      },
+                      "name": {
+                        "id": "/options/tools/showCoordinates/coordinateSystems/items/name",
+                        "type": "string",
+                        "description": "Name of coordinate system.",
+                        "default": "WGS84"
+                      }
+                    },
+                    "required": [
+                      "epsg",
+                      "name"
+                    ]
+                  }
+                },
+                "div": {
+                  "id": "/options/tools/showCoordinates/div",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "DIV ID",
+                  "default": null
+                },
+                "style": {
+                  "id": "/options/tools/showCoordinates/style",
+                  "description": "Class used for CSS styling",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "coordinateSystems"
+              ]
+            },
+            "staticLinks": {
+              "id": "/options/tools/staticLinks",
+              "description": "Static links on map",
+              "type": "array",
+              "items": {
+                "id": "/options/tools/staticLinks/items",
+                "description": "Static link information",
+                "type": "object",
+                "properties": {
+                  "position": {
+                    "id": "/options/tools/staticLinks/items/position",
+                    "type": "string",
+                    "description": "Position of control. It will be used only if div is null. Values: 'top-left', 'top-right', 'bottom-left', 'bottom-right' or CSS properties (e.g. 'left: 5px; top: 10px;')",
+                    "default": "bottom-left"
+                  },
+                  "div": {
+                    "id": "/options/tools/staticLinks/items/div",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "DIV ID",
+                    "default": null
+                  },
+                  "style": {
+                    "id": "/options/tools/staticLinks/items/style",
+                    "description": "Class used for CSS styling",
+                    "type": "string"
+                  },
+                  "url": {
+                    "id": "/options/tools/staticLinks/items/url",
+                    "type": "string",
+                    "description": "URL for link."
+                  },
+                  "title": {
+                    "id": "/options/tools/staticLinks/items/title",
+                    "type": "string",
+                    "description": "Title for link shown on hover."
+                  },
+                  "content": {
+                    "id": "/options/tools/staticLinks/items/content",
+                    "type": "string",
+                    "description": "Content for link. Markup is allowed."
+                  },
+                  "onlyFullScreen": {
+                    "id": "/options/tools/staticLinks/items/onlyFullScreen",
+                    "type": "boolean",
+                    "description": "Link available only in full screen mode.",
+                    "default": false
+                  }
+                },
+                "required": [
+                  "url"
+                ]
+              }
+            },
+            "staticWindows": {
+              "id": "/options/tools/staticWindows",
+              "description": "Static windows on map",
+              "type": "array",
+              "items": {
+                "id": "/options/tools/staticWindows/items",
+                "type": "object",
+                "properties": {
+                  "active": {
+                    "id": "/options/tools/staticWindows/items/active",
+                    "type": "boolean",
+                    "description": "Should window be initially open or close",
+                    "default": false
+                  },
+                  "position": {
+                    "id": "/options/tools/staticWindows/items/position",
+                    "type": "string",
+                    "description": "Position of control. It will be used only if div is null. Values: CSS properties (e.g. 'left: 5px; top: 10px;')"
+                  },
+                  "div": {
+                    "id": "/options/tools/staticWindows/items/div",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "DIV ID",
+                    "default": null
+                  },
+                  "style": {
+                    "id": "/options/tools/staticWindows/items/style",
+                    "description": "Class used for CSS styling",
+                    "type": "string"
+                  },
+                  "size": {
+                    "id": "/options/tools/staticWindows/items/size",
+                    "description": "Size of window in pixel [width, height]",
+                    "type": "array",
+                    "items": {
+                      "id": "/options/tools/staticWindows/items/size/items",
+                      "type": "integer",
+                      "description": "Pixel",
+                      "default": 0
+                    }
+                  },
+                  "title": {
+                    "id": "/options/tools/staticWindows/items/title",
+                    "type": "string",
+                    "description": "Title for window"
+                  },
+                  "content": {
+                    "id": "/options/tools/staticWindows/items/content",
+                    "type": "string",
+                    "description": "Content for window. Markup is allowed."
+                  },
+                  "onlyFullScreen": {
+                    "id": "/options/tools/staticWindows/items/onlyFullScreen",
+                    "type": "boolean",
+                    "description": "Window available only in full screen mode.",
+                    "default": false
+                  }
+                },
+                "required": [
+                  "size",
+                  "title",
+                  "content"
+                ]
+              }
+            },
+            "fullScreen": {
+              "id": "/options/tools/fullScreen",
+              "description": "Full screen tool",
+              "type": "object",
+              "properties": {
+                "active": {
+                  "id": "/options/tools/fullScreen/active",
+                  "type": "boolean",
+                  "description": "Activate control.",
+                  "default": true
+                },
+                "position": {
+                  "id": "/options/tools/fullScreen/position",
+                  "type": "string",
+                  "description": "Position of control. It will be used only if div is null. Values: 'top-left', 'top-right', 'bottom-left', 'bottom-right' or CSS properties (e.g. 'left: 5px; top: 10px;')",
+                  "default": "top-right"
+                },
+                "div": {
+                  "id": "/options/tools/fullScreen/items/div",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "DIV ID",
+                  "default": null
+                },
+                "style": {
+                  "id": "/options/tools/fullScreen/style",
+                  "description": "Class used for CSS styling",
+                  "type": "string"
+                }
+              }
+            },
+            "overviewMap": {
+              "id": "/options/tools/overviewMap",
+              "description": "Overview map tool",
+              "type": "object",
+              "properties": {
+                "active": {
+                  "id": "/options/tools/overviewMap/active",
+                  "type": "boolean",
+                  "description": "Activate control.",
+                  "default": true
+                },
+                "position": {
+                  "id": "/options/tools/overviewMap/position",
+                  "type": "string",
+                  "description": "Position of control. It will be used only if div is null. Values: 'top-left', 'top-right', 'bottom-left', 'bottom-right' or CSS properties (e.g. 'left: 5px; top: 10px;')",
+                  "default": "bottom-left"
+                },
+                "div": {
+                  "id": "/options/tools/overviewMap/items/div",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "DIV ID",
+                  "default": null
+                },
+                "collapsible": {
+                  "id": "/options/tools/overviewMap/collapsible",
+                  "type": "boolean",
+                  "description": "Overview map can be collapsed.",
+                  "default": true
+                },
+                "collapsed": {
+                  "id": "/options/tools/overviewMap/collapsed",
+                  "type": "boolean",
+                  "description": "Overview map should start collapsed.",
+                  "default": false
+                },
+                "layers": {
+                  "id": "/layers/tools/overviewMap/layers",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "description": "Array with layer IDs that should be shown in overview map. If empty or null, all layers will be used.",
+                  "items": {
+                    "type": [
+                      "string",
+                      null
+                    ]
+                  }
+                },
+                "onlyFullScreen": {
+                  "id": "/options/tools/overviewMap/onlyFullScreen",
+                  "type": "boolean",
+                  "description": "Tool available only in full screen mode.",
+                  "default": false
+                }
+              }
+            },
+            "timeSlider": {
+              "id": "/options/tools/timeSlider",
+              "description": "Timeslider tool for WMS-T",
+              "type": "object",
+              "properties": {
+                "active": {
+                  "id": "/options/tools/timeSlider/active",
+                  "type": "boolean",
+                  "description": "Activate control.",
+                  "default": true
+                },
+                "position": {
+                  "id": "/options/tools/timeSlider/position",
+                  "type": "string",
+                  "description": "Position of control. It will be used only if div is null. Values: 'top-left', 'top-right', 'bottom-left', 'bottom-right' or CSS properties (e.g. 'left: 5px; top: 10px;')",
+                  "default": "bottom-left"
+                },
+                "div": {
+                  "id": "/options/tools/timeSlider/items/div",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "DIV ID",
+                  "default": null
+                },
+                "style": {
+                  "id": "/options/tools/timeSlider/style",
+                  "description": "Class used for CSS styling",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "security": {
+      "id": "/security",
+      "description": "Security configuration",
+      "type": "object",
+      "properties": {
+        "cookieCheck": {
+          "id": "/security/cookieCheck",
+          "type": "boolean",
+          "description": "Should the application use cookie test.",
+          "default": true
+        },
+        "UUID": {
+          "id": "/security/UUID",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "BKG UUID"
+        },
+        "appID": {
+          "id": "/security/appID",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "BKG Application ID"
+        },
+        "appDomain": {
+          "id": "/security/appDomain",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Domain for BKG Application ID"
+        }
+      }
+    },
+    "map": {
+      "id": "/map",
+      "description": "Map configuration",
+      "type": "object",
+      "properties": {
+        "div": {
+          "id": "/map/div",
+          "type": "string",
+          "description": "Default ID for map DIV.",
+          "default": "map"
+        },
+        "projection": {
+          "id": "/map/projection",
+          "type": "string",
+          "description": "Map projection",
+          "default": "EPSG:25832"
+        },
+        "center": {
+          "id": "/map/center",
+          "description": "Initial center of map (The coordinate system is defined through the projection)",
+          "type": "object",
+          "properties": {
+            "lat": {
+              "id": "/map/center/lat",
+              "type": "number",
+              "description": "Map center latitude."
+            },
+            "lon": {
+              "id": "/map/center/lon",
+              "type": "number",
+              "description": "Map center longitude."
+            }
+          }
+        },
+        "resolution": {
+          "id": "/map/resolution",
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Initial resolution. If null, zoom will be used.",
+          "default": null
+        },
+        "resolutions": {
+          "id": "/map/resolutions",
+          "type": [
+            "array",
+            "null"
+          ],
+          "description": "Array with numbers. If set, scales, maxResolution, minResolution, minZoom, and maxZoom are ignored.",
+          "items": {
+            "type": "number"
+          }
+        },
+        "scales": {
+          "id": "/map/scales",
+          "type": [
+            "array",
+            "null"
+          ],
+          "description": "Array with numbers. It will be used only if resolutions is null. If set, maxResolution, minResolution, minZoom, and maxZoom are ignored.",
+          "items": {
+            "type": "number"
+          }
+        },
+        "zoom": {
+          "id": "/map/zoom",
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "Initial zoom. It will be used only if resolution is null.",
+          "default": 10
+        },
+        "mapExtent": {
+          "id": "/map/mapExtent",
+          "type": [
+            "array",
+            "null"
+          ],
+          "description": "Initial map extent. Array with numbers: [minX, minY, maxX, maxY]",
+          "items": {
+            "type": "number"
+          }
+        },
+        "maxResolution": {
+          "id": "/map/maxResolution",
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Maximum resolution. It will be used only if resolutions and scales are null. If null, maxZoom will be used.",
+          "default": null
+        },
+        "minResolution": {
+          "id": "/map/minResolution",
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Minimum resolution. It will be used only if resolutions and scales are null. If null, minZoom will be used.",
+          "default": null
+        },
+        "maxZoom": {
+          "id": "/map/maxZoom",
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "Maximum zoom. It will be used only if maxResolution, resolutions and scales are null.",
+          "default": 28
+        },
+        "minZoom": {
+          "id": "/map/minZoom",
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "Minimum zoom. It will be used only if minResolution, resolutions and scales are null.",
+          "default": 0
+        },
+        "defaultStyle": {
+          "id": "/map/defaultStyle",
+          "description": "Default style for layers. This value can be overridden by each layer options",
+          "type": "string"
+        }
+      }
+    },
+    "layers": {
+      "id": "/layers",
+      "description": "All layers that will be loaded on map",
+      "type": "object",
+      "properties": {
+        "baseLayers": {
+          "id": "/layers/baseLayers",
+          "description": "Base layers. The order of layers will be used in menu.",
+          "type": "array",
+          "items": {
+            "id": "/layers/baseLayers/items",
+            "description": "Groups of layers or single layers.",
+            "type": "object",
+            "anyOf": [
+              {
+                "$ref": "WMS"
+              },
+              {
+                "$ref": "WMTS"
+              },
+              {
+                "$ref": "WFS"
+              },
+              {
+                "$ref": "MARKER"
+              },
+              {
+                "$ref": "CSV"
+              },
+              {
+                "$ref": "XLS"
+              },
+              {
+                "$ref": "GPS"
+              },
+              {
+                "$ref": "BKG"
+              },
+              {
+                "$ref": "NONE"
+              }
+            ]
+          }
+        },
+        "overlays": {
+          "id": "/layers/overlays",
+          "description": "Layers and group of layers that will be loaded as overlays. The order of layers will be used in menu.",
+          "type": "array",
+          "items": {
+            "id": "/layers/overlays/items",
+            "description": "Groups of layers or single layers.",
+            "type": "object",
+            "anyOf": [
+              {
+                "$ref": "WMS"
+              },
+              {
+                "$ref": "WMTS"
+              },
+              {
+                "$ref": "WFS"
+              },
+              {
+                "$ref": "MARKER"
+              },
+              {
+                "$ref": "CSV"
+              },
+              {
+                "$ref": "XLS"
+              },
+              {
+                "$ref": "GPS"
+              },
+              {
+                "$ref": "BKG"
+              },
+              {
+                "$ref": "GROUP"
+              }
+            ]
+          }
+        }
+      },
+      "WMS": {
+        "id": "/layers/WMS",
+        "description": "WMS layer",
+        "title": "WMS",
+        "type": "object",
+        "properties": {
+          "type": {
+            "id": "/layers/WMS/type",
+            "type": "string",
+            "description": "Type of layer: WMS",
+            "enum": [
+              "WMS"
+            ]
+          },
+          "id": {
+            "id": "/layers/WMS/id",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Unique ID. It will be used in permaLink and persistence JSON. If not available, it will be added by Framework."
+          },
+          "name": {
+            "id": "/layers/WMS/name",
+            "type": [
+              "string"
+            ],
+            "description": "Name of layer shown in Menu."
+          },
+          "url": {
+            "id": "/layers/WMS/url",
+            "type": "string",
+            "description": "Service-URL"
+          },
+          "layers": {
+            "id": "/layers/WMS/layers",
+            "description": "Layers of specific service that should be loaded. If empty, then all available layers will be loaded.",
+            "type": "array",
+            "items": {
+              "id": "/layers/WMS/layers/items",
+              "type": "object",
+              "description": "Single layer of service.",
+              "properties": {
+                "id": {
+                  "id": "/layers/WMS/layers/items/id",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "Unique ID."
+                },
+                "name": {
+                  "id": "/layers/WMS/layers/items/name",
+                  "type": "string",
+                  "description": "Name of layer shown in Menu."
+                },
+                "layer": {
+                  "id": "/layers/WMS/layers/items/layer",
+                  "type": "string",
+                  "description": "Name of layer to load."
+                },
+                "visibility": {
+                  "id": "/layers/WMS/layers/items/visibility",
+                  "type": "boolean",
+                  "description": "Initial visibility of layer.",
+                  "default": true
+                },
+                "style": {
+                  "id": "/layers/WMS/layers/items/style",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "Style of layer."
+                },
+                "selectStyle": {
+                  "id": "/layers/WMS/layers/items/selectStyle",
+                  "type": "boolean",
+                  "description": "The user is able to select a style for this layer.",
+                  "default": true
+                },
+                "legendUrl": {
+                  "id": "/layers/WMS/layers/items/legendUrl",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "URL for legend. If empty or null, legend will be loaded using GetLegendGraphic."
+                },
+                "minResolution": {
+                  "id": "/layers/WMS/layers/items/minResolution",
+                  "type": "number",
+                  "description": "Minimum resolution.",
+                  "default": 0.0001
+                },
+                "maxResolution": {
+                  "id": "/layers/WMS/layers/items/maxResolution",
+                  "type": "number",
+                  "description": "Maximum resolution.",
+                  "default": 156545.0
+                }
+              },
+              "required": [
+                "name",
+                "layer"
+              ]
+            }
+          },
+          "visibility": {
+            "id": "/layers/WMS/visibility",
+            "type": "boolean",
+            "default": true,
+            "description": "Selected visibility of layer."
+          },
+          "tiles": {
+            "id": "/layers/WMS/tiles",
+            "type": "boolean",
+            "description": "Load tiles or single image.",
+            "default": true
+          },
+          "version": {
+            "id": "/layers/WMS/version",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "WMS version. If null, 1.3.0 will be used.",
+            "default": null,
+            "enum": [
+              "null",
+              "1.1.0",
+              "1.1.1",
+              "1.3.0"
+            ]
+          },
+          "srsName": {
+            "id": "/layers/WMS/srsName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Projection of layer. If null, then EPSG 25832 will be used.",
+            "default": "EPSG:25832"
+          },
+          "minResolution": {
+            "id": "/layers/WMS/minResolution",
+            "type": "number",
+            "description": "Minimum resolution.",
+            "default": 0.0001
+          },
+          "maxResolution": {
+            "id": "/layers/WMS/maxResolution",
+            "type": "number",
+            "description": "Maximum resolution.",
+            "default": 156545.0
+          },
+          "opacity": {
+            "id": "/layers/WMS/opacity",
+            "type": "number",
+            "description": "Default Opacity.",
+            "enum": [
+              0,
+              0.1,
+              0.2,
+              0.3,
+              0.4,
+              0.5,
+              0.6,
+              0.7,
+              0.8,
+              0.9,
+              1
+            ],
+            "default": 1
+          },
+          "legendUrl": {
+            "id": "/layers/WMS/legendUrl",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "URL for legend. If empty or null, legend will be loaded using GetLegendGraphic. It has priority over legendUrl in each WMS-Layer (/layers/WMS/layers/items/legendUrl)."
+          },
+          "copyright": {
+            "id": "/layers/WMS/copyright",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Copyright. If null or empty it will be parsed from GetCapabilities"
+          },
+          "time": {
+            "id": "/layers/WMS/time",
+            "description": "Time options for WMS-T",
+            "title": "time",
+            "type": "object",
+            "properties": {
+              "active": {
+                "id": "/layers/WMS/time/active",
+                "type": "boolean",
+                "description": "Activate tool.",
+                "default": false
+              },
+              "values": {
+                "id": "/layers/WMS/time/values",
+                "type": "string",
+                "description": "Specify time range and interval in format defined in property 'format'. If this is not defined, ISO 8601 format will be used. Example: '2016-03-10T23:00:00.000Z/2016-03-15T23:00:00.000Z/P1D'. Infos: https://en.wikipedia.org/wiki/ISO_8601."
+              },
+              "format": {
+                "id": "/layers/WMS/time/format",
+                "type": "string",
+                "description": "Time format (Year: 'yy'|'yyyy' - Month: 'mm', Day: 'dd'. Example: 2015-03-22). If not defined, ISO 8601 format will be used."
+              },
+              "mode": {
+                "id": "/layers/WMS/time/mode",
+                "type": "string",
+                "description": "Time slider mode. Values: 'period|time'. If not defined, both modes will be used."
+              },
+              "default": {
+                "id": "/layers/WMS/time/default",
+                "type": "string",
+                "description": "Default value for time slider."
+              }
+            }
+          }
+        },
+        "required": [
+          "type",
+          "name",
+          "url",
+          "layers"
+        ]
+      },
+      "WMTS": {
+        "id": "/layers/WMTS",
+        "description": "WMTS layer",
+        "title": "WMTS",
+        "type": "object",
+        "properties": {
+          "type": {
+            "id": "/layers/WMTS/type",
+            "type": "string",
+            "description": "Type of layer: WMTS",
+            "enum": [
+              "WMTS"
+            ]
+          },
+          "id": {
+            "id": "/layers/WMTS/id",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Unique ID. It will be used in permaLink and persistence JSON. If not available, it will be added by Framework."
+          },
+          "name": {
+            "id": "/layers/WMTS/name",
+            "type": [
+              "string"
+            ],
+            "description": "Name of layer shown in Menu."
+          },
+          "url": {
+            "id": "/layers/WMTS/url",
+            "type": "string",
+            "description": "Service-URL. If the URL ends with .xml, then make a getCapabilites request and use the response to load the layer."
+          },
+          "layer": {
+            "id": "/layers/WMTS/layer",
+            "type": "string",
+            "description": "Name of layer to load"
+          },
+          "visibility": {
+            "id": "/layers/WMTS/visibility",
+            "type": "boolean",
+            "description": "Initial visibility of layer.",
+            "default": true
+          },
+          "tileGrid": {
+            "id": "/layers/WMTS/tileGrid",
+            "description": "Tile grid options",
+            "title": "tileGrid",
+            "type": "object",
+            "properties": {
+              "origin": {
+                "id": "/layers/WMTS/origin",
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "description": "Tile grid origin. Array with numbers [lon, lat] or null.",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "resolutions": {
+                "id": "/layers/WMTS/resolutions",
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "description": "Array with numbers.",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "matrixIds": {
+                "id": "/layers/WMTS/matrixIds",
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "description": "Array with strings. The length of this array needs to match the length of the resolutions array.",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "srsName": {
+            "id": "/layers/WMTS/srsName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Projection of layer. If null, then EPSG 25832 will be used.",
+            "default": "EPSG:25832"
+          },
+          "version": {
+            "id": "/layers/WMTS/version",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "WMTS version. Always 1.0.0.",
+            "default": "1.0.0",
+            "enum": [
+              "null",
+              "1.0.0"
+            ]
+          },
+          "minResolution": {
+            "id": "/layers/WMTS/minResolution",
+            "type": "number",
+            "description": "Minimum resolution.",
+            "default": 0.0001
+          },
+          "maxResolution": {
+            "id": "/layers/WMTS/maxResolution",
+            "type": "number",
+            "description": "Maximum resolution.",
+            "default": 156545.0
+          },
+          "style": {
+            "id": "/layers/WMTS/style",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Style of WMTS. If null, default will be loaded."
+          },
+          "matrixSet": {
+            "id": "/layers/WMTS/matrixSet",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Matrix set."
+          },
+          "opacity": {
+            "id": "/layers/WMTS/opacity",
+            "type": "number",
+            "description": "Default Opacity.",
+            "enum": [
+              0,
+              0.1,
+              0.2,
+              0.3,
+              0.4,
+              0.5,
+              0.6,
+              0.7,
+              0.8,
+              0.9,
+              1
+            ],
+            "default": 1
+          },
+          "copyright": {
+            "id": "/layers/WMTS/copyright",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Copyright. If null or empty it will be parsed from GetCapabilities"
+          },
+          "legendUrl": {
+            "id": "/layers/WMTS/legendUrl",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "URL for legend."
+          }
+        },
+        "required": [
+          "type",
+          "name",
+          "layer",
+          "url"
+        ]
+      },
+      "WFS": {
+        "id": "/layers/WFS",
+        "description": "WFS layer",
+        "title": "WFS",
+        "type": "object",
+        "properties": {
+          "type": {
+            "id": "/layers/WFS/type",
+            "type": "string",
+            "description": "Type of layer: WFS",
+            "enum": [
+              "WFS"
+            ]
+          },
+          "id": {
+            "id": "/layers/WFS/id",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Unique ID. It will be used in permaLink and persistence JSON. If not available, it will be added by Framework."
+          },
+          "name": {
+            "id": "/layers/WFS/name",
+            "type": [
+              "string"
+            ],
+            "description": "Name of layer shown in menu."
+          },
+          "typename": {
+            "id": "/layers/WFS/typename",
+            "type": "string",
+            "description": "Typename of WFS (namespace:featuretype)"
+          },
+          "url": {
+            "id": "/layers/WFS/url",
+            "type": "string",
+            "description": "Service-URL"
+          },
+          "visibility": {
+            "id": "/layers/WFS/visibility",
+            "type": "boolean",
+            "description": "Initial visibility of layer.",
+            "default": true
+          },
+          "srsName": {
+            "id": "/layers/WFS/srsName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Projection of layer. If null, then EPSG 25832 will be used.",
+            "default": "EPSG:25832"
+          },
+          "format": {
+            "id": "/layers/WFS/format",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Format for WFS layers. If null, then GML3 will be used",
+            "enum": [
+              "GEOJSON",
+              "GML2",
+              "GML3",
+              "null"
+            ],
+            "default": null
+          },
+          "version": {
+            "id": "/layers/WFS/version",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "WFS version. If null, 1.1.0 will be used.",
+            "default": null,
+            "enum": [
+              "null",
+              "1.0.0",
+              "1.1.0",
+              "2.0.0"
+            ]
+          },
+          "tiles": {
+            "id": "/layers/WFS/tiles",
+            "type": "boolean",
+            "description": "Load layer using tile strategy.",
+            "default": true
+          },
+          "minResolution": {
+            "id": "/layers/WFS/minResolution",
+            "type": "number",
+            "description": "Minimum resolution.",
+            "default": 0.0001
+          },
+          "maxResolution": {
+            "id": "/layers/WFS/maxResolution",
+            "type": "number",
+            "description": "Maximum resolution.",
+            "default": 156545.0
+          },
+          "edit": {
+            "id": "/layers/WFS/edit",
+            "type": "boolean",
+            "description": "Enable edit layer. Always false.",
+            "enum": [
+              "false"
+            ]
+          },
+          "style": {
+            "id": "/layers/WFS/style",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Style of WFS. Use /styles/items/name."
+          },
+          "opacity": {
+            "id": "/layers/WFS/opacity",
+            "type": "number",
+            "description": "Default Opacity.",
+            "enum": [
+              0,
+              0.1,
+              0.2,
+              0.3,
+              0.4,
+              0.5,
+              0.6,
+              0.7,
+              0.8,
+              0.9,
+              1
+            ],
+            "default": 1
+          },
+          "copyright": {
+            "id": "/layers/WFS/copyright",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Copyright. If null or empty it will be parsed from GetCapabilities"
+          },
+          "legendUrl": {
+            "id": "/layers/WFS/legendUrl",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "URL for legend."
+          }
+        },
+        "required": [
+          "type",
+          "name",
+          "typename",
+          "url"
+        ]
+      },
+      "MARKER": {
+        "id": "/layers/MARKER",
+        "description": "Marker",
+        "title": "MARKER",
+        "type": "object",
+        "properties": {
+          "type": {
+            "id": "/layers/MARKER/type",
+            "type": "string",
+            "description": "Type of layer: MARKER",
+            "enum": [
+              "MARKER"
+            ]
+          },
+          "id": {
+            "id": "/layers/MARKER/id",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Unique ID. It will be used in permaLink and persistence JSON. If not available, it will be added by Framework."
+          },
+          "name": {
+            "id": "/layers/MARKER/name",
+            "type": "string",
+            "description": "Name of layer shown in menu.",
+            "default": "Marker"
+          },
+          "visibility": {
+            "id": "/layers/MARKER/visibility",
+            "type": "boolean",
+            "description": "Initial visibility of layer.",
+            "default": true
+          },
+          "srsName": {
+            "id": "/layers/MARKER/srsName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Coordinate system of markers. If null, then EPSG 4326 will be used.",
+            "default": "EPSG:4326"
+          },
+          "markers": {
+            "id": "/layers/MARKER/markers",
+            "description": "List of markers.",
+            "type": "array",
+            "items": {
+              "id": "/layers/MARKER/markers/items",
+              "description": "Single marker",
+              "type": "object",
+              "properties": {
+                "coordinates": {
+                  "id": "/layers/MARKER/markers/items/coordinates",
+                  "description": "Coordinates of marker. The coordinate system is defined through srsName",
+                  "type": "object",
+                  "properties": {
+                    "lat": {
+                      "id": "/layers/MARKER/markers/items/coordinates/lat",
+                      "type": "number",
+                      "description": "Marker latitude.",
+                      "default": 51.354673
+                    },
+                    "lon": {
+                      "id": "/layers/MARKER/markers/items/coordinates/lon",
+                      "type": "number",
+                      "description": "Marker longitude.",
+                      "default": 12.374085
+                    }
+                  },
+                  "required": [
+                    "lat",
+                    "lon"
+                  ]
+                },
+                "content": {
+                  "id": "/layers/MARKER/markers/items/content",
+                  "type": "string",
+                  "description": "Content for info area. Markup is allowed."
+                }
+              },
+              "required": [
+                "coordinates"
+              ]
+            }
+          },
+          "minResolution": {
+            "id": "/layers/MARKER/minResolution",
+            "type": "number",
+            "description": "Minimum resolution.",
+            "default": 0.0001
+          },
+          "maxResolution": {
+            "id": "/layers/MARKER/maxResolution",
+            "type": "number",
+            "description": "Maximum resolution.",
+            "default": 156545.0
+          },
+          "edit": {
+            "id": "/layers/MARKER/edit",
+            "type": "boolean",
+            "description": "Enable edit layer.",
+            "default": false
+          },
+          "style": {
+            "id": "/layers/MARKER/style",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Style of MARKERS. Use /styles/items/name."
+          },
+          "opacity": {
+            "id": "/layers/MARKER/opacity",
+            "type": "number",
+            "description": "Default Opacity.",
+            "enum": [
+              0,
+              0.1,
+              0.2,
+              0.3,
+              0.4,
+              0.5,
+              0.6,
+              0.7,
+              0.8,
+              0.9,
+              1
+            ],
+            "default": 1
+          },
+          "copyright": {
+            "id": "/layers/MARKER/copyright",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Copyright."
+          },
+          "legendUrl": {
+            "id": "/layers/MARKER/legendUrl",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "URL for legend."
+          }
+        },
+        "required": [
+          "type",
+          "name",
+          "markers"
+        ]
+      },
+      "CSV": {
+        "id": "/layers/CSV",
+        "description": "CSV",
+        "title": "CSV",
+        "type": "object",
+        "properties": {
+          "type": {
+            "id": "/layers/CSV/type",
+            "type": "string",
+            "description": "Type of layer: CSV",
+            "enum": [
+              "CSV"
+            ]
+          },
+          "id": {
+            "id": "/layers/CSV/id",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Unique ID. It will be used in permaLink and persistence JSON. If not available, it will be added by Framework."
+          },
+          "name": {
+            "id": "/layers/CSV/name",
+            "type": "string",
+            "description": "Name of layer shown in menu.",
+            "default": "CSV"
+          },
+          "url": {
+            "id": "/layers/CSV/url",
+            "type": "string",
+            "description": "URL of CSV file"
+          },
+          "visibility": {
+            "id": "/layers/CSV/visibility",
+            "type": "boolean",
+            "description": "Initial visibility of layer.",
+            "default": true
+          },
+          "srsName": {
+            "id": "/layers/CSV/srsName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Coordinate system of markers. If null, then EPSG 4326 will be used.",
+            "default": "EPSG:4326"
+          },
+          "csvOptions": {
+            "id": "/layers/CSV/csvOptions",
+            "description": "Options only for CSV layer",
+            "type": "object",
+            "properties": {
+              "header": {
+                "id": "/layers/CSV/csvOptions/header",
+                "type": "boolean",
+                "description": "Should the first row be used as header.",
+                "default": true
+              },
+              "delimiter": {
+                "id": "/layers/CSV/csvOptions/delimiter",
+                "type": "string",
+                "description": "Delimiter used in CSV file.",
+                "default": ";"
+              },
+              "columnsToParse": {
+                "id": "/layers/CSV/csvOptions/columnsToParse",
+                "description": "Names (strings) or positions (integer) of columns that should be used as attributes. 1 is the start position. If null, then all columns will be used.",
+                "type": "array",
+                "items": {
+                  "id": "/layers/CSV/csvOptions/columnsToParse/items",
+                  "type": "integer",
+                  "description": "Name or position of column."
+                }
+              },
+              "columnNames": {
+                "id": "/layers/CSV/csvOptions/columnNames",
+                "description": "Define custom column names. Used only if header is false. The length should be the same as in columnsToParse.",
+                "type": "array",
+                "items": {
+                  "id": "/layers/CSV/csvOptions/columnNames/items",
+                  "type": "string",
+                  "description": "Custom column name."
+                }
+              },
+              "LatColumn": {
+                "id": "/layers/CSV/csvOptions/LatColumn",
+                "type": [
+                  "string",
+                  "integer"
+                ],
+                "description": "Name (string) or position (integer) of column with coordinates (Lat). The coordinate system is defined through srsName."
+              },
+              "LonColumn": {
+                "id": "/layers/CSV/csvOptions/LonColumn",
+                "type": [
+                  "string",
+                  "integer"
+                ],
+                "description": "Name (string) or position (integer) of column with coordinates (Lon). The coordinate system is defined through srsName."
+              },
+              "encoding": {
+                "id": "/layers/CSV/csvOptions/encoding",
+                "type": "string",
+                "description": "The encoding to use when opening the file.",
+                "default": "UTF-8"
+              }
+            },
+            "required": [
+              "LatColumn",
+              "LonColumn"
+            ]
+          },
+          "minResolution": {
+            "id": "/layers/CSV/minResolution",
+            "type": "number",
+            "description": "Minimum resolution.",
+            "default": 0.0001
+          },
+          "maxResolution": {
+            "id": "/layers/CSV/maxResolution",
+            "type": "number",
+            "description": "Maximum resolution.",
+            "default": 156545.0
+          },
+          "edit": {
+            "id": "/layers/CSV/edit",
+            "type": "boolean",
+            "description": "Enable edit layer.",
+            "default": false
+          },
+          "style": {
+            "id": "/layers/CSV/style",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Style of CSV. Use /styles/items/name."
+          },
+          "opacity": {
+            "id": "/layers/CSV/opacity",
+            "type": "number",
+            "description": "Default Opacity.",
+            "enum": [
+              0,
+              0.1,
+              0.2,
+              0.3,
+              0.4,
+              0.5,
+              0.6,
+              0.7,
+              0.8,
+              0.9,
+              1
+            ],
+            "default": 1
+          },
+          "copyright": {
+            "id": "/layers/CSV/copyright",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Copyright."
+          },
+          "legendUrl": {
+            "id": "/layers/CSV/legendUrl",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "URL for legend."
+          }
+        },
+        "required": [
+          "type",
+          "name",
+          "url",
+          "csvOptions"
+        ]
+      },
+      "XLS": {
+        "id": "/layers/XLS",
+        "description": "EXCEL",
+        "title": "XLS",
+        "type": "object",
+        "properties": {
+          "type": {
+            "id": "/layers/XLS/type",
+            "type": "string",
+            "description": "Type of layer: XLS",
+            "enum": [
+              "XLS"
+            ]
+          },
+          "id": {
+            "id": "/layers/XLS/id",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Unique ID. It will be used in permaLink and persistence JSON. If not available, it will be added by Framework."
+          },
+          "name": {
+            "id": "/layers/XLS/name",
+            "type": "string",
+            "description": "Name of layer shown in menu.",
+            "default": "Excel"
+          },
+          "url": {
+            "id": "/layers/XLS/url",
+            "type": "string",
+            "description": "URL of Excel file"
+          },
+          "visibility": {
+            "id": "/layers/XLS/visibility",
+            "type": "boolean",
+            "description": "Initial visibility of layer.",
+            "default": true
+          },
+          "srsName": {
+            "id": "/layers/XLS/srsName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Coordinate system of markers. If null, then EPSG 4326 will be used.",
+            "default": "EPSG:4326"
+          },
+          "excelOptions": {
+            "id": "/layers/XLS/excelOptions",
+            "description": "Options only for XLS layer",
+            "type": "object",
+            "properties": {
+              "header": {
+                "id": "/layers/XLS/excelOptions/header",
+                "type": "boolean",
+                "description": "Should the first row be used as header.",
+                "default": true
+              },
+              "columnsToParse": {
+                "id": "/layers/XLS/excelOptions/columnsToParse",
+                "description": "Names (strings) or positions (integer) of columns that should be used as attributes. 1 is the start position. If null, then all columns will be used.",
+                "type": "array",
+                "items": {
+                  "id": "/layers/XLS/excelOptions/columnsToParse/items",
+                  "type": "integer",
+                  "description": "Name or position of column."
+                }
+              },
+              "columnNames": {
+                "id": "/layers/XLS/excelOptions/columnNames",
+                "description": "Define custom column names. Used only if header is false. The length should be the same as in columnsToParse.",
+                "type": "array",
+                "items": {
+                  "id": "/layers/XLS/excelOptions/columnNames/items",
+                  "type": "string",
+                  "description": "Custom column name."
+                }
+              },
+              "LatColumn": {
+                "id": "/layers/XLS/excelOptions/LatColumn",
+                "type": [
+                  "string",
+                  "integer"
+                ],
+                "description": "Name (string) or position (integer) of column with coordinates (Lat). The coordinate system is defined through srsName."
+              },
+              "LonColumn": {
+                "id": "/layers/XLS/excelOptions/LonColumn",
+                "type": [
+                  "string",
+                  "integer"
+                ],
+                "description": "Name (string) or position (integer) of column with coordinates (Lon). The coordinate system is defined through srsName."
+              }
+            },
+            "required": [
+              "LatColumn",
+              "LonColumn"
+            ]
+          },
+          "minResolution": {
+            "id": "/layers/XLS/minResolution",
+            "type": "number",
+            "description": "Minimum resolution.",
+            "default": 0.0001
+          },
+          "maxResolution": {
+            "id": "/layers/XLS/maxResolution",
+            "type": "number",
+            "description": "Maximum resolution.",
+            "default": 156545.0
+          },
+          "edit": {
+            "id": "/layers/XLS/edit",
+            "type": "boolean",
+            "description": "Enable edit layer.",
+            "default": false
+          },
+          "style": {
+            "id": "/layers/XLS/style",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Style of XLS. Use /styles/items/name."
+          },
+          "opacity": {
+            "id": "/layers/XLS/opacity",
+            "type": "number",
+            "description": "Default Opacity.",
+            "enum": [
+              0,
+              0.1,
+              0.2,
+              0.3,
+              0.4,
+              0.5,
+              0.6,
+              0.7,
+              0.8,
+              0.9,
+              1
+            ],
+            "default": 1
+          },
+          "copyright": {
+            "id": "/layers/XLS/copyright",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Copyright."
+          },
+          "legendUrl": {
+            "id": "/layers/XLS/legendUrl",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "URL for legend."
+          }
+        },
+        "required": [
+          "type",
+          "name",
+          "url",
+          "excelOptions"
+        ]
+      },
+      "GPS": {
+        "id": "/layers/GPS",
+        "description": "GPS-Track",
+        "title": "GPS",
+        "type": "object",
+        "properties": {
+          "type": {
+            "id": "/layers/GPS/type",
+            "type": "string",
+            "description": "Type of layer: GPS",
+            "enum": [
+              "GPS"
+            ]
+          },
+          "id": {
+            "id": "/layers/GPS/id",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Unique ID. It will be used in permaLink and persistence JSON. If not available, it will be added by Framework."
+          },
+          "name": {
+            "id": "/layers/GPS/name",
+            "type": "string",
+            "description": "Name of layer shown in menu.",
+            "default": "GPS"
+          },
+          "url": {
+            "id": "/layers/GPS/url",
+            "type": "string",
+            "description": "URL of GPX file"
+          },
+          "visibility": {
+            "id": "/layers/GPS/visibility",
+            "type": "boolean",
+            "description": "Initial visibility of layer.",
+            "default": true
+          },
+          "minResolution": {
+            "id": "/layers/GPS/minResolution",
+            "type": "number",
+            "description": "Minimum resolution.",
+            "default": 0.0001
+          },
+          "maxResolution": {
+            "id": "/layers/GPS/maxResolution",
+            "type": "number",
+            "description": "Maximum resolution.",
+            "default": 156545.0
+          },
+          "edit": {
+            "id": "/layers/GPS/edit",
+            "type": "boolean",
+            "description": "Enable edit layer.",
+            "default": false
+          },
+          "style": {
+            "id": "/layers/GPS/style",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Style of GPS. Use /styles/items/name."
+          },
+          "opacity": {
+            "id": "/layers/GPS/opacity",
+            "type": "number",
+            "description": "Default Opacity.",
+            "enum": [
+              0,
+              0.1,
+              0.2,
+              0.3,
+              0.4,
+              0.5,
+              0.6,
+              0.7,
+              0.8,
+              0.9,
+              1
+            ],
+            "default": 1
+          },
+          "copyright": {
+            "id": "/layers/GPS/copyright",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Copyright."
+          },
+          "legendUrl": {
+            "id": "/layers/GPS/legendUrl",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "URL for legend."
+          }
+        },
+        "required": [
+          "type",
+          "name",
+          "url"
+        ]
+      },
+      "BKG": {
+        "id": "/layers/BKG",
+        "description": "BKG Service",
+        "title": "BKG",
+        "type": "object",
+        "properties": {
+          "type": {
+            "id": "/layers/BKG/type",
+            "type": "string",
+            "description": "Type of layer: BKG",
+            "enum": [
+              "BKG"
+            ]
+          },
+          "id": {
+            "id": "/layers/BKG/id",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Unique ID. It will be used in permaLink and persistence JSON. If not available, it will be added by Framework."
+          },
+          "name": {
+            "id": "/layers/BKG/name",
+            "type": "string",
+            "description": "Name of layer shown in menu."
+          },
+          "ref": {
+            "id": "/layers/BKG/ref",
+            "type": "string",
+            "description": "Reference of layer in BKG layer registry. This is the name of BKG layer to load."
+          },
+          "visibility": {
+            "id": "/layers/BKG/visibility",
+            "type": "boolean",
+            "description": "Initial visibility of layer.",
+            "default": true
+          },
+          "srsName": {
+            "id": "/layers/BKG/srsName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Projection of layer. If null, then map projection will be used."
+          },
+          "minResolution": {
+            "id": "/layers/BKG/minResolution",
+            "type": "number",
+            "description": "Minimum resolution.",
+            "default": 0.0001
+          },
+          "maxResolution": {
+            "id": "/layers/BKG/maxResolution",
+            "type": "number",
+            "description": "Maximum resolution.",
+            "default": 156545.0
+          },
+          "properties": {
+            "id": "/layers/BKG/updates",
+            "description": "Updates for the layer that will overwrite the preconfigured values. The complete set of available properties depends on the preconfigured layer class.",
+            "type": "object",
+            "properties": {
+            }
+          },
+          "opacity": {
+            "id": "/layers/BKG/opacity",
+            "type": "number",
+            "description": "Default Opacity.",
+            "enum": [
+              0,
+              0.1,
+              0.2,
+              0.3,
+              0.4,
+              0.5,
+              0.6,
+              0.7,
+              0.8,
+              0.9,
+              1
+            ],
+            "default": 1
+          },
+          "copyright": {
+            "id": "/layers/BKG/copyright",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Copyright. If null or empty it will be parsed from GetCapabilities"
+          },
+          "legendUrl": {
+            "id": "/layers/BKG/legendUrl",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "URL for legend."
+          }
+        },
+        "required": [
+          "type",
+          "name",
+          "ref"
+        ]
+      },
+      "GROUP": {
+        "id": "/layers/GROUP",
+        "description": "Group of layers",
+        "title": "GROUP",
+        "type": "object",
+        "properties": {
+          "type": {
+            "id": "/layers/GROUP/type",
+            "type": "string",
+            "description": "Type of layer: GROUP",
+            "enum": [
+              "GROUP"
+            ]
+          },
+          "id": {
+            "id": "/layers/GROUP/id",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Unique ID. It will be used in permaLink and persistence JSON. If not available, it will be added by Framework."
+          },
+          "name": {
+            "id": "/layers/GROUP/name",
+            "type": "string",
+            "description": "Name of group."
+          },
+          "layers": {
+            "id": "/layers/GROUP/layers",
+            "description": "List of layers in a group. The position in this list will determine the position on map.",
+            "type": "array",
+            "items": {
+              "id": "/layers/GROUP/layers/items",
+              "description": "Single layers in a group.",
+              "type": "object",
+              "anyOf": [
+                {
+                  "$ref": "WMS"
+                },
+                {
+                  "$ref": "WMTS"
+                },
+                {
+                  "$ref": "WFS"
+                },
+                {
+                  "$ref": "MARKER"
+                },
+                {
+                  "$ref": "CSV"
+                },
+                {
+                  "$ref": "XLS"
+                },
+                {
+                  "$ref": "GPS"
+                },
+                {
+                  "$ref": "BKG"
+                }
+              ]
+            }
+          },
+          "visibility": {
+            "id": "/layers/GROUP/visibility",
+            "type": "boolean",
+            "description": "Initial visibility of group.",
+            "default": true
+          }
+        },
+        "required": [
+          "type",
+          "layers"
+        ]
+      },
+      "NONE": {
+        "id": "/layers/NONE",
+        "description": "Empty baselayer",
+        "title": "NONE",
+        "type": "object",
+        "properties": {
+          "type": {
+            "id": "/layers/NONE/type",
+            "type": "string",
+            "description": "Type of layer: NONE",
+            "enum": [
+              "NONE"
+            ]
+          },
+          "id": {
+            "id": "/layers/NONE/id",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Unique ID. It will be used in permaLink and persistence JSON. If not available, it will be added by Framework."
+          }
+        },
+        "required": [
+          "type"
+        ]
+      }
+    },
+    "styles": {
+      "id": "/styles",
+      "description": "Add styles to use on vector layers",
+      "type": "array",
+      "items": {
+        "id": "/styles/items",
+        "description": "Single style definition",
+        "type": "object",
+        "anyOf": [
+          {
+            "id": "/styles/items",
+            "description": "Predefined symbols",
+            "type": "object",
+            "title": "symbol",
+            "properties": {
+              "name": {
+                "id": "/styles/items/name",
+                "type": "string",
+                "description": "Name of style. This should be used as reference for a layer."
+              },
+              "type": {
+                "id": "/styles/items/type",
+                "type": "string",
+                "description": "Type of style: symbol",
+                "enum": [
+                  "symbol"
+                ]
+              },
+              "fillColor": {
+                "id": "/styles/items/fillColor",
+                "type": "string",
+                "description": "Fill color for vector layers. A hexadecimal value.",
+                "default": "#407E40"
+              },
+              "strokeColor": {
+                "id": "/styles/items/strokeColor",
+                "type": "string",
+                "description": "Stroke color for vector layers. A hexadecimal value.",
+                "default": "#000000"
+              },
+              "symbol": {
+                "id": "/styles/items/symbol",
+                "type": "string",
+                "description": "Symbol for vector layers (points).",
+                "enum": [
+                  "marker",
+                  "star",
+                  "circle",
+                  "dottedCircle",
+                  "pentagon"
+                ],
+                "default": "marker"
+              }
+            },
+            "required": [
+              "name",
+              "type"
+            ]
+          },
+          {
+            "id": "/styles/items",
+            "description": "Custom style",
+            "type": "object",
+            "title": "custom",
+            "properties": {
+              "name": {
+                "id": "/styles/items/name",
+                "type": "string",
+                "description": "Name of style. This should be used as reference for a layer."
+              },
+              "type": {
+                "id": "/styles/items/type",
+                "type": "string",
+                "description": "Type of style: custom",
+                "enum": [
+                  "custom"
+                ]
+              },
+              "fill": {
+                "id": "/styles/items/fill",
+                "description": "Properties of OpenLayers Class ol.style.Fill",
+                "type": "object"
+              },
+              "stroke": {
+                "id": "/styles/items/stroke",
+                "description": "Properties of OpenLayers Class ol.style.Stroke",
+                "type": "object"
+              },
+              "image": {
+                "id": "/styles/items/image",
+                "description": "Styling points. Use only one key of the following. If more than one keys are used, this is the reading order: regularShape->icon->circle (last overwrites first)",
+                "type": "object",
+                "properties": {
+                  "circle": {
+                    "id": "/styles/items/image/circle",
+                    "description": "Properties of OpenLayers Class ol.style.Circle",
+                    "type": "object"
+                  },
+                  "icon": {
+                    "id": "/styles/items/image/icon",
+                    "description": "Properties of OpenLayers Class ol.style.Icon",
+                    "type": "object"
+                  },
+                  "regularShape": {
+                    "id": "/styles/items/image/regularShape",
+                    "description": "Properties of OpenLayers Class ol.style.RegularShape",
+                    "type": "object"
+                  }
+                }
+              }
+            },
+            "required": [
+              "name",
+              "type"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "description",
+    "version",
+    "appName",
+    "layers"
+  ]
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BKG WebMap - Übersichtskarte</title>
+    <link rel="stylesheet" href="../build/libs/geo.okapi.min.css">
+    <style>
+        #map {
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script src="../build/libs/geo.okapi.min.js"></script>
+<script>
+    new okapi.MapBuilder()
+        .setLayers({
+            baseLayers: [
+                {
+                    type: 'BKG',
+                    name: 'WebAtlasDE',
+                    ref: 'webatlasde_light',
+                    visibility: true,
+                    minResolution: 0.0001,
+                    maxResolution: 156545
+                }
+            ]
+        })
+        .setControls({
+            panelPosition: 'left',
+            tools: {
+                zoom: {
+                    active: true,
+                    showZoomLevel: false,
+                    zoomToFullExtent: false,
+                    history: false,
+                    position: 'top-left'
+                },
+                overviewMap: {
+                    active: true,
+                    position: 'bottom-right',
+                    collapsible: true,
+                    collapsed: false,
+                    layers: []
+                }
+            }
+        })
+        .create();
+</script>
+
+</body>
+</html>

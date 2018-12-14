@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BKG WebMap - WMS Layer</title>
+    <link rel="stylesheet" href="../build/libs/geo.okapi.min.css">
+    <style>
+        #map {
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script src="../build/libs/geo.okapi.min.js"></script>
+<script>
+    new okapi.MapBuilder()
+        .setLayers({
+            baseLayers: [
+                {
+                    type: 'BKG',
+                    name: 'WebAtlasDE',
+                    ref: 'webatlasde_light',
+                    visibility: true,
+                    minResolution: 0.0001,
+                    maxResolution: 156545
+                }
+            ],
+            overlays: [
+                {
+                    type: 'WMS',
+                    name: 'Berlin',
+                    tiles: false,
+                    url: 'https://web-mapping.com/geoserver/kurs/wms',
+                    visibility: true,
+                    srsName: 'EPSG:3857',
+                    layers: [{
+                        id: '0',
+                        name: 'Berlin Postleitzahlen',
+                        layer: 'berlin_postleitzahlen',
+                        style: 'polygon_yellow',
+                        selectStyle: true
+                    }, {
+                        id: '1',
+                        name: 'Wochenmärkte',
+                        layer: 'wochenmaerkte',
+                        style: 'point_orange',
+                        selectStyle: true
+                    }]
+                }
+            ]
+        })
+        .create();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "description": "Configuration for BKG WebMap",
+  "version": "0.7.2",
+  "appName": "Beispielanwendung",
+  "map": {
+    "div": "map",
+    "projection": "EPSG:25832",
+    "center": {
+      "lat": 5694672.26,
+      "lon": 734918.78
+    },
+    "resolution": null,
+    "resolutions": null,
+    "scales": null,
+    "zoom": 5,
+    "maxResolution": null,
+    "minResolution": null,
+    "maxZoom": 23,
+    "minZoom": 6
+  },
+  "layers": {
+    "baseLayers": [
+      {
+        "type": "BKG",
+        "name": "WebAtlasDE",
+        "ref": "webatlasde_light",
+        "visibility": true,
+        "minResolution": 0.0001,
+        "maxResolution": 156545
+      }
+    ],
+    "overlays": []
+  }
+}

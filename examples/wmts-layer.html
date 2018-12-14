@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BKG WebMap - WMTS Layer</title>
+    <link rel="stylesheet" href="../build/libs/geo.okapi.min.css">
+    <style>
+        #map {
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script src="../build/libs/geo.okapi.min.js"></script>
+<script>
+    new okapi.MapBuilder()
+        .setLayers({
+            baseLayers: [
+                {
+                    type: 'WMTS',
+                    name: 'WMTS getCapabilities',
+                    url: 'https://sg.geodatenzentrum.de/wmts_webatlasde.light/1.0.0/WMTSCapabilities.xml',
+                    layer: 'webatlasde.light'
+                }
+            ]
+        })
+        .create();
+</script>
+
+</body>
+</html>

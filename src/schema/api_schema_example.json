@@ -1,0 +1,312 @@
+{
+  "description": "Configuration for BKG WebMap",
+  "version": "0.7.4",
+  "appName": "Beispielanwendung",
+  "options": {
+    "panelPosition": "left",
+    "initialize": "layerSwitcher",
+    "tools": {
+      "geoSearch": {
+        "active": true,
+        "resultsMaxZoom": 13,
+        "suggestCount": 10,
+        "resultsCount": 5
+        "protocol": {
+          "type": "ortssuche",
+          "url": null,
+          "filter": "bundesland:Hessen",
+          "bbox": {
+            "coordinates": [
+              722200,
+              5682000,
+              747600,
+              5703000
+            ],
+            "projection": "EPSG:25832"
+          }
+        },
+        "reverseGeocoding": {
+          "active": true,
+          "count": 10
+        }
+      },
+      "searchCoordinates": {
+        "active": true,
+        "div": null,
+        "coordinateSystems": [
+          {
+            "epsg": "4326",
+            "name": "WGS84"
+          },
+          {
+            "epsg": "25833",
+            "name": "ETRS89 / UTM zone 33N"
+          }
+        ]
+      },
+      "layerSwitcher": {
+        "active": true,
+        "div": null,
+        "editStyle": true,
+        "changeVisibility": true,
+        "changeOrder": true,
+        "showWMSLayers": true,
+        "openLevel": 0
+      },
+      "customLayers": {
+        "active": true,
+        "edit": true,
+        "changeVisibility": true,
+        "defaultStyle": "blueSymbols",
+        "dataTypes": [
+          "BKG",
+          "WMS",
+          "WMTS",
+          "WFS",
+          "CSV",
+          "XLS",
+          "GPS"
+        ]
+      },
+      "legend": {
+        "active": true,
+        "div": null
+      },
+      "showAttributes": {
+        "active": true,
+        "div": null
+      },
+      "measure": {
+        "active": true,
+        "div": null
+      },
+      "edit": {
+        "active": true,
+        "div": null,
+        "emptyLayer": true,
+        "export": {
+          "active": true,
+          "formats": [
+            "KML",
+            "GML",
+            "GEOJSON",
+            "GPX",
+            "WKT"
+          ]
+        }
+      },
+      "share": {
+        "active": true,
+        "div": null,
+        "print": {
+          "active": true
+        },
+        "permaLink": {
+          "active": true
+        },
+        "jsonExport": {
+          "active": true,
+          "appName": "Beispielanwendung"
+        }
+      },
+      "zoom": {
+        "active": true,
+        "div": null,
+        "showZoomLevel": false,
+        "zoomToFullExtent": true,
+        "history": true,
+        "position": "top-left",
+        "onlyFullScreen": false
+      },
+      "scalebar": {
+        "active": true,
+        "div": null,
+        "scalebarType": "mapscaleDistance",
+        "position": "bottom-right",
+        "onlyFullScreen": false
+      },
+      "copyright": {
+        "active": true,
+        "div": null,
+        "position": "bottom-left",
+        "onlyFullScreen": false
+      },
+      "showCoordinates": {
+        "active": true,
+        "div": null,
+        "coordinateSystems": [
+          {
+            "epsg": "4326",
+            "name": "WGS84"
+          },
+          {
+            "epsg": "25833",
+            "name": "ETRS89 / UTM zone 33N"
+          }
+        ],
+        "position": "bottom-right"
+      },
+      "fullScreen": {
+        "active": true,
+        "div": null,
+        "position": "top-right"
+      },
+      "overviewMap": {
+        "active": true,
+        "div": null,
+        "position": "bottom-right",
+        "collapsible": true,
+        "collapsed": false,
+        "layers": [
+          "baselayer1",
+          "overlay1"
+        ],
+        "onlyFullScreen": false
+      }
+    }
+  },
+  "map": {
+    "div": "map",
+    "projection": "EPSG:25832",
+    "center": {
+      "lat": 5694672.26,
+      "lon": 734918.78
+    },
+    "resolution": null,
+    "resolutions": null,
+    "scales": null,
+    "zoom": 10,
+    "maxResolution": null,
+    "minResolution": null,
+    "maxZoom": 23,
+    "minZoom": 6,
+    "defaultStyle": "blueSymbols"
+  },
+  "layers": {
+    "baseLayers": [
+      {
+        "type": "WMS",
+        "id": "baselayer1",
+        "name": "VG2500",
+        "url": "http://sg.geodatenzentrum.de/wms_vg2500",
+        "layers": [
+          {
+            "id": "baselayer1_1",
+            "name": "VG2500",
+            "layer": "VG2500",
+            "visibility": true,
+            "style": null,
+            "selectStyle": true,
+            "legendUrl": null,
+            "minResolution": 0.0001,
+            "maxResolution": 156545
+          }
+        ],
+        "visibility": true,
+        "tiles": false,
+        "srsName": "EPSG:25832",
+        "version": "1.3.0",
+        "minResolution": 0.0001,
+        "maxResolution": 156545,
+        "opacity": 0.7
+      },
+      {
+        "type": "BKG",
+        "id": "baselayer2",
+        "name": "WEBATLASDE GRAU",
+        "ref": "WEBATLASDE.GRAU",
+        "visibility": true,
+        "minResolution": 0.0001,
+        "maxResolution": 156545,
+        "opacity": 0.7
+      }
+    ],
+    "overlays": [
+      {
+        "type": "WFS",
+        "id": "overlay1",
+        "name": "WFS-VG1000",
+        "typename": "vg1000_krs",
+        "url": "http://sg.geodatenzentrum.de/wfs_vg1000",
+        "visibility": true,
+        "tiles": true,
+        "srsName": "EPSG:25832",
+        "format": "GML3",
+        "version": "1.1.0",
+        "minResolution": 0.0001,
+        "maxResolution": 156545,
+        "edit": false,
+        "style": "blueSymbols",
+        "opacity": 0.7
+      },
+      {
+        "type": "GROUP",
+        "id": "overlay2",
+        "name": "Points",
+        "layers": [
+          {
+            "type": "CSV",
+            "id": "overlay2_1",
+            "name": "CSV Layer",
+            "visibility": true,
+            "srsName": "EPSG:4326",
+            "csvOptions": {
+              "header": true,
+              "delimiter": ";",
+              "columnsToParse": [
+                "Column1",
+                "Column2"
+              ],
+              "LatColumn": "lat",
+              "LonColumn": "lon",
+              "encoding": "UTF-8"
+            },
+            "minResolution": 0.0001,
+            "maxResolution": 156545,
+            "edit": false,
+            "style": "blueSymbols",
+            "opacity": 0.7
+          },
+          {
+            "type": "MARKER",
+            "id": "overlay2_2",
+            "name": "Marker Layer",
+            "visibility": true,
+            "srsName": "EPSG:4326",
+            "markers": [
+              {
+                "coordinates": {
+                  "lat": 50.091176,
+                  "lon": 8.663281
+                },
+                "content": "<h3>Zentrale Dienststelle in Frankfurt am Main</h3><p>Bundesamt für Kartographie und Geodäsie<br>Richard-Strauss-Allee 11<br>60598 Frankfurt am Main<br>Deutschland</p>"
+              },
+              {
+                "coordinates": {
+                  "lat": 51.354210,
+                  "lon": 12.374295
+                },
+                "content": "<h3>Außenstelle Leipzig</h3><p>Bundesamt für Kartographie und Geodäsie<br> - Außenstelle Leipzig -<br>Karl-Rothe-Straße 10-14<br>04105 Leipzig<br>Deutschland</p>"
+              }
+            ],
+            "minResolution": 0.0001,
+            "maxResolution": 156545,
+            "edit": false,
+            "style": "blueSymbols",
+            "opacity": 0.7
+          }
+        ],
+        "visibility": true
+      }
+    ]
+  },
+  "styles": [
+    {
+      "name": "blueSymbols",
+      "type": "symbol",
+      "fillColor": "#033D90",
+      "strokeColor": "#ECE333",
+      "symbol": "marker"
+    }
+  ]
+}
