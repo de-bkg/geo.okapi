@@ -650,10 +650,8 @@ BKGWebMap.Layer.FACTORIES = {
             if (extent) {
                 extent = ol.proj.transformExtent(extent, 'EPSG:4326', layerProjection);
                 if (extent[0] === extent[2]) {
-                    extent = ol.proj.transformExtent(map.getView().calculateExtent(), map.getView().getProjection(), layerProjection);
-                    // TODO: fix source.tileGrid.extent = extent;
-                    // console.log(source);
-                    // console.log(extent);
+                    extent = ol.proj.transformExtent(BKGWebMap.EXTENTS['EPSG:4326'], 'EPSG:4326', layerProjection);
+                    source.tileGrid.B = extent;
                 }
                 layer.extent = extent;
             }
@@ -694,13 +692,16 @@ BKGWebMap.Layer.FACTORIES = {
                     var result = parser.read(xhr.responseText);
                     var extent;
                     var legendUrl;
-
                     if (BKGWebMap.Util.hasNestedProperty(result, 'Contents.Layer') && result.Contents.Layer.length) {
-                        for (var j = 0; j < result.Contents.Layer.length; j++) {
-                            var layerConfig = result.Contents.Layer[j];
-                            if (wmtsLayer !== layerConfig.Identifier) continue;
-                            if (layerConfig.WGS84BoundingBox && layerConfig.WGS84BoundingBox.length === 4) {
-                                extent = layerConfig.WGS84BoundingBox;
+                        if (result.Contents.Layer[0].WGS84BoundingBox && result.Contents.Layer[0].WGS84BoundingBox.length === 4) {
+                            for (var j = 0; j < result.Contents.Layer.length; j++) {
+                                var layerConfig = result.Contents.Layer[j];
+                                if (wmtsLayer !== layerConfig.Identifier) {
+                                    continue;
+                                }
+                                if (layerConfig.WGS84BoundingBox && layerConfig.WGS84BoundingBox.length === 4) {
+                                    extent = layerConfig.WGS84BoundingBox;
+                                }
                             }
                         }
                     }
@@ -724,6 +725,7 @@ BKGWebMap.Layer.FACTORIES = {
                         layer: wmtsLayer,
                         matrixSet: config.matrixSet
                     });
+
                     // If function is called through a BKG layer, try to use UUID
                     if (bkg && BKGWebMap.SECURITY.UUID && options.urls instanceof Array) {
                         for (var i = 0; i < options.urls.length; i++) {
@@ -820,7 +822,15 @@ BKGWebMap.Layer.FACTORIES = {
                     var legendUrl;
                     if (BKGWebMap.Util.hasNestedProperty(result, 'Contents.Layer') && result.Contents.Layer.length) {
                         if (result.Contents.Layer[0].WGS84BoundingBox && result.Contents.Layer[0].WGS84BoundingBox.length === 4) {
-                            extent = result.Contents.Layer[0].WGS84BoundingBox;
+                            for (var j = 0; j < result.Contents.Layer.length; j++) {
+                                var layerConfig = result.Contents.Layer[j];
+                                if (wmtsLayer !== layerConfig.Identifier) {
+                                    continue;
+                                }
+                                if (layerConfig.WGS84BoundingBox && layerConfig.WGS84BoundingBox.length === 4) {
+                                    extent = layerConfig.WGS84BoundingBox;
+                                }
+                            }
                         }
                     }
                     if (!copyright) {

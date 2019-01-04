@@ -7,42 +7,35 @@ function layerTest(layerConfig, type, callback) {
             var layerType;
             var layerName;
             var layerVisibility;
-            if (type === 'BKG') {
-                map.getLayers().forEach(function (layer) {
-                    if (layer.getProperties() && layer.getProperties().hasOwnProperty('originalConfig') && layer.getProperties().originalConfig.bkg) {
-                        expect(layer.getVisible()).toBeTruthy();
-                        callback();
+
+            map.getLayers().forEach(function (layer) {
+                if (layer instanceof BKGWebMap.Layer[type] && layer.getProperties()) {
+                    layerProperties = layer.getProperties();
+                    layerType = layerProperties.type;
+                    layerName = layerProperties.name;
+                    layerVisibility = layer.getVisible();
+                }
+                if (layer instanceof BKGWebMap.Layer.MARKER) {
+                    expect(layer instanceof ol.layer.Vector).toBe(true);
+                    expect(layer.getSource().getFeatures().length).toBe(layerConfig.markers.length);
+                    // Create arrays with feature- and marker-content to compare
+                    var i;
+                    var markersContent = [];
+                    var featuresContent = [];
+                    for (i = 0; i < layerConfig.markers.length; i++) {
+                        markersContent.push(layerConfig.markers[i].content);
                     }
-                });
-            } else {
-                map.getLayers().forEach(function (layer) {
-                    if (layer instanceof BKGWebMap.Layer[type] && layer.getProperties()) {
-                        layerProperties = layer.getProperties();
-                        layerType = layerProperties.type;
-                        layerName = layerProperties.name;
-                        layerVisibility = layer.getVisible();
+                    for (i = 0; i < layer.getSource().getFeatures().length; i++) {
+                        featuresContent.push(layer.getSource().getFeatures()[i].get('name'));
                     }
-                    if (layer instanceof BKGWebMap.Layer.MARKER) {
-                        expect(layer instanceof ol.layer.Vector).toBe(true);
-                        expect(layer.getSource().getFeatures().length).toBe(layerConfig.markers.length);
-                        // Create arrays with feature- and marker-content to compare
-                        var i;
-                        var markersContent = [];
-                        var featuresContent = [];
-                        for (i = 0; i < layerConfig.markers.length; i++) {
-                            markersContent.push(layerConfig.markers[i].content);
-                        }
-                        for (i = 0; i < layer.getSource().getFeatures().length; i++) {
-                            featuresContent.push(layer.getSource().getFeatures()[i].get('name'));
-                        }
-                        expect(featuresContent).toEqual(markersContent);
-                    }
-                });
-                expect(layerType).toBe(type);
-                expect(layerName).toBe(layerConfig.name);
-                expect(layerVisibility).toBeTruthy();
-                callback();
-            }
+                    expect(featuresContent).toEqual(markersContent);
+                }
+            });
+            expect(layerType).toBe(type);
+            expect(layerName).toBe(layerConfig.name);
+            expect(layerVisibility).toBeTruthy();
+            callback();
+
         });
 }
 

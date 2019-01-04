@@ -107,7 +107,7 @@ BKGWebMap.Control.createLegend = function () {
                 if (name === newParamsWMS.LAYERS[i]) {
                     element.classList.add('bkgwebmap-legendlayeractive');
                     styleName = newParamsWMS.STYLES[i];
-                    if (typeof legendInfo[name] === 'object' && legendInfo[name].constructor === Object) {
+                    if (legendInfo && typeof legendInfo[name] === 'object' && legendInfo[name].constructor === Object) {
                         return legendInfo[name][styleName];
                     }
                 }
@@ -154,6 +154,12 @@ BKGWebMap.Control.createLegend = function () {
                 var url = layer.getProperties().legendUrl;
                 var layerActive = false;
                 if ((layer instanceof BKGWebMap.Layer.ImageWMS || layer instanceof BKGWebMap.Layer.TileWMS) && !url) {
+                    var activateLegend = true;
+                    var legendInfo = layer.getLegendInfo();
+                    if (!legendInfo) {
+                        return;
+                    }
+
                     layerLegendDiv = document.createElement('div');
                     layerLegendDiv.className = 'bkgwebmap-legendlayer';
                     layerLegendDiv.setAttribute('data-bkgwebmap-legendlayerid', layer.getProperties().uniqueId);
@@ -165,13 +171,12 @@ BKGWebMap.Control.createLegend = function () {
                     layerLegendDiv.appendChild(layerLegendDivTitle);
 
                     var subLayers = layer.getLayers();
-                    var legendInfo = layer.getLegendInfo();
 
                     for (var i = 0; i < subLayers.length; i++) {
                         var legendUrl = '';
 
                         var layerLegendDivWms = document.createElement('div');
-                        if (subLayers[i].visibility) {
+                        if (subLayers[i].visibility && layer.getVisible()) {
                             layerLegendDivWms.className = 'bkgwebmap-legendlayer bkgwebmap-legendlayerwms bkgwebmap-legendlayeractive';
                             layerActive = true;
                         } else {
@@ -202,6 +207,9 @@ BKGWebMap.Control.createLegend = function () {
                                 var defaultUrl = '';
                                 for (var styleName in legendInfo[subLayers[i].layer]) {
                                     counter++;
+                                    if (counter === 1) {
+                                        legendUrl = legendInfo[subLayers[i].layer][styleName];
+                                    }
                                     defaultUrl = legendInfo[subLayers[i].layer][styleName];
                                     if (styleName.toLowerCase().indexOf('default') !== -1) {
                                         legendUrl = legendInfo[subLayers[i].layer][styleName];
@@ -214,6 +222,8 @@ BKGWebMap.Control.createLegend = function () {
                         }
                         if (legendUrl) {
                             layerLegendDivImg.setAttribute('src', legendUrl);
+                        } else {
+                            activateLegend = false;
                         }
 
                         layerLegendDivImgDiv.appendChild(layerLegendDivImg);
@@ -223,7 +233,7 @@ BKGWebMap.Control.createLegend = function () {
                         layerActive = false;
                     }
 
-                    if (layerActive) {
+                    if (layerActive && legendInfo && activateLegend) {
                         layerLegendDiv.classList.add('bkgwebmap-legendlayeractive');
                     }
                 } else if (url) {
@@ -299,6 +309,10 @@ BKGWebMap.Control.createLegend = function () {
                         } else if (visible) {
                             legendLayers[i].classList.add('bkgwebmap-legendlayeractive');
                         } else {
+                            legendLayers[i].classList.remove('bkgwebmap-legendlayeractive');
+                        }
+
+                        if (legendLayers[i].getElementsByTagName('img')[0].src === '') {
                             legendLayers[i].classList.remove('bkgwebmap-legendlayeractive');
                         }
                     }

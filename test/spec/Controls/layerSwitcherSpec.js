@@ -211,8 +211,10 @@ describe('A suite for layerSwitcher control', function () {
                 }
             });
             expect(invisibleLayersBefore).toBe(0);
+
             var inputsChangeVisibility = document.getElementsByClassName('bkgwebmap-layerheaderinput');
             expect(inputsChangeVisibility.length).toBe(1);
+
             inputsChangeVisibility[0].click();
             invisibleLayersAfter = 0;
             map.getLayers().forEach(function (layer) {
@@ -221,9 +223,11 @@ describe('A suite for layerSwitcher control', function () {
                 }
             });
             expect(invisibleLayersAfter).toBe(1);
+
             done();
         });
     });
+
     it('test switch off grouplayer visibility', function (done) {
         options = {
             active: true,
@@ -233,6 +237,7 @@ describe('A suite for layerSwitcher control', function () {
             changeOrder: false,
             openLevel: 1
         };
+
         layers = {
             baseLayers: [
                 {
@@ -323,6 +328,7 @@ describe('A suite for layerSwitcher control', function () {
                 }
             ]
         };
+
         createMap(controlName, options, layers, function (map) {
             map.getLayers().forEach(function (layer) {
                 if (layer instanceof ol.layer.Group) {
@@ -335,8 +341,11 @@ describe('A suite for layerSwitcher control', function () {
             });
             expect(invisibleLayersBefore).toBe(0);
             expect(invisibleGroupLayersBefore).toBe(0);
+
             var inputsChangeGroupVisibility = document.getElementsByClassName('bkgwebmap-layerswitchergroupheader')[0].getElementsByClassName('bkgwebmap-layerheaderinput');
             expect(inputsChangeGroupVisibility.length).toBe(1);
+
+// TODO: Fix TypeError: undefined is not a constructor (evaluating 'layer.getSource()') thrown
             inputsChangeGroupVisibility[0].click();
             invisibleLayersAfter = 0;
             map.getLayers().forEach(function (layer) {
@@ -350,6 +359,7 @@ describe('A suite for layerSwitcher control', function () {
             });
             expect(invisibleGroupLayersAfter).toBe(1);
             expect(invisibleLayersAfter).toBe(0);
+
             done();
         });
     });
@@ -402,6 +412,7 @@ describe('A suite for layerSwitcher control', function () {
             done();
         });
     });
+
     it('test unable edit styles', function (done) {
         options = {
             active: true,
@@ -456,6 +467,7 @@ describe('A suite for layerSwitcher control', function () {
             done();
         });
     });
+
     it('test enable edit styles', function (done) {
         options = {
             active: true,
@@ -525,6 +537,7 @@ describe('A suite for layerSwitcher control', function () {
             done();
         });
     });
+
     it('test edit styles', function (done) {
         options = {
             active: true,
@@ -589,6 +602,7 @@ describe('A suite for layerSwitcher control', function () {
             done();
         });
     });
+
     it('test opacity slider', function (done) {
         options = {
             active: true,
@@ -651,6 +665,7 @@ describe('A suite for layerSwitcher control', function () {
             done();
         });
     });
+
     it('test open level 1', function (done) {
         options = {
             active: true,
@@ -738,6 +753,7 @@ describe('A suite for layerSwitcher control', function () {
             done();
         });
     });
+
     it('test open level 2', function (done) {
         options = {
             active: true,
@@ -825,6 +841,7 @@ describe('A suite for layerSwitcher control', function () {
             done();
         });
     });
+    
     it('test switch off wms-sublayer', function (done) {
         options = {
             active: true,
@@ -893,6 +910,7 @@ describe('A suite for layerSwitcher control', function () {
             done();
         });
     });
+
     it('properties of wms-sublayer', function (done) {
         options = {
             active: true,
@@ -965,4 +983,5 @@ describe('A suite for layerSwitcher control', function () {
             done();
         });
     });
+
 });

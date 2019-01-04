@@ -112,7 +112,7 @@ BKGWebMap.ParseConfig.prototype.createConfigView = function (defaultConfigView, 
                 // without defining extent, do not use default extent.
                 // Use an extent of the right projection
                 if (viewConfig.projection !== defaultConfigView.projection) {
-                    viewConfigValue = BKGWebMap.EXTENTS[viewConfig.projection];
+                    viewConfigValue = BKGWebMap.PROJECTIONS_EXTENTS[viewConfig.projection];
                 } else {
                     viewConfigValue = defaultConfigView.extent;
                 }

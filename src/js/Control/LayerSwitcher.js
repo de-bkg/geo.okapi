@@ -178,7 +178,7 @@ BKGWebMap.Control.createLayerSwitcher = function () {
                 layer.getProperties().originalConfig.visibility = visible;
             }
             var definedVisibility;
-            if ((layer instanceof BKGWebMap.Layer.ImageWMS || layer instanceof BKGWebMap.Layer.TileWMS) && layer.getLayers().length && BKGWebMap.Util.hasNestedProperty(layer.getProperties(), 'originalConfig.layers')) {
+            if ((layer.getSource() instanceof ol.source.ImageWMS || layer.getSource() instanceof ol.source.TileWMS) && layer.getLayers().length && BKGWebMap.Util.hasNestedProperty(layer.getProperties(), 'originalConfig.layers')) {
                 if (!visible && newParamsWMS != null) {
                     layer.getSource().updateParams({
                         LAYERS: newParamsWMS.LAYERS.join(),
@@ -724,7 +724,7 @@ BKGWebMap.Control.createLayerSwitcher = function () {
                 map.getLayers().forEach(function (layer) {
                     if (layer instanceof ol.layer.Group) {
                         layer.getLayers().forEach(function (grouplayer) {
-                            if ((grouplayer instanceof BKGWebMap.Layer.ImageWMS || grouplayer instanceof BKGWebMap.Layer.TileWMS) && grouplayer.get('uniqueId') === layerId) {
+                            if ((grouplayer.getSource() instanceof ol.source.ImageWMS || grouplayer.getSource() instanceof ol.source.TileWMS) && grouplayer.get('uniqueId') === layerId) {
                                 grouplayer.getLayers().forEach(function (singleLayer) {
                                     if (singleLayer.layer === subLayerName) {
                                         checkLayerMinResolution = !((singleLayer.minResolution && mapResolution < singleLayer.minResolution));
@@ -734,7 +734,7 @@ BKGWebMap.Control.createLayerSwitcher = function () {
                                 });
                             }
                         });
-                    } else if ((layer instanceof BKGWebMap.Layer.ImageWMS || layer instanceof BKGWebMap.Layer.TileWMS) && layer.get('uniqueId') === layerId) {
+                    } else if ((layer.getSource() instanceof ol.source.ImageWMS || layer.getSource() instanceof ol.source.TileWMS) && layer.get('uniqueId') === layerId) {
                         layer.getLayers().forEach(function (singleLayer) {
                             if (singleLayer.layer === subLayerName) {
                                 checkLayerMinResolution = !((singleLayer.minResolution && mapResolution < singleLayer.minResolution));
@@ -1171,7 +1171,7 @@ BKGWebMap.Control.createLayerSwitcher = function () {
             var subLayers;
             var subLayersWMS = false;
             if (level === 'layer') {
-                if ((layer instanceof BKGWebMap.Layer.ImageWMS || layer instanceof BKGWebMap.Layer.TileWMS) && showWMSLayers) {
+                if ((layer.getSource() instanceof ol.source.ImageWMS || layer.getSource() instanceof ol.source.TileWMS) && showWMSLayers) {
                     subLayersWMS = true;
                     subLayers = layer.getLayers();
                 }
@@ -1569,7 +1569,7 @@ BKGWebMap.Control.createLayerSwitcher = function () {
                     elementDOM.style.opacity = 1;
                     adjustSelect(elementDOM, false);
                 }
-                if ((layer instanceof BKGWebMap.Layer.ImageWMS || layer instanceof BKGWebMap.Layer.TileWMS) && layer.getLayers()) {
+                if ((layer.getSource() instanceof ol.source.ImageWMS || layer.getSource() instanceof ol.source.TileWMS) && layer.getLayers()) {
                     layer.getLayers().forEach(function (sublayer) {
                         var subLayerName = sublayer.layer;
                         var subLayerNodes = document.getElementById(id).querySelectorAll('[data-bkgwebmap-wmssublayer]');

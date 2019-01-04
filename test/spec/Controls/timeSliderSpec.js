@@ -41,6 +41,7 @@ describe('A suite for timeslider control', function () {
             done();
         });
     });
+
     it('test default params', function (done) {
         // Create new control in map
         options = {
@@ -58,11 +59,11 @@ describe('A suite for timeslider control', function () {
                     type: 'WMS',
                     name: 'Berlin',
                     tiles: false,
-                    url: 'https://web-mapping.com/geoserver/bkg/wms',
                     visibility: true,
+                    url: 'https://services.bgr.de/wms/seismologie/gerseis/',
                     layers: [{
-                        name: 'Time Points Layer',
-                        layer: 'time_points'
+                        name: 'Ereignisse seit dem Jahr 800',
+                        layer: '0'
                     }],
                     time: {
                         active: true
@@ -74,12 +75,14 @@ describe('A suite for timeslider control', function () {
         createMap(controlName, options, layers, function () {
             var valueTimeSliderInput = document.getElementsByClassName('bkgwebmap-timesliderinput')[0].value;
             expect(valueTimeSliderInput).toBe('0');
+
             var valueTimeSliderOutput = document.getElementsByClassName('bkgwebmap-timeslidervalue')[0].innerHTML;
-            expect(valueTimeSliderOutput).toContain('10.3.2016');
+            expect(valueTimeSliderOutput).toContain('1.1.813');
             expect(document.getElementsByClassName('bkgwebmap-timesliderperiod')[0].disabled).not.toBeTruthy();
             done();
         });
     });
+
     it('test config params', function (done) {
         // Create new control in map
         options = {
@@ -96,18 +99,18 @@ describe('A suite for timeslider control', function () {
                 {
                     type: 'WMS',
                     name: 'Berlin',
-                    tiles: false,
-                    url: 'https://web-mapping.com/geoserver/bkg/wms',
                     visibility: true,
+                    tiles: false,
+                    url: 'https://services.bgr.de/wms/seismologie/gerseis/',
                     layers: [{
-                        name: 'Time Points Layer',
-                        layer: 'time_points'
+                        name: 'Ereignisse seit dem Jahr 800',
+                        layer: '0'
                     }],
                     time: {
                         active: true,
-                        values: '2016-03-10/2016-03-15/P1D',
+                        values: '2000/2018/P2Y',
                         mode: 'time',
-                        default: '2016-03-12'
+                        default: '2004'
                     }
                 }
             ]
@@ -117,11 +120,12 @@ describe('A suite for timeslider control', function () {
             var valueTimeSliderInput = document.getElementsByClassName('bkgwebmap-timesliderinput')[0].value;
             expect(valueTimeSliderInput).toBe('2');
             var valueTimeSliderOutput = document.getElementsByClassName('bkgwebmap-timeslidervalue')[0].innerHTML;
-            expect(valueTimeSliderOutput).toContain('12.3.2016');
+            expect(valueTimeSliderOutput).toContain('1.1.2004');
             expect(document.getElementsByClassName('bkgwebmap-timesliderperiod')[0].disabled).toBeTruthy();
             done();
         });
     });
+
     it('test update params WMS', function (done) {
         // Create new control in map
         options = {
@@ -139,11 +143,11 @@ describe('A suite for timeslider control', function () {
                     type: 'WMS',
                     name: 'Berlin',
                     tiles: false,
-                    url: 'https://web-mapping.com/geoserver/bkg/wms',
                     visibility: true,
+                    url: 'https://services.bgr.de/wms/seismologie/gerseis/',
                     layers: [{
-                        name: 'Time Points Layer',
-                        layer: 'time_points'
+                        name: 'Ereignisse seit dem Jahr 800',
+                        layer: '0'
                     }],
                     time: {
                         active: true,

@@ -34,7 +34,7 @@ BKGWebMap.View.findBestResolution = function (config, map) {
     };
 
     var bestResolution;
-    var resolution = getResolutionForExtent(BKGWebMap.EXTENTS[config.projection], map.getSize());
+    var resolution = getResolutionForExtent(BKGWebMap.PROJECTIONS_EXTENTS[config.projection], map.getSize());
     var k = 0;
     do {
         bestResolution = resolutions[k];
