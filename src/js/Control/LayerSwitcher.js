@@ -178,7 +178,7 @@ BKGWebMap.Control.createLayerSwitcher = function () {
                 layer.getProperties().originalConfig.visibility = visible;
             }
             var definedVisibility;
-            if ((layer.getSource() instanceof ol.source.ImageWMS || layer.getSource() instanceof ol.source.TileWMS) && layer.getLayers().length && BKGWebMap.Util.hasNestedProperty(layer.getProperties(), 'originalConfig.layers')) {
+            if ((typeof layer.getSource === 'function' && (layer.getSource() instanceof ol.source.ImageWMS || layer.getSource() instanceof ol.source.TileWMS)) && layer.getLayers().length && BKGWebMap.Util.hasNestedProperty(layer.getProperties(), 'originalConfig.layers')) {
                 if (!visible && newParamsWMS != null) {
                     layer.getSource().updateParams({
                         LAYERS: newParamsWMS.LAYERS.join(),

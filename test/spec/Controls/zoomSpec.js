@@ -60,9 +60,9 @@ describe('A suite for zoom control', function () {
             style: ''
         };
 
-        createMap(controlName, options, null, function (map) {
+        createMapView(controlName, options, null, function (map) {
             // Test zoom
-            expect(getZoomLevel()).toBe('5');
+            expect(getZoomLevel()).toBe('4');
             // Change zoom
             map.getView().setZoom(1);
             // Test zoom

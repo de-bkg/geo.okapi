@@ -243,8 +243,7 @@ BKGWebMap.MapBuilder.prototype.setControls = function (controlsConfig) {
  * @property {string|null} copyright - Copyright. If null or empty it will be parsed from GetCapabilities. (/layers/baseLayer|overlays/items/WMS/copyright)
  * @property {object} time - Time options for WMS-T. (/layers/baseLayer|overlays/items/WMS/time)
  * @property {boolean} time.active - Activate tool. (/layers/baseLayer|overlays/items/WMS/time/active)
- * @property {string} time.values - Specify time range and interval in in format defined in property 'format'. If this is not defined, ISO 8601 format will be used. Example: '2016-03-10T23:00:00.000Z/2016-03-15T23:00:00.000Z/P1D'. Infos: https://en.wikipedia.org/wiki/ISO_8601. (/layers/baseLayer|overlays/items/WMS/time/values)
- * @property {string} time.format - Time format (Year: 'yy'|'yyyy' - Month: 'mm', Day: 'dd'. Example: 2015-03-22). If not defined, ISO 8601 format will be used.
+ * @property {string} time.values - Specify time range and interval in ISO 8601 format. Example: '2016-03-10T23:00:00.000Z/2016-03-15T23:00:00.000Z/P1D'. Infos: https://en.wikipedia.org/wiki/ISO_8601. (/layers/baseLayer|overlays/items/WMS/time/values)
  * @property {string} time.mode - Time slider mode. Values: 'period|time'. If not defined, both modes will be used.
  * @property {string} time.default - Default value for time slider
  */
@@ -595,6 +594,12 @@ BKGWebMap.MapBuilder.prototype.create = function (callback) {
         } else {
             view = BKGWebMap.View.create(_this.viewConfig);
         }
+
+        // Define right extent for map projection
+        var projectionCode = view.getProjection().getCode();
+        var projection = ol.proj.get(projectionCode);
+        projection.setExtent(BKGWebMap.PROJECTIONS_EXTENTS[projectionCode]);
+
         _this.map.setView(view);
 
         // If there either zoom nor resolution defined, find best resolution for map

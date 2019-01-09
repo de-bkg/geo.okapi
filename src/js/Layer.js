@@ -649,10 +649,6 @@ BKGWebMap.Layer.FACTORIES = {
             var layer = new BKGWebMap.Layer.WMTS(config);
             if (extent) {
                 extent = ol.proj.transformExtent(extent, 'EPSG:4326', layerProjection);
-                if (extent[0] === extent[2]) {
-                    extent = ol.proj.transformExtent(BKGWebMap.EXTENTS['EPSG:4326'], 'EPSG:4326', layerProjection);
-                    source.tileGrid.B = extent;
-                }
                 layer.extent = extent;
             }
             layer.setSource(source);

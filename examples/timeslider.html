@@ -20,27 +20,28 @@
             baseLayers: [
                 {
                     type: 'BKG',
-                    name: 'WebAtlasDE',
-                    ref: 'webatlasde_light',
-                    visibility: true,
-                    minResolution: 0.0001,
-                    maxResolution: 156545
+                    name: 'TopPlus Open',
+                    ref: 'topplus_open/layers/web_grau',
+                    visibility: true
                 }
             ],
             overlays: [
                 {
                     type: 'WMS',
-                    name: 'Time Layer',
+                    name: 'Erdbeben seit 2000',
                     tiles: false,
-                    url: 'https://web-mapping.com/geoserver/bkg/wms',
+                    url: 'https://services.bgr.de/wms/seismologie/gerseis/',
+                    copyright: 'Datenquelle: Deutscher Erdbebenkatalog, &copy; BGR Hannover, 2016',
                     visibility: true,
                     layers: [{
-                        name: 'time_points',
-                        layer: 'time_points'
+                        name: 'Ereignisse seit dem Jahr 800',
+                        layer: '0'
                     }],
                     time: {
                         active: true,
-                        // values: '2016-03-10T23:00:00.000Z/2016-03-15T23:00:00.000Z/P1D'
+                        values: '2000/2020/P2Y',
+                        default: '2000/2020',
+                        mode: 'period'
                     }
                 }
             ]
@@ -48,6 +49,7 @@
         .setControls({
             panelPosition: 'left',
             tools: {
+                copyright: { active: true },
                 zoom: {
                     active: true,
                     showZoomLevel: false,
@@ -60,13 +62,6 @@
                     position: 'bottom-right'
                 }
             }
-        })
-        .setView({
-            center: {
-                lon: 734944.554646,
-                lat: 5693522.166083
-            },
-            zoom: 7
         })
         .create();
 </script>

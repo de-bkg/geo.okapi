@@ -58,11 +58,12 @@
                             type: 'WFS',
                             name: 'WFS Layer',
                             visibility: true,
-                            url: 'https://web-mapping.com/geoserver/ows',
-                            typename: 'kurs:berliner_bezirke',
+                            url: 'https://sg.geodatenzentrum.de/wfs_vg2500',
+                            typename: 'vg2500:Bundesland',
                             srsName: 'EPSG:3857',
                             format: 'GML3',
                             version: '1.1.0',
+                            style: 'red',
                             edit: false
                         },
                         {
@@ -156,6 +157,19 @@
                 }
             }
         })
+         .defineStyles([
+             {
+                 name: 'red',
+                 type: 'custom',
+                 stroke: {
+                     color: '#890500',
+                     width: 2
+                 },
+                 fill: {
+                     color: '#e5070033'
+                 }
+             }
+         ])
         .create();
 </script>
 

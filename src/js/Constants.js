@@ -472,7 +472,7 @@ BKGWebMap.CONTROLS = {
             url: BKGWebMap.BASE_URL + 'web_bkg_webmap/cookietest/setcookie.php'
         },
         overviewMap: {
-            active: true,
+            active: false,
             position: 'bottom-right',
             div: null,
             collapsible: true,

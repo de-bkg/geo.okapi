@@ -113,21 +113,21 @@ describe('A suite for legend control', function () {
                     type: 'WMS',
                     name: 'Berlin',
                     tiles: false,
-                    url: 'https://web-mapping.com/geoserver/kurs/wms',
+                    url: 'http://sg.geodatenzentrum.de/wms_vg250',
                     visibility: true,
                     srsName: 'EPSG:3857',
                     layers: [
                         {
                             id: '0',
                             name: wmsLayerName1,
-                            layer: 'berlin_postleitzahlen',
-                            style: 'polygon_yellow',
+                            layer: 'vg250_lan',
+                            style: 'default',
                             selectStyle: true
                         }, {
                             id: '1',
                             name: wmsLayerName2,
-                            layer: 'wochenmaerkte',
-                            style: 'point_orange',
+                            layer: 'vg250_krs',
+                            style: 'polygon',
                             selectStyle: true
                         }
                     ]
@@ -163,17 +163,17 @@ describe('A suite for legend control', function () {
             overlays: [
                 {
                     type: 'WMS',
-                    name: 'Berlin',
+                    name: 'VG250',
                     tiles: false,
-                    url: 'https://web-mapping.com/geoserver/kurs/wms',
+                    url: 'https://sg.geodatenzentrum.de/wms_vg250',
                     visibility: true,
                     srsName: 'EPSG:3857',
                     layers: [
                         {
                             id: '0',
-                            name: 'PLZ',
-                            layer: 'berlin_postleitzahlen',
-                            style: 'polygon_yellow',
+                            name: 'Bundesland',
+                            layer: 'vg250_lan',
+                            style: 'polygon',
                             selectStyle: true
                         }
                     ]

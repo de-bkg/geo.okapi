@@ -123,8 +123,8 @@ describe('A suite for customLayers control', function () {
             type: 'WFS',
             name: 'WFS_test',
             visibility: true,
-            url: 'https://web-mapping.com/geoserver/ows',
-            typename: 'kurs:lines',
+            url: 'https://sg.geodatenzentrum.de/wfs_vg2500',
+            typename: 'vg2500:Bundesland',
             srsName: 'EPSG:3857',
             version: '1.1.0'
         };

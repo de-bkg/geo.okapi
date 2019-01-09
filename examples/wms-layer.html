@@ -20,32 +20,52 @@
             baseLayers: [
                 {
                     type: 'BKG',
-                    name: 'WebAtlasDE',
-                    ref: 'webatlasde_light',
+                    name: 'TopPlus Open',
+                    ref: 'topplus_open/layers/web_grau',
                     visibility: true,
-                    minResolution: 0.0001,
-                    maxResolution: 156545
+                    opacity: 0.5
                 }
             ],
             overlays: [
                 {
                     type: 'WMS',
-                    name: 'Berlin',
+                    name: 'VG250',
                     tiles: false,
-                    url: 'https://web-mapping.com/geoserver/kurs/wms',
+                    url: 'https://sg.geodatenzentrum.de/wms_vg250',
                     visibility: true,
                     srsName: 'EPSG:3857',
                     layers: [{
                         id: '0',
-                        name: 'Berlin Postleitzahlen',
-                        layer: 'berlin_postleitzahlen',
-                        style: 'polygon_yellow',
+                        name: 'Bundesland',
+                        layer: 'vg250_lan',
+                        style: 'default',
                         selectStyle: true
                     }, {
                         id: '1',
-                        name: 'Wochenmärkte',
-                        layer: 'wochenmaerkte',
-                        style: 'point_orange',
+                        name: 'Regierungsbezirk',
+                        layer: 'vg250_rbz',
+                        style: 'default',
+                        selectStyle: true
+                    }, {
+                        id: '2',
+                        name: 'Kreis',
+                        layer: 'vg250_krs',
+                        style: 'default',
+                        maxResolution: 500,
+                        selectStyle: true
+                    }, {
+                        id: '3',
+                        name: 'Verwaltungsgemeinschaft',
+                        layer: 'vg250_vwg',
+                        style: 'default',
+                        maxResolution: 250,
+                        selectStyle: true
+                    }, {
+                        id: '4',
+                        name: 'Gemeinde',
+                        layer: 'vg250_gem',
+                        style: 'default',
+                        maxResolution: 100,
                         selectStyle: true
                     }]
                 }

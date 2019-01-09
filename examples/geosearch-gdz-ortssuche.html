@@ -13,6 +13,10 @@
 </head>
 <body>
 <div id="map"></div>
+<p>
+    This example requires access to geocoding service https://sg.geodatenzentrum.de/gdz_ortssuche.
+    Please contact <a href="mailto:dlz@bkg.bund.de">dlz@bkg.bund.de</a>.
+</p>
 <script src="../build/libs/geo.okapi.min.js"></script>
 <script>
     new okapi.MapBuilder()
@@ -45,7 +49,7 @@
                     resultsCount: 5,
                     protocol: {
                         type: 'ortssuche',
-                        url: 'https://sg.geodatenzentrum.de/gdz_ortssuche__c9ebe5b6-9dd6-3a43-5310-76aa2cfa13d6',
+                        url: 'https://sg.geodatenzentrum.de/gdz_ortssuche',
                         // filter: 'bundesland:Sachsen',
                         bbox: {
                             coordinates: [722200,5682000,747600,5703000],
@@ -63,6 +67,12 @@
                 }
             }
         })
+        /*
+        .setSecurity({
+            appID: '...',  // Add your App-ID here
+            appDomain: 'localhost'
+        })
+        */
         .create();
 </script>
 

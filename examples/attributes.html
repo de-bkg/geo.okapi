@@ -55,19 +55,6 @@
                     name: 'GROUP Layer',
                     layers: [
                         {
-                            type: 'WFS',
-                            name: 'WFS Layer',
-                            visibility: true,
-                            url: 'https://web-mapping.com/geoserver/ows',
-                            typename: 'kurs:berliner_bezirke',
-                            srsName: 'EPSG:3857',
-                            format: 'GML3',
-                            version: '1.1.0',
-                            minResolution: 0.0001,
-                            maxResolution: 156545,
-                            edit: false
-                        },
-                        {
                             type: 'MARKER',
                             name: 'Marker Leipzig',
                             visibility: true,
@@ -89,6 +76,19 @@
                                     content: '<h3>Außenstelle Leipzig</h3><p>Bundesamt für Kartographie und Geodäsie<br> - Außenstelle Leipzig -<br>Karl-Rothe-Straße 10-14<br>04105 Leipzig<br>Deutschland</p>'
                                 }
                             ],
+                            minResolution: 0.0001,
+                            maxResolution: 156545,
+                            edit: false
+                        },
+                        {
+                            type: 'WFS',
+                            name: 'WFS Layer',
+                            visibility: true,
+                            url: 'https://sg.geodatenzentrum.de/wfs_vg2500/ows',
+                            typename: 'vg2500:Bundesland',
+                            srsName: 'EPSG:3857',
+                            format: 'GML3',
+                            version: '1.1.0',
                             minResolution: 0.0001,
                             maxResolution: 156545,
                             edit: false

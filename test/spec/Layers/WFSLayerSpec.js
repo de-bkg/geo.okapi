@@ -5,8 +5,8 @@ describe('A suite for WFS layers', function () {
         name: 'WFS Lines 1.0.0',
         id: 'lines1_0_0',
         visibility: true,
-        url: 'https://web-mapping.com/geoserver/ows',
-        typename: 'kurs:lines',
+        url: 'https://sg.geodatenzentrum.de/wfs_vg2500',
+        typename: 'vg2500:Bundesland',
         srsName: 'EPSG:3857',
         version: '1.0.0'
     };
@@ -16,8 +16,8 @@ describe('A suite for WFS layers', function () {
         name: 'WFS Lines 1.1.0',
         id: 'lines1_1_0',
         visibility: true,
-        url: 'https://web-mapping.com/geoserver/ows',
-        typename: 'kurs:lines',
+        url: 'https://sg.geodatenzentrum.de/wfs_vg2500',
+        typename: 'vg2500:Bundesland',
         srsName: 'EPSG:3857',
         version: '1.1.0'
     };
@@ -27,8 +27,8 @@ describe('A suite for WFS layers', function () {
         name: 'WFS Lines 2.0.0',
         id: 'lines2_0_0',
         visibility: true,
-        url: 'https://web-mapping.com/geoserver/ows',
-        typename: 'kurs:lines',
+        url: 'https://sg.geodatenzentrum.de/wfs_vg2500',
+        typename: 'vg2500:Bundesland',
         srsName: 'EPSG:3857',
         version: '2.0.0'
     };

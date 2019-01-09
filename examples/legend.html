@@ -30,22 +30,28 @@
             overlays: [
                 {
                     type: 'WMS',
-                    name: 'Berlin',
+                    name: 'VG250',
                     tiles: false,
-                    url: 'https://web-mapping.com/geoserver/kurs/wms',
+                    url: 'http://sg.geodatenzentrum.de/wms_vg250',
                     visibility: true,
                     srsName: 'EPSG:3857',
                     layers: [{
                         id: '0',
-                        name: 'Berlin Postleitzahlen',
-                        layer: 'berlin_postleitzahlen',
-                        style: 'polygon_yellow',
+                        name: 'Kreis',
+                        layer: 'vg250_krs',
+                        style: 'polygon',
                         selectStyle: true
                     }, {
                         id: '1',
-                        name: 'Wochenmärkte',
-                        layer: 'wochenmaerkte',
-                        style: 'point_orange',
+                        name: 'Regierungsbezirk',
+                        layer: 'vg250_rbz',
+                        style: 'polygon',
+                        selectStyle: true
+                    }, {
+                        id: '2',
+                        name: 'Bundesland',
+                        layer: 'vg250_lan',
+                        style: 'polygon',
                         selectStyle: true
                     }]
                 }
