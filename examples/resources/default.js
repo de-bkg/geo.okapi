@@ -283,7 +283,7 @@ function createExamplePage(page) {
     var title = document.createElement('div');
     title.id = 'bkgwebmap-examples-title';
     var titleText = document.createElement('h3');
-    titleText.innerText = 'BKG WebMap - ' + page.title;
+    titleText.innerText = 'geo.okapi - ' + page.title;
     title.appendChild(titleText);
 
     var iframe = document.createElement('iframe');
