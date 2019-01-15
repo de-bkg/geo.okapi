@@ -8,7 +8,7 @@ To create a development environment you need **node.js** and **npm**: https://no
 
 ```bash
 # Clone repository
-git clone https://github.com/de-bkg/geo-okapi.git
+git clone https://github.com/de-bkg/geo.okapi.git
 cd geo-okapi
 
 # Install npm packages
