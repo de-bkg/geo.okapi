@@ -137,7 +137,6 @@ BKGWebMap.PROJECTIONS_EXTENTS = {
     'EPSG:2399': [4718975, 5180252, 5646048, 6176060]
 };
 
-
 // TODO: find right place
 // TODO: lazy init?
 for (var srs in BKGWebMap.PROJECTIONS_EXTENTS) {

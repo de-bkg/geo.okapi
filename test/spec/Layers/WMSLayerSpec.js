@@ -129,8 +129,8 @@ describe('A suite for WMS layers', function () {
                             layer: 'Bundeslaender',
                             selectStyle: true,
                             visibility: true,
-                            minResolution: 10000,
-                            maxResolution: 20000
+                            minResolution: 1000,
+                            maxResolution: 2000
                         },
                         {
                             id: '1',
@@ -139,7 +139,7 @@ describe('A suite for WMS layers', function () {
                             style: 'grass',
                             visibility: true,
                             selectStyle: true,
-                            minResolution: 15000
+                            minResolution: 1500
                         }
                     ]
                 }
@@ -147,13 +147,13 @@ describe('A suite for WMS layers', function () {
         };
 
         createMap(null, null, layers, function (map) {
-            map.getView().setZoom(map.getView().getZoomForResolution(1000));
+            map.getView().setZoom(map.getView().getZoomForResolution(100));
             map.getLayers().forEach(function (layer) {
                 if ((layer instanceof BKGWebMap.Layer.ImageWMS || layer instanceof BKGWebMap.Layer.TileWMS) && layer.getVisible()) {
                     expect(layer.getVisible()).toBeFalsy();
                 }
             });
-            map.getView().setZoom(map.getView().getZoomForResolution(10000));
+            map.getView().setZoom(map.getView().getZoomForResolution(1000));
             map.getLayers().forEach(function (layer) {
                 if ((layer instanceof BKGWebMap.Layer.ImageWMS || layer instanceof BKGWebMap.Layer.TileWMS) && layer.getVisible()) {
                     expect(layer.getVisible()).toBeTruthy();
@@ -161,7 +161,7 @@ describe('A suite for WMS layers', function () {
                     expect(sublayersWMS.length).toBe(1);
                 }
             });
-            map.getView().setZoom(map.getView().getZoomForResolution(16000));
+            map.getView().setZoom(map.getView().getZoomForResolution(1600));
             map.getLayers().forEach(function (layer) {
                 if ((layer instanceof BKGWebMap.Layer.ImageWMS || layer instanceof BKGWebMap.Layer.TileWMS) && layer.getVisible()) {
                     expect(layer.getVisible()).toBeTruthy();
@@ -169,7 +169,7 @@ describe('A suite for WMS layers', function () {
                     expect(sublayersWMS.length).toBe(2);
                 }
             });
-            map.getView().setZoom(map.getView().getZoomForResolution(30000));
+            map.getView().setZoom(map.getView().getZoomForResolution(3000));
             map.getLayers().forEach(function (layer) {
                 if ((layer instanceof BKGWebMap.Layer.ImageWMS || layer instanceof BKGWebMap.Layer.TileWMS) && layer.getVisible()) {
                     expect(layer.getVisible()).toBeTruthy();

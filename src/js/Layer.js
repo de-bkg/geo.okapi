@@ -443,19 +443,19 @@ BKGWebMap.Layer.FACTORIES = {
             };
         }
 
+        // add additional request parameters if present in config
+        var extraSourceParams = ['bgcolor'];
+        for (i = 0; i < extraSourceParams.length; i++) {
+            var key = extraSourceParams[i];
+            if (config[key]) {
+                sourceParams[key] = config[key];
+            }
+        }
+
         // Object with source options
-        var sourceOptionsImage = {
+        var sourceOptions = {
             url: url,
             params: sourceParams,
-            projection: projection
-        };
-        var sourceOptionsTile = {
-            url: url,
-            params: {
-                LAYERS: sublayersArray.join(),
-                VERSION: version,
-                STYLES: sublayersStyleArray.join()
-            },
             projection: projection
         };
 
@@ -491,21 +491,21 @@ BKGWebMap.Layer.FACTORIES = {
         if (Object.prototype.hasOwnProperty.call(config, 'tiles') && config.tiles === false) {
             for (i = 0; i < extraSourceOptionsImage.length; i++) {
                 if (config[extraSourceOptionsImage[i]]) {
-                    sourceOptionsImage[extraSourceOptionsImage[i]] = config[extraSourceOptionsImage[i]];
+                    sourceOptions[extraSourceOptionsImage[i]] = config[extraSourceOptionsImage[i]];
                 }
             }
             // Image WMS
             ol.inherits(BKGWebMap.Layer.ImageWMS, ol.layer.Image);
-            source = new ol.source.ImageWMS(sourceOptionsImage);
+            source = new ol.source.ImageWMS(sourceOptions);
         } else {
             for (i = 0; i < extraSourceOptionsTile.length; i++) {
                 if (config[extraSourceOptionsTile[i]]) {
-                    sourceOptionsTile[extraSourceOptionsTile[i]] = config[extraSourceOptionsTile[i]];
+                    sourceOptions[extraSourceOptionsTile[i]] = config[extraSourceOptionsTile[i]];
                 }
             }
             // Tile WMS
             ol.inherits(BKGWebMap.Layer.TileWMS, ol.layer.Tile);
-            source = new ol.source.TileWMS(sourceOptionsTile);
+            source = new ol.source.TileWMS(sourceOptions);
         }
 
         function parseLayersInfoWMS(arrayLayers, config, extentParsed, mapEPSG, extent, mapProjection) {

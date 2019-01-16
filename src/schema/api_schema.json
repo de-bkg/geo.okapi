@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "BKG_WebMap_Konfigurative_Schnittstelle_Schema",
-  "title": "BKG WebMap - Konfigurative Schnittstelle: Schema - Version 0.7.4",
+  "title": "BKG WebMap - Konfigurative Schnittstelle: Schema - Version 0.7.5",
   "type": "object",
   "properties": {
     "description": {
@@ -1673,6 +1673,15 @@
               "null"
             ],
             "description": "URL for legend. If empty or null, legend will be loaded using GetLegendGraphic. It has priority over legendUrl in each WMS-Layer (/layers/WMS/layers/items/legendUrl)."
+          },
+          "bgcolor": {
+            "id": "/layers/WMS/bgcolor",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Definition for the BGCOLOR request parameter. e.g. 0xFFFFFF",
+            "default": null
           },
           "copyright": {
             "id": "/layers/WMS/copyright",
