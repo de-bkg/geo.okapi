@@ -1,13 +1,13 @@
-# Online Karten API (Geo.OKAPI)
+# Online Karten API (geo.okapi)
 
 <span style="color:#ff0000;">**repository currently under construction**</span>
 
-Online Karten API (Geo.OKAPI) is a JavaScript library that encapsulates features for creating interactive maps. It is 
+**O**nline **K**arten **API** (geo.**okapi**) is a JavaScript library that encapsulates features for creating interactive maps. It is 
 based on OpenLayers and adds some useful features to this library.
 
 ## Getting Started
 
-To use Geo.OKAPI you need the appropriate .js and .css files. Those files are created with the build process as 
+To use geo.okapi you need the appropriate .js and .css files. Those files are created with the build process as 
 described [here](doc/develop/01_Getting_Started.md) 
 
 [//]: # "TODO: add direct downloaded link"
@@ -33,8 +33,8 @@ described [here](doc/develop/01_Getting_Started.md)
 *okapi.no.libs.min.css*
 
 ### External Libraries
-If you use the Geo.OKAPI builds without external libraries, you need to include the following in your web site before 
-including the Geo.OKAPI JavaScript and CSS files:
+If you use the geo.okapi builds without external libraries, you need to include the following in your web site before 
+including the geo.okapi JavaScript and CSS files:
 
 - OpenLayers 4.6.5<br>
 Links:<br>

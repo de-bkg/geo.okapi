@@ -1,5 +1,5 @@
 {
-  "name": "Geo.OKAPI",
+  "name": "geo.okapi",
   "version": "1.0.0",
   "scripts": {
     "test": "karma start test/conf/karma.conf.js",

@@ -9,7 +9,7 @@ To create a development environment you need **node.js** and **npm**: https://no
 ```bash
 # Clone repository
 git clone https://github.com/de-bkg/geo.okapi.git
-cd geo-okapi
+cd geo.okapi
 
 # Install npm packages
 # It creates folder node_modules with all packages listed in package.json
@@ -29,9 +29,9 @@ To explore the examples within the directory of the same name you have to build 
 A brief description of directories and useful files:
 
 ```
-geo-okapi
+geo.okapi
 |   package.json            # List of packages that the project depends on
-|   build.js                # Configuration for building Geo.OKAPI (used by buildify)
+|   build.js                # Configuration for building geo.okapi (used by buildify)
 |   .eslintrc.json          # Configuration for ESLint
 |   .gitignore              # Ignore files in Git
 |
@@ -63,7 +63,7 @@ geo-okapi
 |   |
 |   +---develop             # Information about the repository and developing
 |
-+---examples                # Example applications that use Geo.OKAPI
++---examples                # Example applications that use geo.okapi
 |
 +---node_modules            # Libraries installed using package.json
 |
@@ -73,7 +73,7 @@ geo-okapi
 |   |
 |   +---js                  # JavaScript source files
 |   |
-|   +---schema              # Geo.OKAPI config API and persistence schema
+|   +---schema              # geo.okapi config API and persistence schema
 |
 +---tests                   # Tests
 |   |

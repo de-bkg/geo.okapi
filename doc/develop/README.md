@@ -1,17 +1,17 @@
-# Geo.OKAPI
+# geo.okapi
 
-Geo.OKAPI is a JavaScript library that encapsulates features for creating interactive maps. It is based on OpenLayers 
+geo.okapi is a JavaScript library that encapsulates features for creating interactive maps. It is based on OpenLayers 
 and adds some useful features to this library.
 <br><br>
 ## Table of contents
 - [Getting Started](01_Getting_Started.md)
   - Clone repository
-  - Using Geo.OKAPI
+  - Using geo.okapi
   - Installation for developers
   - Directory structure
 - [Developing BKG WebMap](02_Developing.md)
   - Create custom OpenLayers build
-  - Create Geo.OKAPI build
+  - Create geo.okapi build
   - Documenting and Linting source code
 - [Unit tests](03_Unit_Tests.md)
   - Configure unit tests

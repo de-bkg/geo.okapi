@@ -1,7 +1,7 @@
 /**
  * Namespace: okapi
  *
- * The okapi object provides a namespace for all Geo.OKAPI things.
+ * The okapi object provides a namespace for all geo.okapi things.
  *
  * <br/>
  *

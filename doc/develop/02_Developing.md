@@ -1,6 +1,6 @@
 [Back to TOC](README.md)
 
-# Developing Geo.OKAPI
+# Developing geo.okapi
 
 ## Required Software
 
@@ -11,7 +11,7 @@ environment variable.
 
 ## Create custom OpenLayers build
 
-Geo.OKAPI uses a custom OpenLayers build with classes defined in file **config/ol/ol-custom.js**.<br/>
+geo.okapi uses a custom OpenLayers build with classes defined in file **config/ol/ol-custom.js**.<br/>
 If you need to use an OpenLayers class not included in current custom build, then you should add this class in file 
 ol-custom.js
 
@@ -44,20 +44,20 @@ If the compile command does not work check if
   `.*\Oracle\Java\javapath`
 
 
-## Create Geo.OKAPI build
+## Create geo.okapi build
 
 All source files should be in folder */src*. JavaScript in *src/js* and CSS in *src/css*.<br/>
 Any new files created must be also defined in file **build.js**. Only then, they can be included in build.
 
 ```javascript
-// JavaScript files of Geo.OKAPI
+// JavaScript files of geo.okapi
 var jsFiles = [
     'src/js/BKGWebMap.js'
     ...
     ...
 ];
 
-// CSS files of Geo.OKAPI
+// CSS files of geo.okapi
 var cssFiles = [
     'src/css/app.css'
     ...
@@ -65,13 +65,13 @@ var cssFiles = [
 ];
 ```
 
-Create Geo.OKAPI build:
+Create geo.okapi build:
 
 ```bash
 npm run build
 ```
 
-The above command creates compressed/uncompressed versions of Geo.OKAPI including/not including libraries. All these 
+The above command creates compressed/uncompressed versions of geo.okapi including/not including libraries. All these 
 files are located in folder *build/libs*.
 
 
@@ -86,7 +86,7 @@ If you would like to change the first page of jsdoc (index.html) you should edit
 
 ## Using examples
 
-Application and code examples can be found within the directory examples. To use the examples the Geo.OKAPI libraries
+Application and code examples can be found within the directory examples. To use the examples the geo.okapi libraries
 has to be build. The [index](../../examples/index.html) can be used to list all examples. If you want to add a new 
 example you have to edit examples/resources/default.js:  
 ```javascript

@@ -191,7 +191,7 @@ BKGWebMap.Control.createZoom = function () {
                     ol.extent.extend(extent, layer.extent);
                 }
             });
-
+            // TODO: doesn't work with different projections
             map.getView().fit(extent, map.getSize());
         }
 
