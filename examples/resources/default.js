@@ -227,9 +227,10 @@ var linksList = [
 
 var examplesDiv = document.getElementById('bkgwebmap-examples-main');
 
-if (window.location.hash !== '') {
-    var pageName = window.location.hash;
-    examplesDiv.appendChild(findExamplePage(pageName));
+var url = new URL(window.location);
+var page = url.searchParams.get('id');
+if (page != null) {
+    examplesDiv.appendChild(findExamplePage(page));
 } else {
     examplesDiv.appendChild(createLinks());
 }
@@ -249,11 +250,11 @@ function createLinks() {
     linksList = linksList.sort(function(a,b) {return a.title.localeCompare(b.title);});
 
     for (var i = 0; i < linksList.length; i++) {
-        url = window.location + '#' + linksList[i].filename;
+        url = window.location.protocol + '//' + window.location.host + window.location.pathname + '?id=' + linksList[i].filename;
 
         link = document.createElement('a');
         link.setAttribute('href', url);
-        link.setAttribute('target', '_blank');
+        link.setAttribute('target', '_self');
 
         span1 = document.createElement('span');
         span1.className = 'bkgwebmap-examples-title';
@@ -318,7 +319,7 @@ function findExamplePage(pageName) {
     var pageFound = false;
     var page;
     for (var i = 0; i < linksList.length; i++) {
-        if (pageName === '#' + linksList[i].filename) {
+        if (pageName === linksList[i].filename) {
             pageFound = true;
             page = linksList[i];
         }
