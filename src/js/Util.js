@@ -661,3 +661,41 @@ if (!('remove' in Element.prototype)) {
 
     window.CustomEvent = CustomEvent;
 }());
+
+
+/**
+ * Returns the extent of the given layer. Depending on the layer type the
+ * access to the extent may vary.
+ *
+ * @param {ol.layer.Layer} layer - the layer from which to retrieve the extent
+ * @param {ol.proj.Projection} projection - optional target projection for layer
+ * @returns {ol.Extent}
+ */
+BKGWebMap.Util.getLayerExtent = function (layer, projection) {
+    var extent;
+    if (layer instanceof ol.layer.Group) {
+        extent = ol.extent.createEmpty();
+        layer.getLayers().forEach(function (subLayer) {
+            var subLayerExtent = BKGWebMap.Util.getLayerExtent(subLayer, projection);
+            ol.extent.extend(extent, subLayerExtent);
+        });
+        return extent;
+    }
+
+    // layer has no source. e.g. EMPTY
+    if(layer.getSource() == null)
+       return ol.extent.createEmpty();
+
+    if (layer instanceof ol.layer.Vector) {
+        extent = layer.getSource().getExtent();
+    } else if (layer.extent && layer.extent instanceof Array) {
+        extent = layer.extent;
+    }
+
+    var srcProjection = layer.getSource().getProjection();
+    if (projection && srcProjection != null) {
+        extent = ol.proj.transformExtent(extent, srcProjection, projection);
+    }
+
+    return extent;
+};

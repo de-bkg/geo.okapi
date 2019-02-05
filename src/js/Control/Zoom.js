@@ -175,24 +175,18 @@ BKGWebMap.Control.createZoom = function () {
         // Zoom to extent
         function zoomToExtent() {
             var extent = ol.extent.createEmpty();
+            var projection = map.getView().getProjection();
 
             map.getLayers().forEach(function (layer) {
-                if (layer instanceof ol.layer.Group) {
-                    layer.getLayers().forEach(function (groupLayer) {
-                        if (groupLayer instanceof ol.layer.Vector) {
-                            ol.extent.extend(extent, groupLayer.getSource().getExtent());
-                        } else if (layer.extent && layer.extent instanceof Array) {
-                            ol.extent.extend(extent, layer.extent);
-                        }
-                    });
-                } else if (layer instanceof ol.layer.Vector) {
-                    ol.extent.extend(extent, layer.getSource().getExtent());
-                } else if (layer.extent && layer.extent instanceof Array) {
-                    ol.extent.extend(extent, layer.extent);
-                }
+                var layerExtent = BKGWebMap.Util.getLayerExtent(layer, projection);
+                ol.extent.extend(extent, layerExtent);
             });
-            // TODO: doesn't work with different projections
-            map.getView().fit(extent, map.getSize());
+
+            // clip to projection extent?
+            extent = ol.extent.getIntersection(extent, projection.getExtent());
+
+            // TODO: check if configured view extent is respected.
+            map.getView().fit(extent);
         }
 
         // Activate history function
