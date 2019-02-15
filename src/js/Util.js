@@ -683,8 +683,7 @@ BKGWebMap.Util.getLayerExtent = function (layer, projection) {
     }
 
     // layer has no source. e.g. EMPTY
-    if(layer.getSource() == null)
-       return ol.extent.createEmpty();
+    if (layer.getSource() == null) { return ol.extent.createEmpty(); }
 
     if (layer instanceof ol.layer.Vector) {
         extent = layer.getSource().getExtent();

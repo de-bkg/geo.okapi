@@ -51,7 +51,8 @@ BKGWebMap.SERVICE_REGISTRY = ' https://sg.geodatenzentrum.de/gdz_service_registr
 BKGWebMap.SECURITY = {
     UUID: null,
     appID: null,
-    appDomain: null
+    appDomain: null,
+    cookieCheck: false
 };
 
 /**
