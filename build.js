@@ -68,12 +68,15 @@ var cssAllFiles = cssLibraries.concat(cssFiles);
 var buildPath = 'build/libs/';
 
 var buildify = require('buildify');
+var pjson = require('./package.json');
 
 // Create build without Libraries
 buildify()
     .concat(jsFiles)
+    .wrap('config/template.no.libs.js', {version: pjson.version})
     .save(buildPath + 'geo.okapi.no.libs.js')
     .uglify()
+    .wrap('config/template.no.libs.js', {version: pjson.version})
     .save(buildPath + 'geo.okapi.no.libs.min.js');
 buildify()
     .concat(cssFiles)
@@ -84,8 +87,10 @@ buildify()
 // Create build with Libraries
 buildify()
     .concat(jsAllFiles)
+    .wrap('config/template.libs.js', {version: pjson.version})
     .save(buildPath + 'geo.okapi.js')
     .uglify()
+    .wrap('config/template.libs.js', {version: pjson.version})
     .save(buildPath + 'geo.okapi.min.js');
 buildify()
     .concat(cssAllFiles)
