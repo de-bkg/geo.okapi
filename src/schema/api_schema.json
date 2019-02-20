@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "BKG_WebMap_Konfigurative_Schnittstelle_Schema",
-  "title": "BKG WebMap - Konfigurative Schnittstelle: Schema - Version 0.7.5",
+  "title": "BKG WebMap - Konfigurative Schnittstelle: Schema - Version @version@",
   "type": "object",
   "properties": {
     "description": {

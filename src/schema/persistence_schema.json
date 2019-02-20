@@ -3,7 +3,7 @@
   },
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "BKG_WebMap_Komplexe_Persistierung_Schema",
-  "title": "BKG WebMap - Komplexe Persistierung: Schema - Version 0.7.4",
+  "title": "BKG WebMap - Komplexe Persistierung: Schema - Version @version@",
   "type": "object",
   "properties": {
     "description": {

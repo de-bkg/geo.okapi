@@ -1,6 +1,6 @@
 {
   "description": "Configuration for BKG WebMap",
-  "version": "0.7.4",
+  "version": "@version@",
   "appName": "Beispielanwendung",
   "options": {
     "panelPosition": "left",
@@ -10,7 +10,7 @@
         "active": true,
         "resultsMaxZoom": 13,
         "suggestCount": 10,
-        "resultsCount": 5
+        "resultsCount": 5,
         "protocol": {
           "type": "ortssuche",
           "url": null,
