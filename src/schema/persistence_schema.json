@@ -11,7 +11,7 @@
       "type": "string",
       "title": "The Description Schema.",
       "description": "Description of current JSON.",
-      "default": "BKG WebMap: Kartenkonfiguration"
+      "default": "geo.okapi: Kartenkonfiguration"
     },
     "version": {
       "id": "/version",
@@ -29,7 +29,7 @@
       "id": "/appName",
       "type": "string",
       "title": "The Appname Schema.",
-      "description": "Name of BKG Webmap implementation."
+      "description": "Name of geo.okapi implementation."
     },
     "map": {
       "id": "/map",

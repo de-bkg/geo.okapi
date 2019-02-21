@@ -17,7 +17,7 @@
     "appName": {
       "id": "/appName",
       "type": "string",
-      "description": "Name of BKG Webmap implementation. This will be used in export JSON."
+      "description": "Name of geo.okapi implementation. This will be used in export JSON."
     },
     "options": {
       "id": "/options",
@@ -754,7 +754,7 @@
                     "appName": {
                       "id": "/options/tools/share/jsonExport/appName",
                       "type": "string",
-                      "description": "Name of BKG Webmap implementation that will be used in exported JSON."
+                      "description": "Name of geo.okapi implementation that will be used in exported JSON."
                     }
                   }
                 }
