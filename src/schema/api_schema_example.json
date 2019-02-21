@@ -1,5 +1,5 @@
 {
-  "description": "Configuration for BKG WebMap",
+  "description": "Configuration for geo.okapi",
   "version": "@version@",
   "appName": "Beispielanwendung",
   "options": {

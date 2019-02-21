@@ -2,8 +2,8 @@
   "definitions": {
   },
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "BKG_WebMap_Komplexe_Persistierung_Schema",
-  "title": "BKG WebMap - Komplexe Persistierung: Schema - Version @version@",
+  "id": "geo.okapi_Komplexe_Persistierung_Schema",
+  "title": "geo.okapi - Komplexe Persistierung: Schema - Version @version@",
   "type": "object",
   "properties": {
     "description": {
