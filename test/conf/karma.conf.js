@@ -101,9 +101,9 @@ module.exports = function (config) {
         // migrate ot jest?
         // https://github.com/karma-runner/karma-phantomjs-launcher/issues/126
         captureTimeout: 120000, // it was already there
-        browserDisconnectTimeout : 10000,
+        browserDisconnectTimeout : 20000,
         browserDisconnectTolerance : 1,
-        browserNoActivityTimeout : 10000//by default 10000
+        browserNoActivityTimeout : 20000//by default 10000
 
     });
 };
