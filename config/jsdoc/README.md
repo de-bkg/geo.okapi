@@ -1,7 +1,8 @@
 # geo.okapi
 
 geo.okapi is a JavaScript library that encapsulates features for creating interactive maps. It is based on OpenLayers 
-and adds some useful features to this library. geo.okapi is open source and it is published under the MIT License.
+and adds some useful features to this library. geo.okapi is open source and it is published under the 
+[MIT License](https://raw.githubusercontent.com/de-bkg/geo.okapi/master/LICENSE).
 
 ## Create a simple map
 ```javascript
