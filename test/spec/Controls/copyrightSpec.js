@@ -1,4 +1,5 @@
 describe('A suite for copyright control', function () {
+
     var options;
     var controlName = 'copyright';
     var cssClass = 'bkgwebmap-copyright';
@@ -13,16 +14,32 @@ describe('A suite for copyright control', function () {
 
     it('adds a copyright control to map', function (done) {
         // Create new control in map
-        options = {
-            active: true,
-            position: 'bottom-left'
-        };
+        new BKGWebMap.MapBuilder()
+            .setLayers({ baseLayers: [{ type: 'NONE' }], overlays: [] })
+            .setControls({
+                tools: {
+                    copyright: { active: true, position: 'bottom-left' }
+                }
+            })
+            .create(function (map) {
+                var controlPresent = false;
+                map.getControls().forEach(function (control) {
+                    if (control instanceof BKGWebMap.Control['Copyright']) {
+                        controlPresent = true;
+                    }
+                });
+                expect(controlPresent).toBe(true);
 
-        createMap(controlName, options, null, function (map) {
-            copyright = new ControlInStandardDiv(map, controlName, cssClass, options, standardPosition);
-            copyright.runTest();
-            done();
-        });
+                // Container-Div is added
+                var container = document.getElementsByClassName('bkgwebmap-copyright');
+                expect(container.length).toBe(1);
+
+                // Container is in standard position
+                var elements = document.getElementsByClassName('bkgwebmap-position-bottom-left')[0].getElementsByClassName('bkgwebmap-copyright');
+                expect(elements.length).toBe(1);
+
+                done();
+            });
     });
 
     it('adds a copyright control in custom div', function (done) {

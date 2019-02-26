@@ -6,6 +6,7 @@ describe('A suite for geosearch control', function () {
     var geoSearch;
     var results;
     var attributeInfo;
+
     beforeEach(function () {
         // Create DOM and map
         createDomMap();
@@ -33,7 +34,7 @@ describe('A suite for geosearch control', function () {
         });
     });
 
-    it('adds a geoSearch control outsidepanel', function (done) {
+    it('adds a geoSearch control outside panel', function (done) {
         // Create new control outside panel
         options = {
             active: true,
@@ -53,6 +54,7 @@ describe('A suite for geosearch control', function () {
             done();
         });
     });
+
     it('test WFS protocol', function (done) {
         // Create new control in panel
         options = {
@@ -85,6 +87,7 @@ describe('A suite for geosearch control', function () {
             document.getElementsByClassName('bkgwebmap-reversegeosearchbutton')[0].click();
         });
     });
+
     it('test WFS protocol search and templates', function (done) {
         // Create new control in panel
         options = {
@@ -104,7 +107,8 @@ describe('A suite for geosearch control', function () {
             },
             reverseGeocoding: {}
         };
-        createMapWithSecurityParams(controlName, options, null, function (map) {
+
+        createMap(controlName, options, null, function (map) {
             map.getLayers().forEach(function (layer) {
                 if (layer instanceof ol.layer.Vector && layer.getProperties().uniqueId === 'geosearchlayer') {
                     layer.on('postcompose', function (evt) {
@@ -126,6 +130,7 @@ describe('A suite for geosearch control', function () {
             document.getElementsByClassName('bkgwebmap-reversegeosearchbutton')[0].click();
         });
     });
+
     it('test geosearch protocol', function (done) {
         // Create new control in panel
         options = {
@@ -142,7 +147,7 @@ describe('A suite for geosearch control', function () {
                 active: false
             }
         };
-        createMapWithSecurityParams(controlName, options, null, function (map) {
+        createMap(controlName, options, null, function (map) {
             map.getLayers().forEach(function (layer) {
                 if (layer instanceof ol.layer.Vector && layer.getProperties().uniqueId === 'geosearchlayer') {
                     layer.on('postcompose', function (evt) {
