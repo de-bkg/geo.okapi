@@ -70,17 +70,17 @@ describe('A suite for customLayers control', function () {
         layerOptions = {
             type: 'WMS',
             name: 'WMS_test',
-            url: 'http://gismonster.com/geoserver/kurs/wms',
+            url: 'http://sg.geodatenzentrum.de/wms_vg250',
             visibility: true,
             tiles: false,
             layers: [
                 {
                     name: 'Bundesländer',
-                    layer: 'Bundeslaender'
+                    layer: 'vg250_lan'
                 },
                 {
-                    name: 'Berliner Bezirke',
-                    layer: 'berliner_bezirke'
+                    name: 'Regierungsbezirk',
+                    layer: 'vg250_rbz'
                 }
             ]
         };

@@ -864,21 +864,21 @@ describe('A suite for layerSwitcher control', function () {
                     name: 'Berlin',
                     // id: 'wmsBerlin',
                     tiles: true,
-                    url: 'http://gismonster.com/geoserver/kurs/wms',
+                    url: 'http://sg.geodatenzentrum.de/wms_vg250',
                     visibility: true,
                     srsName: 'EPSG:3857',
                     layers: [
                         {
                             id: '0',
                             name: 'Bundesländer',
-                            layer: 'Bundeslaender',
+                            layer: 'vg250_lan',
                             selectStyle: true
                         },
                         {
                             id: '1',
-                            name: 'Berliner Bezirke',
-                            layer: 'berliner_bezirke',
-                            style: 'grass',
+                            name: 'Regierungsbezirk',
+                            layer: 'vg250_rbz',
+                            style: 'polygon',
                             visibility: true,
                             selectStyle: true,
                             legendUrl: ''
@@ -933,21 +933,21 @@ describe('A suite for layerSwitcher control', function () {
                     name: 'Berlin',
                     // id: 'wmsBerlin',
                     tiles: true,
-                    url: 'http://gismonster.com/geoserver/kurs/wms',
+                    url: 'http://sg.geodatenzentrum.de/wms_vg250',
                     visibility: true,
                     srsName: 'EPSG:3857',
                     layers: [
                         {
                             id: '0',
                             name: 'Bundesländer',
-                            layer: 'Bundeslaender',
+                            layer: 'vg250_lan',
                             selectStyle: true
                         },
                         {
                             id: idCustom,
-                            name: 'Berliner Bezirke',
-                            layer: 'berliner_bezirke',
-                            style: 'grass',
+                            name: 'Regierungsbezirk',
+                            layer: 'vg250_rbz',
+                            style: 'polygon',
                             visibility: true,
                             selectStyle: true,
                             legendUrl: ''
@@ -958,28 +958,56 @@ describe('A suite for layerSwitcher control', function () {
         };
 
         createMap(controlName, options, layers, function (map) {
+            // control sublayer properties
             map.getLayers().forEach(function (layer) {
                 if (layer instanceof BKGWebMap.Layer.ImageWMS || layer instanceof BKGWebMap.Layer.TileWMS) {
-                    var subLayers = layer.getLayers().forEach(function (wmssublayer) {
-                        if (wmssublayer.style && wmssublayer.name) {
-                            layerName = wmssublayer.name;
-                            layerStyle = wmssublayer.style;
-                            layerVisibility = wmssublayer.visibility;
-                            layerId = wmssublayer.id;
+                    layer.getLayers().forEach(function (wmssublayer) {
+                        if (wmssublayer.layer === 'vg250_lan') {
+                            expect(wmssublayer.name).toBe('Bundesländer');
+                            //expect(wmssublayer.style).toBe('default');
+                            expect(wmssublayer.visibility).toBe(true);
+                            expect(wmssublayer.id).toBe('0');
+                        }
+                        if (wmssublayer.layer === 'vg250_rbz') {
+                            expect(wmssublayer.name).toBe('Regierungsbezirk');
+                            expect(wmssublayer.style).toBe('polygon');
+                            expect(wmssublayer.visibility).toBe(true);
+                            expect(wmssublayer.id).toBe(idCustom);
                         }
                     });
                 }
             });
+
+            // control ui options
+
+            // vg250_lan
             var select = document.getElementsByTagName('select')[0];
             selectedOption = select.options[select.selectedIndex].value;
             var layersPanel = document.getElementsByClassName('bkgwebmap-layerheaderwmstitle');
             for (var i = 0; i < layersPanel.length; i++) {
-                nameFound = layersPanel[i].textContent === layerName;
+                nameFound = false;
+                if(layersPanel[i].textContent === 'Bundesländer') {
+                    nameFound = true;
+                    break;
+                };
             }
             expect(nameFound).toBe(true);
-            expect(selectedOption).toBe(layerStyle);
-            expect(layerVisibility).toBe(true);
-            expect(layerId).toBe(idCustom);
+            expect(selectedOption).toBe('default');
+
+            // vg250_rbz
+            var select = document.getElementsByTagName('select')[1];
+            selectedOption = select.options[select.selectedIndex].value;
+            var layersPanel = document.getElementsByClassName('bkgwebmap-layerheaderwmstitle');
+            for (var i = 0; i < layersPanel.length; i++) {
+                nameFound = false;
+                if(layersPanel[i].textContent === 'Bundesländer') {
+                    nameFound = true;
+                    break;
+                };
+            }
+            expect(nameFound).toBe(true);
+            expect(selectedOption).toBe('polygon');
+
             done();
         });
     });

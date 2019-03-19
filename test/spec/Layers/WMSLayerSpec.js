@@ -17,22 +17,21 @@ describe('A suite for WMS layers', function () {
                     type: 'WMS',
                     name: 'Berlin',
                     tiles: true,
-                    url: 'http://gismonster.com/geoserver/kurs/wms',
+                    url: 'http://sg.geodatenzentrum.de/wms_vg250',
                     visibility: true,
                     srsName: 'EPSG:3857',
                     layers: [
                         {
                             id: '0',
                             name: 'Bundesländer',
-                            layer: 'Bundeslaender',
-                            selectStyle: true,
-                            visibility: true
+                            layer: 'vg250_lan',
+                            selectStyle: true
                         },
                         {
                             id: '1',
-                            name: 'Berliner Bezirke',
-                            layer: 'berliner_bezirke',
-                            style: 'grass',
+                            name: 'Regierungsbezirk',
+                            layer: 'vg250_rbz',
+                            style: 'polygon',
                             visibility: true,
                             selectStyle: true
                         }
@@ -68,22 +67,22 @@ describe('A suite for WMS layers', function () {
                     type: 'WMS',
                     name: 'Berlin',
                     tiles: true,
-                    url: 'http://gismonster.com/geoserver/kurs/wms',
+                    url: 'http://sg.geodatenzentrum.de/wms_vg250',
                     visibility: true,
                     srsName: 'EPSG:3857',
                     layers: [
                         {
                             id: '0',
                             name: 'Bundesländer',
-                            layer: 'Bundeslaender',
+                            layer: 'vg250_lan',
                             selectStyle: true,
                             visibility: false
                         },
                         {
                             id: '1',
-                            name: 'Berliner Bezirke',
-                            layer: 'berliner_bezirke',
-                            style: 'grass',
+                            name: 'Regierungsbezirk',
+                            layer: 'vg250_rbz',
+                            style: 'polygon',
                             visibility: true,
                             selectStyle: true
                         }
@@ -119,14 +118,14 @@ describe('A suite for WMS layers', function () {
                     type: 'WMS',
                     name: 'Berlin',
                     tiles: true,
-                    url: 'http://gismonster.com/geoserver/kurs/wms',
+                    url: 'http://sg.geodatenzentrum.de/wms_vg250',
                     visibility: true,
                     srsName: 'EPSG:3857',
                     layers: [
                         {
                             id: '0',
                             name: 'Bundesländer',
-                            layer: 'Bundeslaender',
+                            layer: 'vg250_lan',
                             selectStyle: true,
                             visibility: true,
                             minResolution: 1000,
@@ -134,9 +133,9 @@ describe('A suite for WMS layers', function () {
                         },
                         {
                             id: '1',
-                            name: 'Berliner Bezirke',
-                            layer: 'berliner_bezirke',
-                            style: 'grass',
+                            name: 'Regierungsbezirk',
+                            layer: 'vg250_rbz',
+                            style: 'polygon',
                             visibility: true,
                             selectStyle: true,
                             minResolution: 1500
