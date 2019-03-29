@@ -84,7 +84,7 @@ describe('A suite for geosearch control', function () {
                     });
                 }
             });
-            document.getElementsByClassName('bkgwebmap-reversegeosearchbutton')[0].click();
+            document.getElementsByClassName('bkgwebmap-geosearchbutton')[0].click();
         });
     });
 
@@ -127,7 +127,7 @@ describe('A suite for geosearch control', function () {
                 }
             });
             document.getElementsByClassName('bkgwebmap-geosearchform')[0].value = 'Berlin';
-            document.getElementsByClassName('bkgwebmap-reversegeosearchbutton')[0].click();
+            document.getElementsByClassName('bkgwebmap-geosearchbutton')[0].click();
         });
     });
 
