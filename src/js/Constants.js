@@ -465,7 +465,7 @@ BKGWebMap.CONTROLS = {
                 minResolution: null,
                 maxZoom: null,
                 minZoom: null,
-                defaultFilter: 'typ:strasse',
+                defaultFilter: 'typ:Haus',
                 count: 20
             }
         },

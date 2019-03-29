@@ -196,6 +196,19 @@ BKGWebMap.Control.createGeoSearch = function () {
         geoSearchForm.setAttribute('placeholder', 'Ort eingeben...');
         geoSearchFormDiv.appendChild(geoSearchForm);
 
+        // search button
+        searchButtonDiv = document.createElement('div');
+        searchButtonDiv.className = 'bkgwebmap-geosearchbutton bkgwebmap-paneltooltip';
+        var searchIconParser = new DOMParser();
+        var searchIcon = searchIconParser.parseFromString(BKGWebMap.PANEL_ICONS.SEARCH_GEOCODING, 'text/xml');
+        searchButtonDiv.appendChild(searchIcon.documentElement);
+        geoSearchFormDiv.appendChild(searchButtonDiv);
+
+        searchTooltip = document.createElement('span');
+        searchTooltip.className = 'bkgwebmap-paneltooltiptext';
+        searchTooltip.innerHTML = 'Suche';
+        searchButtonDiv.appendChild(searchTooltip);
+
         // Add reverse geocoding button
         if (protocol !== 'wfs' && reverseGeocoding.active) {
             reverseGeoButtonDiv = document.createElement('div');
@@ -213,40 +226,20 @@ BKGWebMap.Control.createGeoSearch = function () {
             geoSearchForm.classList.add('bkgwebmap-geosearchformreverse');
 
             configureReverseGeocoding();
-        } else if (protocol === 'wfs') {
-            geoSearchForm.addEventListener('keydown', function (event) {
-                if (event.key && event.key === 'Enter') {
-                    useWfsGeocoding();
-                }
-            });
-
-            searchButtonDiv = document.createElement('div');
-            searchButtonDiv.className = 'bkgwebmap-reversegeosearchbutton bkgwebmap-reversegeoactive bkgwebmap-paneltooltip';
-            var searchIconParser = new DOMParser();
-            var searchIcon = searchIconParser.parseFromString(BKGWebMap.PANEL_ICONS.SEARCH_GEOCODING, 'text/xml');
-            searchButtonDiv.appendChild(searchIcon.documentElement);
-            geoSearchFormDiv.appendChild(searchButtonDiv);
-
-            searchTooltip = document.createElement('span');
-            searchTooltip.className = 'bkgwebmap-paneltooltiptext';
-            searchTooltip.innerHTML = 'Suche';
-            searchButtonDiv.appendChild(searchTooltip);
-
-            geoSearchForm.classList.add('bkgwebmap-geosearchformreverse');
         }
 
         // Button to delete results
-        var geoSearchButtonDiv = document.createElement('div');
-        geoSearchButtonDiv.className = 'bkgwebmap-geosearchdelete bkgwebmap-paneltooltip';
-        var geoSearchIconParser = new DOMParser();
-        var geoSearchIcon = geoSearchIconParser.parseFromString(BKGWebMap.PANEL_ICONS.DELETE_SEARCH, 'text/xml');
-        geoSearchButtonDiv.appendChild(geoSearchIcon.documentElement);
-        geoSearchFormDiv.appendChild(geoSearchButtonDiv);
+        var deleteResultsButtonDiv = document.createElement('div');
+        deleteResultsButtonDiv.className = 'bkgwebmap-geosearchdelete bkgwebmap-paneltooltip';
+        var deleteResultsIconParser = new DOMParser();
+        var deleteResultsIcon = deleteResultsIconParser.parseFromString(BKGWebMap.PANEL_ICONS.DELETE_SEARCH, 'text/xml');
+        deleteResultsButtonDiv.appendChild(deleteResultsIcon.documentElement);
+        geoSearchFormDiv.appendChild(deleteResultsButtonDiv);
 
-        var geoSearchTooltip = document.createElement('span');
-        geoSearchTooltip.className = 'bkgwebmap-paneltooltiptext';
-        geoSearchTooltip.innerHTML = 'Ergebnisse löschen';
-        geoSearchButtonDiv.appendChild(geoSearchTooltip);
+        var deleteResultsTooltip = document.createElement('span');
+        deleteResultsTooltip.className = 'bkgwebmap-paneltooltiptext';
+        deleteResultsTooltip.innerHTML = 'Ergebnisse löschen';
+        deleteResultsButtonDiv.appendChild(deleteResultsTooltip);
 
         var geoSearchContent = document.createElement('div');
         if (inPanel) {
@@ -459,6 +452,24 @@ BKGWebMap.Control.createGeoSearch = function () {
             createResultTable(vectorLayer);
         }
 
+        // geosearch
+        function geosearch(queryString) {
+            if (queryString === null || queryString.trim().length === 0) { return; }
+
+            var projection = map.getView().getProjection().getCode();
+
+            var queryFilter = '';
+            if (filter) {
+                queryFilter = '&filter=' + filter;
+            }
+
+            var geojsonUrl = url + '/geosearch.json?query=' + queryString + queryFilter + '&count=' + resultsCount + '&srsName=' + projection;
+            if (useSelectionFilterBbox) {
+                geojsonUrl += '&bbox=' + selectionFilter.bbox.coordinates;
+            }
+            getGeoJson(queryString, geojsonUrl);
+        }
+
         // Get geojson with ajax request
         function getGeoJson(suggestionName, geojsonUrl) {
             suggestionDiv.innerHTML = '';
@@ -603,10 +614,8 @@ BKGWebMap.Control.createGeoSearch = function () {
 
             var tr;
             var td;
-            var geojsonUrl;
             var link;
             var data;
-            var projection = map.getView().getProjection().getCode();
 
             if (!suggestion.length) {
                 table.innerHTML = 'Keine Ergebnisse!';
@@ -630,17 +639,7 @@ BKGWebMap.Control.createGeoSearch = function () {
 
                     tr.addEventListener('click', function () {
                         var suggestionName = this.getAttribute('data-bkgwebmap-suggestion');
-                        var queryFilter = '';
-                        if (filter) {
-                            queryFilter = '&filter=' + filter;
-                        }
-
-                        if (useSelectionFilterBbox) {
-                            geojsonUrl = url + '/geosearch.json?query=' + suggestionName + queryFilter + '&count=' + resultsCount + '&srsName=' + projection + '&bbox=' + selectionFilter.bbox.coordinates;
-                        } else {
-                            geojsonUrl = url + '/geosearch.json?query=' + suggestionName + queryFilter + '&count=' + resultsCount + '&srsName=' + projection;
-                        }
-                        getGeoJson(suggestionName, geojsonUrl);
+                        geosearch(suggestionName);
                     });
 
                     tr.addEventListener('mouseenter', function () {
@@ -782,7 +781,8 @@ BKGWebMap.Control.createGeoSearch = function () {
 
         // Show tooltip for reverse geocoding button
         function reverseGeocodingHover() {
-            geoSearchTooltip.style.visibility = '';
+            searchTooltip.style.visibility = '';
+            deleteResultsTooltip.style.visibility = '';
             reverseGeoSearchTooltip.style.visibility = 'visible';
             setTimeout(function () {
                 reverseGeoSearchTooltip.style.visibility = '';
@@ -895,17 +895,39 @@ BKGWebMap.Control.createGeoSearch = function () {
         }
 
         // Show tooltip for reverse wfs geocoding button
-        function wfsGeocodingHover() {
-            geoSearchTooltip.style.visibility = '';
+        function searchButtonHover() {
+            if (reverseGeoSearchTooltip) {
+                reverseGeoSearchTooltip.style.visibility = '';
+            }
+            if (deleteResultsTooltip) {
+                deleteResultsTooltip.style.visibility = '';
+            }
             searchTooltip.style.visibility = 'visible';
             setTimeout(function () {
                 searchTooltip.style.visibility = '';
             }, 1200);
         }
 
-        function useWfsGeocoding() {
+        function deleteButtonHover() {
+            if (reverseGeoSearchTooltip) {
+                reverseGeoSearchTooltip.style.visibility = '';
+            }
+            if (searchTooltip) {
+                searchTooltip.style.visibility = '';
+            }
+            deleteResultsTooltip.style.visibility = 'visible';
+            setTimeout(function () {
+                deleteResultsTooltip.style.visibility = '';
+            }, 1200);
+        }
+
+        function useSearch() {
             var searchString = geoSearchForm.value;
-            getWfs(searchString);
+            if (protocol === 'wfs') {
+                getWfs(searchString);
+            } else {
+                geosearch(searchString);
+            }
         }
 
         // Deactivate click event for attributes
@@ -1086,44 +1108,28 @@ BKGWebMap.Control.createGeoSearch = function () {
 
         map.on('click', this.geoSearchClickActivate);
 
-        // Event listener for delete button (mouseenter)
-        geoSearchButtonDiv.addEventListener('mouseenter', function () {
-            if (reverseGeoSearchTooltip) {
-                reverseGeoSearchTooltip.style.visibility = '';
+        // Event listener for enter on search form
+        geoSearchForm.addEventListener('keydown', function (event) {
+            if (event.key && event.key === 'Enter') {
+                useSearch();
             }
-            if (searchTooltip) {
-                searchTooltip.style.visibility = '';
-            }
-            geoSearchTooltip.style.visibility = 'visible';
-            setTimeout(function () {
-                geoSearchTooltip.style.visibility = '';
-            }, 1200);
-        }, false);
+        });
 
-        // Event listener for delete button (click)
-        geoSearchButtonDiv.addEventListener('click', function () {
+        // Event listener for delete button (mouseenter an click)
+        deleteResultsButtonDiv.addEventListener('mouseenter', deleteButtonHover, false);
+        deleteResultsButtonDiv.addEventListener('click', function () {
             deleteResults();
         }, false);
 
-        // Event listener for reverse geocoding button (mouseenter)
+        // Event listener for reverse geocoding button (mouseenter and click)
         if (reverseGeoButtonDiv) {
             reverseGeoButtonDiv.addEventListener('mouseenter', reverseGeocodingHover);
-        }
-
-        // Event listener for reverse geocoding button (click)
-        if (reverseGeoButtonDiv) {
             reverseGeoButtonDiv.addEventListener('click', useReverseGeocoding);
         }
 
-        // Event listener for WFS search (mouseenter)
-        if (searchButtonDiv) {
-            searchButtonDiv.addEventListener('mouseenter', wfsGeocodingHover);
-        }
-
-        // Event listener for WFS search (click)
-        if (searchButtonDiv) {
-            searchButtonDiv.addEventListener('click', useWfsGeocoding);
-        }
+        // Event listener for search button (mouseenter and click)
+        searchButtonDiv.addEventListener('mouseenter', searchButtonHover);
+        searchButtonDiv.addEventListener('click', useSearch);
 
         // Event listener for popup close
         popupCloser.addEventListener('click', function () {

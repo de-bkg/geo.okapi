@@ -2,6 +2,10 @@
     outline: none !important;
 }
 
+.bkgwebmap-panel * {
+    box-sizing: border-box;
+}
+
 /** Map buttons **/
 .bkgwebmap-mapbutton {
     background-color: rgba(64, 126, 64, .8) !important;
@@ -64,7 +68,7 @@
     display: table;
 }
 
-.bkgwebmap-panelbaricon {
+.bkgwebmap-panelbar div {
     height: 40px;
     width: 40px;
     cursor: pointer;
@@ -93,7 +97,7 @@
 .bkgwebmap-paneltitlewrapper {
     display: table;
     width: 100%;
-    height: 36px;
+    height: 40px;
     background-color: #407E40;
     color: #ffffff;
 }
@@ -108,11 +112,11 @@
     vertical-align: middle;
     text-align: center;
     width: 30px;
+    height: 40px;
 }
 
 .bkgwebmap-paneltitlebutton .bkgwebmap-panelicons {
-    margin-left: 0;
-    margin-top: 0;
+    margin: 0;
 }
 
 .bkgwebmap-panelcontent {
@@ -127,8 +131,9 @@
     background-color: #ffffff;
 }
 
+
 .bkgwebmap-panelicons {
-    margin: 10px 0 0 9px;
+    margin: 7px 0 7px 9px;
     cursor: pointer;
 }
 
@@ -1220,14 +1225,14 @@
 }
 
 .bkgwebmap-geosearchform {
-    width: 90%;
+    width: 80%;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-size: 16px;
     font-style: italic;
 }
 
 .bkgwebmap-geosearchformreverse {
-    width: 77%;
+    width: 73%;
 }
 
 .bkgwebmap-geosearchform:focus {
@@ -1313,22 +1318,30 @@
     font-size: 14px;
 }
 
-.bkgwebmap-geosearchdelete {
+.bkgwebmap-geosearchbutton,
+.bkgwebmap-reversegeosearchbutton {
     display: inline-block;
-}
-
-.bkgwebmap-geosearchdelete:hover {
-    cursor: pointer;
+    margin-left: 3px;
+    margin-right: 3px;
+    padding: 0;
 }
 
 .bkgwebmap-reversegeosearchbutton {
-    display: inline-block;
-    margin-left: 5px;
-    margin-right: 10px;
     opacity: 0.5;
 }
 
+.bkgwebmap-geosearchbutton:hover,
 .bkgwebmap-reversegeosearchbutton:hover {
+    cursor: pointer;
+}
+
+.bkgwebmap-geosearchdelete {
+    display: inline-block;
+    margin-left: 3px;
+    padding: 0;
+}
+
+.bkgwebmap-geosearchdelete:hover {
     cursor: pointer;
 }
 
