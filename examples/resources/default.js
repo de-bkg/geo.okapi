@@ -1,3 +1,15 @@
+function getUrlParameter(name, defaultValue) {
+    var url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return defaultValue;
+
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+};
+
+
 var examplesPath = '';
 
 var linksList = [
@@ -227,8 +239,7 @@ var linksList = [
 
 var examplesDiv = document.getElementById('bkgwebmap-examples-main');
 
-var url = new URL(window.location);
-var page = url.searchParams.get('id');
+var page = getUrlParameter('id', null);
 if (page != null) {
     examplesDiv.appendChild(findExamplePage(page));
 } else {
