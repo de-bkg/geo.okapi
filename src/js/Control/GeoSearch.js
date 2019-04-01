@@ -452,47 +452,6 @@ BKGWebMap.Control.createGeoSearch = function () {
             createResultTable(vectorLayer);
         }
 
-        // geosearch
-        function geosearch(queryString) {
-            if (queryString === null || queryString.trim().length === 0) { return; }
-
-            var projection = map.getView().getProjection().getCode();
-
-            var queryFilter = '';
-            if (filter) {
-                queryFilter = '&filter=' + filter;
-            }
-
-            var geojsonUrl = url + '/geosearch.json?query=' + queryString + queryFilter + '&count=' + resultsCount + '&srsName=' + projection;
-            if (useSelectionFilterBbox) {
-                geojsonUrl += '&bbox=' + selectionFilter.bbox.coordinates;
-            }
-            getGeoJson(queryString, geojsonUrl);
-        }
-
-        // Get geojson with ajax request
-        function getGeoJson(suggestionName, geojsonUrl) {
-            suggestionDiv.innerHTML = '';
-            geoSearchForm.value = suggestionName;
-            popupContent.innerHTML = '';
-            popup.setPosition(undefined);
-
-            xhr.open('GET', geojsonUrl);
-
-            xhr.onload = function () {
-                if (xhr.status === 200) {
-                    var geojson = JSON.parse(xhr.responseText);
-                    addGeojson(geojson);
-                }
-            };
-
-            xhr.onerror = function () {
-                window.console.log(BKGWebMap.ERROR.xhrError);
-            };
-
-            xhr.send();
-        }
-
         function highlightFeature(id) {
             var selectedFeature;
             vectorLayer.getSource().getFeatures().forEach(function (feature) {
@@ -693,38 +652,6 @@ BKGWebMap.Control.createGeoSearch = function () {
             }
         }
 
-        // Get search results using gdz_ortssuche protocol
-        function getGdzOrtssuche(searchString, suggestionCallback) {
-            var requestUrl;
-            var querySelectionFilterBbox = '';
-            var queryFilter = '';
-            if (useSelectionFilterBbox) {
-                querySelectionFilterBbox = '&bbox=' + selectionFilter.bbox.coordinates + '&srsName=' + selectionFilter.bbox.projection;
-            }
-
-            if (filter) {
-                queryFilter = '&filter=' + filter;
-            }
-
-            requestUrl = url + '/suggest.json?query=' + searchString + '&count=' + suggestCount + querySelectionFilterBbox + queryFilter;
-
-            xhr.open('GET', requestUrl);
-
-            xhr.onload = function () {
-                if (xhr.status === 200) {
-                    var suggestion = JSON.parse(xhr.responseText);
-
-                    suggestionCallback(createSuggestionTable(suggestion));
-                }
-            };
-
-            xhr.onerror = function () {
-                window.console.log(BKGWebMap.ERROR.xhrError);
-            };
-
-            xhr.send();
-        }
-
         // Show result table and hide suggestions
         function showResultTable(table) {
             resultDiv.appendChild(table);
@@ -789,6 +716,144 @@ BKGWebMap.Control.createGeoSearch = function () {
             }, 1200);
         }
 
+        // Show tooltip for reverse wfs geocoding button
+        function searchButtonHover() {
+            if (reverseGeoSearchTooltip) {
+                reverseGeoSearchTooltip.style.visibility = '';
+            }
+            if (deleteResultsTooltip) {
+                deleteResultsTooltip.style.visibility = '';
+            }
+            searchTooltip.style.visibility = 'visible';
+            setTimeout(function () {
+                searchTooltip.style.visibility = '';
+            }, 1200);
+        }
+
+        function deleteButtonHover() {
+            if (reverseGeoSearchTooltip) {
+                reverseGeoSearchTooltip.style.visibility = '';
+            }
+            if (searchTooltip) {
+                searchTooltip.style.visibility = '';
+            }
+            deleteResultsTooltip.style.visibility = 'visible';
+            setTimeout(function () {
+                deleteResultsTooltip.style.visibility = '';
+            }, 1200);
+        }
+
+        // Deactivate click event for attributes
+        function removeAttributeListener() {
+            map.getControls().forEach(function (control) {
+                if (BKGWebMap.Control.ShowAttributes && control instanceof BKGWebMap.Control.ShowAttributes) {
+                    map.un('click', control.clickAttributesActivate);
+                }
+                if (BKGWebMap.Control.CopyCoordinates && control instanceof BKGWebMap.Control.CopyCoordinates) {
+                    map.un('click', control.clickCopyCoordinatesActivate);
+                }
+            });
+        }
+
+        // Activate click event for attributes
+        function addAttributeListener() {
+            map.getControls().forEach(function (control) {
+                if (BKGWebMap.Control.ShowAttributes && control instanceof BKGWebMap.Control.ShowAttributes) {
+                    map.on('click', control.clickAttributesActivate);
+                }
+                if (BKGWebMap.Control.CopyCoordinates && control instanceof BKGWebMap.Control.CopyCoordinates) {
+                    map.on('click', control.clickCopyCoordinatesActivate);
+                }
+            });
+        }
+
+        // -- AJAX interactions ----------------------------------------------------------------------------------------
+
+        // Get geojson with ajax request
+        function getGeoJson(suggestionName, geojsonUrl) {
+            suggestionDiv.innerHTML = '';
+            geoSearchForm.value = suggestionName;
+            popupContent.innerHTML = '';
+            popup.setPosition(undefined);
+
+            xhr.open('GET', geojsonUrl);
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var geojson = JSON.parse(xhr.responseText);
+                    addGeojson(geojson);
+                }
+            };
+
+            xhr.onerror = function () {
+                window.console.log(BKGWebMap.ERROR.xhrError);
+            };
+
+            xhr.send();
+        }
+
+        // constructs the url
+        function buildUrl(url, params) {
+            if (!params) return url;
+
+            url += '?';
+            for (var key in params) {
+                url += key + '=' + encodeURIComponent(params[key]) + '&';
+            }
+            return url.replace(/&$/, '');
+        }
+
+        // perform geosearch request using gdz_ortssuche protocol
+        function geosearch(queryString) {
+            if (queryString === null || queryString.trim().length === 0) { return; }
+
+            var projection = map.getView().getProjection().getCode();
+
+            var params = {
+                query: queryString,
+                count: resultsCount,
+                srsName: projection
+            };
+            if (filter) {
+                params.filter = filter;
+            }
+            if (useSelectionFilterBbox) {
+                params.bbox = selectionFilter.bbox.coordinates;
+            }
+            getGeoJson(queryString, buildUrl(url + '/geosearch.json', params));
+        }
+
+        // perform suggest request gdz_ortssuche protocol
+        function suggest(searchString, suggestionCallback) {
+            var params = {
+                query: searchString,
+                count: suggestCount
+            };
+            if (useSelectionFilterBbox) {
+                params.bbox = selectionFilter.bbox.coordinates;
+                params.srsName = selectionFilter.bbox.projection;
+            }
+            if (filter) {
+                params.filter = filter;
+            }
+
+            xhr.open('GET', buildUrl(url + '/suggest.json', params));
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var suggestion = JSON.parse(xhr.responseText);
+
+                    suggestionCallback(createSuggestionTable(suggestion));
+                }
+            };
+
+            xhr.onerror = function () {
+                window.console.log(BKGWebMap.ERROR.xhrError);
+            };
+
+            xhr.send();
+        }
+
         // Reverse geocoding function
         function useReverseGeocoding() {
             var bbox = map.getView().calculateExtent(map.getSize());
@@ -810,12 +875,18 @@ BKGWebMap.Control.createGeoSearch = function () {
             if (!bbox) {
                 return;
             }
-            var queryFilter = '&filter=' + BKGWebMap.CONTROLS.tools.geoSearch.reverseGeocoding.defaultFilter;
+
+            var params = {
+                filter: BKGWebMap.CONTROLS.tools.geoSearch.reverseGeocoding.defaultFilter,
+                count: resultsCount,
+                bbox: bbox,
+                srsName: epsg
+            };
             if (filter) {
-                queryFilter = '&filter=' + filter;
+                params.filter = filter;
             }
-            var reverseGeocodingUrl = url + '/geosearch?count=' + resultsCount + '&bbox=' + bbox + '&srsName=' + epsg + queryFilter;
-            xhr.open('GET', reverseGeocodingUrl);
+
+            xhr.open('GET', buildUrl(url + '/geosearch', params));
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     var geojson = JSON.parse(xhr.responseText);
@@ -894,33 +965,6 @@ BKGWebMap.Control.createGeoSearch = function () {
             xhr.send(bodyRequest);
         }
 
-        // Show tooltip for reverse wfs geocoding button
-        function searchButtonHover() {
-            if (reverseGeoSearchTooltip) {
-                reverseGeoSearchTooltip.style.visibility = '';
-            }
-            if (deleteResultsTooltip) {
-                deleteResultsTooltip.style.visibility = '';
-            }
-            searchTooltip.style.visibility = 'visible';
-            setTimeout(function () {
-                searchTooltip.style.visibility = '';
-            }, 1200);
-        }
-
-        function deleteButtonHover() {
-            if (reverseGeoSearchTooltip) {
-                reverseGeoSearchTooltip.style.visibility = '';
-            }
-            if (searchTooltip) {
-                searchTooltip.style.visibility = '';
-            }
-            deleteResultsTooltip.style.visibility = 'visible';
-            setTimeout(function () {
-                deleteResultsTooltip.style.visibility = '';
-            }, 1200);
-        }
-
         function useSearch() {
             var searchString = geoSearchForm.value;
             if (protocol === 'wfs') {
@@ -928,30 +972,6 @@ BKGWebMap.Control.createGeoSearch = function () {
             } else {
                 geosearch(searchString);
             }
-        }
-
-        // Deactivate click event for attributes
-        function removeAttributeListener() {
-            map.getControls().forEach(function (control) {
-                if (BKGWebMap.Control.ShowAttributes && control instanceof BKGWebMap.Control.ShowAttributes) {
-                    map.un('click', control.clickAttributesActivate);
-                }
-                if (BKGWebMap.Control.CopyCoordinates && control instanceof BKGWebMap.Control.CopyCoordinates) {
-                    map.un('click', control.clickCopyCoordinatesActivate);
-                }
-            });
-        }
-
-        // Activate click event for attributes
-        function addAttributeListener() {
-            map.getControls().forEach(function (control) {
-                if (BKGWebMap.Control.ShowAttributes && control instanceof BKGWebMap.Control.ShowAttributes) {
-                    map.on('click', control.clickAttributesActivate);
-                }
-                if (BKGWebMap.Control.CopyCoordinates && control instanceof BKGWebMap.Control.CopyCoordinates) {
-                    map.on('click', control.clickCopyCoordinatesActivate);
-                }
-            });
         }
 
         // Event listener to start searching
@@ -973,7 +993,7 @@ BKGWebMap.Control.createGeoSearch = function () {
                                 resultDiv.style.display = 'block';
                             }
                         } else {
-                            getGdzOrtssuche(searchString, function (table) {
+                            suggest(searchString, function (table) {
                                 showSuggestionTable(table);
                             });
                         }
