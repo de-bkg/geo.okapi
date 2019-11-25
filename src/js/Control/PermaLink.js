@@ -126,7 +126,7 @@ BKGWebMap.Control.createPermaLink = function () {
             var hashParts = layersInHash.split('&');
             var hashPartsTemp;
             var visible;
-            for (var i = 1; i < hashParts.length; i++) {
+            for (var i = hashParts.length - 1; i >= 0; i--) {
                 hashPartsTemp = hashParts[i].split('=');
                 for (var k = layers.overlays.length - 1; k >= 0; k--) {
                     if (layers.overlays[k] && layers.overlays[k].getProperties().id && layers.overlays[k].getProperties().id === hashPartsTemp[0]) {

@@ -1,6 +1,6 @@
 {
   "name": "geo.okapi",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "scripts": {
     "test": "karma start test/conf/karma.conf.js",
     "eslint": "eslint src/js/** --fix",
